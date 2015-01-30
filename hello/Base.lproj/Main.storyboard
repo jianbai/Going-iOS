@@ -140,7 +140,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="crM-zq-gL4" eventType="touchUpInside" id="Ler-xC-puv"/>
+                                    <action selector="loginButton" destination="jWG-h4-7WE" eventType="touchUpInside" id="UuU-yZ-bV6"/>
                                 </connections>
                             </button>
                         </subviews>

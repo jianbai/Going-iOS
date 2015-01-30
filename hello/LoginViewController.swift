@@ -1,5 +1,5 @@
 //
-//  LoginTutorialViewController.swift
+//  LoginViewController.swift
 //  hello
 //
 //  Created by scott on 1/29/15.
@@ -11,12 +11,11 @@ import UIKit
 
 class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     
-    @IBOutlet weak var tutorialLabel: UILabel!
-    @IBOutlet weak var tutorialImageView: UIImageView!
     
     let pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     let pageText = LoginTutorial().getText()
     let pageImages = LoginTutorial().getImages()
+    let permissions = ["public_profile", "user_birthday", "hometown", "user_friends", "email"]
     var views: [LoginPageContentViewController] = []
     
     required init(coder aDecoder: NSCoder) {
@@ -107,4 +106,30 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         return 0
     }
     
+    @IBAction func loginButton() {
+        PFFacebookUtils.logInWithPermissions(permissions, {
+            (user: PFUser!, error: NSError!) -> Void in
+            if user == nil {
+                NSLog("Uh oh. The user cancelled the Facebook login.")
+            } else if user.isNew {
+                NSLog("User signed up and logged in through Facebook!")
+            } else {
+                NSLog("User logged in through Facebook!")
+            }
+        })
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
