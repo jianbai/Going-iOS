@@ -11,23 +11,22 @@ import Foundation
 struct LoginTutorial {
     
     let textArray = [
-        "Ants stretch when they wake up in the morning.",
-        "Ostriches can run faster than horses.",
-        "Olympic gold medals are actually made mostly of silver.",
-        "You are born with 300 bones; by the time you are an adult you will have 206.",
-        "It takes about 8 minutes for light from the Sun to reach Earth.",
-        "Some bamboo plants can grow almost a meter in just one day.",
-        "The state of Florida is bigger than England.",
-        "Some penguins can leap 2-3 meters out of the water.",
-        "On average, it takes 66 days to form a new habit.",
-        "Mammoths still walked the earth when the Great Pyramid was being built."
+        "Free this weekend?\nMatch up with 3 people around you, chat in the app and make plans to go somewhere cool!",
+        "Matches disappear at the end of every weekend. You can choose to keep matches you liked in your friends list.",
+        "Go again next weekend to meet more people and grow your friends list!"
     ]
     
-    func randomFact() -> String {
-        var unsignedArrayCount = UInt32(factsArray.count)
-        var unsignedRandomNumber = arc4random_uniform(UInt32(factsArray.count))
-        var randomNumber = Int(unsignedRandomNumber)
-        
-        return factsArray[randomNumber]
+    let imageArray = [
+        "LoginTutorial0",
+        "LoginTutorial1",
+        "LoginTutorial2"
+    ]
+    
+    func getText() -> [String] {
+        return self.textArray
+    }
+    
+    func getImages() -> [String] {
+        return self.imageArray
     }
 }

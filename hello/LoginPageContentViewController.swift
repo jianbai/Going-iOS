@@ -19,8 +19,8 @@ class LoginPageContentViewController: UIViewController {
 
     required init(coder aDecoder: NSCoder) {
         pageIndex = 0
-        text = ""
-        image = ""
+        text = LoginTutorial().getText()[0]
+        image = LoginTutorial().getImages()[0]
         super.init(coder: aDecoder)
     }
     

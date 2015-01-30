@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWG-h4-7WE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Settings-->
@@ -116,9 +117,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-U7-LAi">
-                                <rect key="frame" x="277" y="285" width="47" height="30"/>
-                                <state key="normal" title="LOGIN">
+                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
+                                <rect key="frame" x="246" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="SYs-r1-Zf2"/>
+                                    <constraint firstAttribute="width" constant="50" id="jLV-hO-HbO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
+                                <rect key="frame" x="304" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ifB-pK-b4y"/>
+                                    <constraint firstAttribute="width" constant="50" id="xMr-vb-7h8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-U7-LAi">
+                                <rect key="frame" x="229" y="562" width="143" height="30"/>
+                                <state key="normal" title="Login with Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -127,6 +145,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="IE3-NU-G8W" secondAttribute="centerX" constant="29" id="6YC-qZ-klH"/>
+                            <constraint firstAttribute="centerX" secondItem="daj-uK-0q7" secondAttribute="centerX" constant="-29" id="9AE-XD-oVd"/>
+                            <constraint firstItem="61X-0B-Y1A" firstAttribute="top" secondItem="Qok-U7-LAi" secondAttribute="bottom" constant="8" id="CRU-5u-fce"/>
+                            <constraint firstItem="IE3-NU-G8W" firstAttribute="top" secondItem="cbi-en-2lG" secondAttribute="bottom" id="NNa-Wl-nkq"/>
+                            <constraint firstItem="daj-uK-0q7" firstAttribute="top" secondItem="cbi-en-2lG" secondAttribute="bottom" id="W1R-h5-cq4"/>
+                            <constraint firstItem="daj-uK-0q7" firstAttribute="leading" secondItem="IE3-NU-G8W" secondAttribute="trailing" constant="8" id="eNw-1Z-3U1"/>
+                            <constraint firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" constant="-0.5" id="iRS-rs-hye"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCt-VS-67y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,17 +172,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TUTORIAL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gF-ne-PI2">
-                                <rect key="frame" x="259" y="177" width="82" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free this weekend? Match up with 3 people around you, chat in the app and make plans to go somewhere cool!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gF-ne-PI2">
+                                <rect key="frame" x="16" y="92" width="568" height="200"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgY-dw-D0H">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginTutorial0" translatesAutoresizingMaskIntoConstraints="NO" id="hgY-dw-D0H">
+                                <rect key="frame" x="230" y="368" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="5VO-ro-Z93"/>
+                                    <constraint firstAttribute="height" constant="140" id="EIJ-eN-DxX"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hgY-dw-D0H" firstAttribute="top" secondItem="FlA-XJ-w1e" secondAttribute="bottom" constant="348" id="5F7-HT-62E"/>
+                            <constraint firstAttribute="centerX" secondItem="9gF-ne-PI2" secondAttribute="centerX" id="7Um-Pc-DDB"/>
+                            <constraint firstItem="hgY-dw-D0H" firstAttribute="top" secondItem="9gF-ne-PI2" secondAttribute="bottom" constant="76" id="9re-Fd-YHb"/>
+                            <constraint firstItem="9gF-ne-PI2" firstAttribute="trailing" secondItem="jf2-o7-0BR" secondAttribute="trailingMargin" id="HT3-GO-BiP"/>
+                            <constraint firstItem="9gF-ne-PI2" firstAttribute="trailing" secondItem="jf2-o7-0BR" secondAttribute="trailingMargin" id="NRa-Z0-FDP"/>
+                            <constraint firstItem="9gF-ne-PI2" firstAttribute="top" secondItem="FlA-XJ-w1e" secondAttribute="bottom" constant="72" id="dFe-ZB-0gc"/>
+                            <constraint firstAttribute="centerX" secondItem="hgY-dw-D0H" secondAttribute="centerX" id="eIV-KM-UPK"/>
+                            <constraint firstItem="9gF-ne-PI2" firstAttribute="leading" secondItem="jf2-o7-0BR" secondAttribute="leadingMargin" id="gWL-FG-MBK"/>
+                            <constraint firstItem="OQK-Fo-9b0" firstAttribute="top" secondItem="hgY-dw-D0H" secondAttribute="bottom" constant="92" id="jcf-HP-mam"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tutorialImageView" destination="hgY-dw-D0H" id="kJs-TC-VZ9"/>
@@ -164,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NQ-j0-INc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="760" y="1520"/>
+            <point key="canvasLocation" x="706" y="1510"/>
         </scene>
         <!--Set Profile-->
         <scene sceneID="X3x-XA-kSD">
@@ -255,6 +297,7 @@
     </scenes>
     <resources>
         <image name="Friends" width="25" height="25"/>
+        <image name="LoginTutorial0" width="120" height="120"/>
         <image name="Settings" width="25" height="25"/>
         <image name="ThisWeekend" width="25" height="25"/>
     </resources>
