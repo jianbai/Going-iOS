@@ -107,16 +107,18 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     @IBAction func loginButton() {
-        PFFacebookUtils.logInWithPermissions(permissions, {
-            (user: PFUser!, error: NSError!) -> Void in
-            if user == nil {
-                NSLog("Uh oh. The user cancelled the Facebook login.")
-            } else if user.isNew {
-                NSLog("User signed up and logged in through Facebook!")
-            } else {
-                NSLog("User logged in through Facebook!")
-            }
-        })
+        performSegueWithIdentifier("login", sender: self)
+        
+        //        PFFacebookUtils.logInWithPermissions(permissions, {
+//            (user: PFUser!, error: NSError!) -> Void in
+//            if user == nil {
+//                NSLog("Uh oh. The user cancelled the Facebook login.")
+//            } else if user.isNew {
+//                NSLog("User signed up and logged in through Facebook!")
+//            } else {
+//                NSLog("User logged in through Facebook!")
+//            }
+//        })
     }
 }
 
