@@ -15,9 +15,10 @@
 		D25452A01A78A4FD00D40D9D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */; };
 		D25452AC1A78A4FD00D40D9D /* helloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452AB1A78A4FD00D40D9D /* helloTests.swift */; };
 		D25452B61A78B2BB00D40D9D /* ThisWeekendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452B51A78B2BB00D40D9D /* ThisWeekendViewController.swift */; };
-		D25452C11A78DB8900D40D9D /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C01A78DB8900D40D9D /* LoginPageViewController.swift */; };
 		D25452C31A78DDB100D40D9D /* FriendChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C21A78DDB100D40D9D /* FriendChat.swift */; };
 		D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */; };
+		D2A24E4C1A7B09C80004326F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A24E4B1A7B09C80004326F /* LoginViewController.swift */; };
+		D2A24E4E1A7B1A810004326F /* LoginTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */; };
 		D2E896B81A79E99600B00376 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B41A79E99600B00376 /* Bolts.framework */; };
 		D2E896B91A79E99600B00376 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B51A79E99600B00376 /* Parse.framework */; };
 		D2E896BA1A79E99600B00376 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B61A79E99600B00376 /* ParseCrashReporting.framework */; };
@@ -34,6 +35,7 @@
 		D2E896D01A79E9FC00B00376 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896C51A79E9FC00B00376 /* StoreKit.framework */; };
 		D2E896D11A79E9FC00B00376 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896C61A79E9FC00B00376 /* SystemConfiguration.framework */; };
 		D2E896D81A79EED900B00376 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896D71A79EED900B00376 /* FacebookSDK.framework */; };
+		D2E896DA1A7A0C7F00B00376 /* LoginPageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +61,10 @@
 		D25452AA1A78A4FD00D40D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25452AB1A78A4FD00D40D9D /* helloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloTests.swift; sourceTree = "<group>"; };
 		D25452B51A78B2BB00D40D9D /* ThisWeekendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeekendViewController.swift; sourceTree = "<group>"; };
-		D25452C01A78DB8900D40D9D /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		D25452C21A78DDB100D40D9D /* FriendChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendChat.swift; sourceTree = "<group>"; };
 		D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
+		D2A24E4B1A7B09C80004326F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTutorial.swift; sourceTree = "<group>"; };
 		D2E896B41A79E99600B00376 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D2E896B51A79E99600B00376 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D2E896B61A79E99600B00376 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		D2E896C61A79E9FC00B00376 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D2E896D21A79EACC00B00376 /* hello-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hello-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2E896D71A79EED900B00376 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				D25452931A78A4FC00D40D9D /* AppDelegate.swift */,
-				D25452C01A78DB8900D40D9D /* LoginPageViewController.swift */,
+				D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */,
+				D2A24E4B1A7B09C80004326F /* LoginViewController.swift */,
+				D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */,
 				D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */,
 				D25452951A78A4FC00D40D9D /* SettingsViewController.swift */,
 				D25452B51A78B2BB00D40D9D /* ThisWeekendViewController.swift */,
@@ -303,12 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2E896DA1A7A0C7F00B00376 /* LoginPageContentViewController.swift in Sources */,
 				D25452B61A78B2BB00D40D9D /* ThisWeekendViewController.swift in Sources */,
 				D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */,
 				D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */,
 				D25452941A78A4FC00D40D9D /* AppDelegate.swift in Sources */,
+				D2A24E4E1A7B1A810004326F /* LoginTutorial.swift in Sources */,
 				D25452C31A78DDB100D40D9D /* FriendChat.swift in Sources */,
-				D25452C11A78DB8900D40D9D /* LoginPageViewController.swift in Sources */,
+				D2A24E4C1A7B09C80004326F /* LoginViewController.swift in Sources */,
 				D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

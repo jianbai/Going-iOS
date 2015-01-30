@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWG-h4-7WE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -86,7 +86,7 @@
         <!--Login-->
         <scene sceneID="W0l-RM-6bF">
             <objects>
-                <viewController storyboardIdentifier="LoginPageViewController" title="Login" id="crM-zq-gL4" customClass="LoginPageViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPageViewController" title="Login" modalTransitionStyle="crossDissolve" id="crM-zq-gL4" customClass="UIPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oph-sr-288"/>
                         <viewControllerLayoutGuide type="bottom" id="RwX-Pr-BBR"/>
@@ -104,10 +104,39 @@
             </objects>
             <point key="canvasLocation" x="760" y="722"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
+        <scene sceneID="4Nf-O9-Mmo">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="jWG-h4-7WE" customClass="LoginViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cbi-en-2lG"/>
+                        <viewControllerLayoutGuide type="bottom" id="61X-0B-Y1A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YGi-5Y-c1W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-U7-LAi">
+                                <rect key="frame" x="277" y="285" width="47" height="30"/>
+                                <state key="normal" title="LOGIN">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="crM-zq-gL4" eventType="touchUpInside" id="Ler-xC-puv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kCt-VS-67y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-20" y="1496"/>
+        </scene>
+        <!--LoginTutorial-->
         <scene sceneID="XDo-3z-TA5">
             <objects>
-                <viewController id="FZ6-ur-EfO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPageContentViewController" title="LoginTutorial" id="FZ6-ur-EfO" customClass="LoginPageContentViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FlA-XJ-w1e"/>
                         <viewControllerLayoutGuide type="bottom" id="OQK-Fo-9b0"/>
@@ -115,17 +144,32 @@
                     <view key="view" contentMode="scaleToFill" id="jf2-o7-0BR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TUTORIAL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gF-ne-PI2">
+                                <rect key="frame" x="259" y="177" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgY-dw-D0H">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tutorialImageView" destination="hgY-dw-D0H" id="kJs-TC-VZ9"/>
+                        <outlet property="tutorialLabel" destination="9gF-ne-PI2" id="555-hQ-rsc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NQ-j0-INc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="760" y="1520"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Profile-->
         <scene sceneID="X3x-XA-kSD">
             <objects>
-                <viewController id="O1f-VV-Ixl" sceneMemberID="viewController">
+                <viewController title="Set Profile" id="O1f-VV-Ixl" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WVP-aY-Cl3"/>
                         <viewControllerLayoutGuide type="bottom" id="VM7-3C-Eof"/>
@@ -217,5 +261,4 @@
     <inferredMetricsTieBreakers>
         <segue reference="JrI-ha-tAF"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="1" green="0.66985580349999996" blue="0.2221956001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
