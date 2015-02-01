@@ -27,6 +27,9 @@
 		D2D188441A7E28B400E43DD2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D188431A7E28B400E43DD2 /* Accounts.framework */; };
 		D2D188461A7E28BA00E43DD2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D188451A7E28BA00E43DD2 /* Social.framework */; };
 		D2D1884F1A7E2B7900E43DD2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */; };
+		D2D188511A7E68BB00E43DD2 /* SetAgeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D188501A7E68BB00E43DD2 /* SetAgeTextFieldDelegate.swift */; };
+		D2D188531A7E68C900E43DD2 /* SetHometownTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D188521A7E68C900E43DD2 /* SetHometownTextFieldDelegate.swift */; };
+		D2D188551A7E68E800E43DD2 /* SetGenderTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D188541A7E68E800E43DD2 /* SetGenderTextFieldDelegate.swift */; };
 		D2E896B91A79E99600B00376 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B51A79E99600B00376 /* Parse.framework */; };
 		D2E896BB1A79E99600B00376 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B71A79E99600B00376 /* ParseFacebookUtils.framework */; };
 		D2E896C71A79E9FC00B00376 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896BC1A79E9FC00B00376 /* AudioToolbox.framework */; };
@@ -78,6 +81,9 @@
 		D2D188431A7E28B400E43DD2 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D2D188451A7E28BA00E43DD2 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		D2D188501A7E68BB00E43DD2 /* SetAgeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAgeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		D2D188521A7E68C900E43DD2 /* SetHometownTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetHometownTextFieldDelegate.swift; sourceTree = "<group>"; };
+		D2D188541A7E68E800E43DD2 /* SetGenderTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGenderTextFieldDelegate.swift; sourceTree = "<group>"; };
 		D2E896B51A79E99600B00376 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D2E896B71A79E99600B00376 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		D2E896BC1A79E9FC00B00376 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -159,6 +165,9 @@
 				D2A24E4B1A7B09C80004326F /* LoginViewController.swift */,
 				D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */,
 				D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */,
+				D2D188501A7E68BB00E43DD2 /* SetAgeTextFieldDelegate.swift */,
+				D2D188521A7E68C900E43DD2 /* SetHometownTextFieldDelegate.swift */,
+				D2D188541A7E68E800E43DD2 /* SetGenderTextFieldDelegate.swift */,
 				D25452951A78A4FC00D40D9D /* SettingsViewController.swift */,
 				D25452B51A78B2BB00D40D9D /* ThisWeekendViewController.swift */,
 				D25452971A78A4FC00D40D9D /* FriendsViewController.swift */,
@@ -328,6 +337,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2E896DA1A7A0C7F00B00376 /* LoginPageContentViewController.swift in Sources */,
+				D2D188531A7E68C900E43DD2 /* SetHometownTextFieldDelegate.swift in Sources */,
+				D2D188511A7E68BB00E43DD2 /* SetAgeTextFieldDelegate.swift in Sources */,
 				D25452B61A78B2BB00D40D9D /* ThisWeekendViewController.swift in Sources */,
 				D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */,
 				D29B76371A7DF7EE00A11BE7 /* ParseConstants.swift in Sources */,
@@ -337,6 +348,7 @@
 				D25452C31A78DDB100D40D9D /* FriendChat.swift in Sources */,
 				D2A24E4C1A7B09C80004326F /* LoginViewController.swift in Sources */,
 				D29B763F1A7E0B4500A11BE7 /* FirebaseConstants.swift in Sources */,
+				D2D188551A7E68E800E43DD2 /* SetGenderTextFieldDelegate.swift in Sources */,
 				D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWG-h4-7WE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O1f-VV-Ixl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -207,19 +207,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SET PROFILE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWk-mI-drt">
-                                <rect key="frame" x="247" y="289" width="107" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When were you born?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y6p-DC-Ndm">
+                                <rect key="frame" x="150" y="285" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="rhR-1s-3Ew"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where are you from?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxc-Mb-p3L">
+                                <rect key="frame" x="150" y="323" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="s4m-sW-7n3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What gender do you identify with?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dbS-Ui-www">
+                                <rect key="frame" x="150" y="361" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2XP-RU-FQt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfc-c9-E52">
+                                <rect key="frame" x="16" y="145" width="568" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="56P-24-my9"/>
+                                    <constraint firstAttribute="width" constant="568" id="ZtG-EC-RNm"/>
+                                </constraints>
+                                <string key="text">Hey there! Go matches you with cool people around you based on age and gender. That's why we ask everyone to set up a full profile before they use the app. If that's okay with you, please fill in the missing fields below before getting started!</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="eWk-mI-drt" secondAttribute="centerX" constant="-0.5" id="Dnq-Us-21N"/>
-                            <constraint firstAttribute="centerY" secondItem="eWk-mI-drt" secondAttribute="centerY" constant="0.5" id="Yh0-wj-A8d"/>
+                            <constraint firstAttribute="centerX" secondItem="dbS-Ui-www" secondAttribute="centerX" constant="-0.5" id="0eB-rP-JbM"/>
+                            <constraint firstItem="Y6p-DC-Ndm" firstAttribute="top" secondItem="Vfc-c9-E52" secondAttribute="bottom" constant="40" id="4Re-KO-YY3"/>
+                            <constraint firstItem="dbS-Ui-www" firstAttribute="top" secondItem="hxc-Mb-p3L" secondAttribute="bottom" constant="8" id="4tD-px-Lkp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vfc-c9-E52" secondAttribute="trailing" id="79W-85-XeD"/>
+                            <constraint firstAttribute="centerX" secondItem="Y6p-DC-Ndm" secondAttribute="centerX" constant="-0.5" id="9me-mh-Ajx"/>
+                            <constraint firstItem="Vfc-c9-E52" firstAttribute="leading" secondItem="UZh-XB-q6F" secondAttribute="leadingMargin" id="FgK-PK-xEx"/>
+                            <constraint firstAttribute="centerX" secondItem="Vfc-c9-E52" secondAttribute="centerX" id="Wlh-6w-c24"/>
+                            <constraint firstAttribute="centerY" secondItem="Y6p-DC-Ndm" secondAttribute="centerY" id="s0T-wV-uuz"/>
+                            <constraint firstAttribute="centerY" secondItem="hxc-Mb-p3L" secondAttribute="centerY" constant="-106" id="uzN-7I-jTn"/>
+                            <constraint firstItem="hxc-Mb-p3L" firstAttribute="top" secondItem="Y6p-DC-Ndm" secondAttribute="bottom" constant="8" id="xIC-93-ZfG"/>
+                            <constraint firstAttribute="centerX" secondItem="hxc-Mb-p3L" secondAttribute="centerX" constant="-0.5" id="yPP-6n-wKi"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uzN-7I-jTn"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="birthdayTextField" destination="Y6p-DC-Ndm" id="32l-RV-Pia"/>
+                        <outlet property="genderTextField" destination="dbS-Ui-www" id="1Jn-Lf-vbG"/>
+                        <outlet property="hometownTextField" destination="hxc-Mb-p3L" id="hmf-TI-udq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJX-Xk-9gJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
