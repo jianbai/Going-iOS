@@ -26,7 +26,7 @@ class LoginPageContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tutorialLabel.text = text
         tutorialImageView.image = UIImage(named: image)
     }

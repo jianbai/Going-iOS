@@ -10,6 +10,10 @@ import UIKit
 
 class SetProfileViewController: UIViewController {
     
+    var noGender: Bool!
+    var noAge: Bool!
+    var noHometown: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,5 +24,10 @@ class SetProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setBools(noGender: Bool, noAge: Bool, noHometown: Bool) {
+        self.noGender = noGender
+        self.noAge = noAge
+        self.noHometown = noHometown
+    }
     
 }
