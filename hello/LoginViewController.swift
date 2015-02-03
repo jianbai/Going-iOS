@@ -32,10 +32,18 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         super.init(coder: aDecoder)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (PFUser.currentUser() != nil) {
+            self.performSegueWithIdentifier("showMain", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loginActivityIndicator.hidden = true
+        self.loginActivityIndicator.hidden = true
         
         for var i=0; i<self.presentationCountForPageViewController(pageViewController); ++i {
             self.views.append(viewControllerAtIndex(i)!)

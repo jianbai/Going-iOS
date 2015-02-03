@@ -13,15 +13,16 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var hometownTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
-  
-    let pickerData = ["Female", "Male"]
-    
-    var noGender: Bool! = true
-    var noAge: Bool! = true
-    var noHometown: Bool! = true
-    var gender: String?
-    var age: String?
-    var hometown: String?
+    @IBOutlet weak var saveProfileButton: UIButton!
+    @IBOutlet weak var saveProfileActivityIndicator: UIActivityIndicatorView!
+
+    let parseConstants: ParseConstants = ParseConstants()
+    let pickerData: [String] = ["Female", "Male"]
+    let currentUser: PFUser = PFUser.currentUser()
+
+    var noGender: Bool!
+    var noAge: Bool!
+    var noHometown: Bool!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,6 +40,8 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.saveProfileActivityIndicator.hidden = true
+        
         self.birthdayTextField.returnKeyType = UIReturnKeyType.Done
         self.hometownTextField.returnKeyType = UIReturnKeyType.Done
         self.genderTextField.returnKeyType = UIReturnKeyType.Done
@@ -66,8 +69,6 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
             doneButton.addTarget(self, action: Selector("resignDatePicker:"), forControlEvents: UIControlEvents.TouchUpInside)
             
             textField.inputView = inputView
-        } else if (textField == hometownTextField) {
-
         } else if (textField == genderTextField) {
             let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
 
@@ -139,13 +140,16 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
         var movementDistance: CGFloat = 120
         let movementDuration = 0.3
         
-        if (birthdayTextField != textField) {
+        if (self.noAge as Bool &&
+            self.birthdayTextField != textField) {
             birthdayTextField.hidden = up
         }
-        if (hometownTextField != textField) {
+        if (self.noHometown as Bool &&
+            hometownTextField != textField) {
             hometownTextField.hidden = up
         }
-        if (genderTextField != textField) {
+        if (self.noGender as Bool &&
+            genderTextField != textField) {
             genderTextField.hidden = up
         }
         
@@ -175,7 +179,109 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
         self.noHometown = noHometown
     }
     
-    @IBAction func saveProfile() {
+    func calculateAge(birthday : String) -> String {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        var date = dateFormatter.dateFromString(birthday)
+        var cal = NSCalendar.currentCalendar()
         
+        var age = String(cal.components(NSCalendarUnit.CalendarUnitYear, fromDate: date!, toDate: NSDate(), options: nil).year)
+        
+        return age
+    }
+    
+    func updateAge() {
+        var birthday: String = birthdayTextField.text
+        var age: String = self.calculateAge(birthday)
+        self.currentUser[parseConstants.KEY_BIRTHDAY] = birthday
+        self.currentUser[parseConstants.KEY_AGE] = age
+    }
+    
+    func updateHometown() {
+        var hometown: String = hometownTextField.text
+        self.currentUser[parseConstants.KEY_HOMETOWN] = hometown
+    }
+    
+    func updateGender() {
+        var gender: String = genderTextField.text
+        self.currentUser[parseConstants.KEY_GENDER] = gender
+    }
+    
+    func saveToParse() {
+        self.currentUser.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+            if (error == nil) {
+                self.performSegueWithIdentifier("showMain", sender: self)
+            } else {
+                self.showErrorAlert()
+            }
+            self.hideActivityIndicator()
+        }
+    }
+    
+    func showActivityIndicator() {
+        self.saveProfileButton.hidden = true
+        self.saveProfileActivityIndicator.hidden = false
+        self.saveProfileActivityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        self.saveProfileButton.hidden = false
+        self.saveProfileActivityIndicator.hidden = true
+        self.saveProfileActivityIndicator.stopAnimating()
+    }
+    
+    func showErrorAlert() {
+        let saveProfileErrorController = UIAlertController(title: "Uh oh...", message: "Something is rotten in the state of your network connection...", preferredStyle: .Alert)
+        let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        saveProfileErrorController.addAction(okButton)
+        
+        self.presentViewController(saveProfileErrorController, animated: true, completion: nil)
+    }
+
+    func showIncompleteAlert() {
+        let saveProfileErrorController = UIAlertController(title: "Uh oh...", message: "One of your required fields is missing! Please set up your profile before continuing.", preferredStyle: .Alert)
+        let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        saveProfileErrorController.addAction(okButton)
+        
+        self.presentViewController(saveProfileErrorController, animated: true, completion: nil)
+    }
+    
+    func showInvalidAgeAlert() {
+        let saveProfileErrorController = UIAlertController(title: "Uh oh...", message: "You have entered an invalid birthday.", preferredStyle: .Alert)
+        let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        saveProfileErrorController.addAction(okButton)
+        
+        self.presentViewController(saveProfileErrorController, animated: true, completion: nil)
+    }
+    
+    @IBAction func saveProfile() {
+        self.showActivityIndicator()
+        
+        let emptyBirthday = self.noAge as Bool &&
+            self.birthdayTextField.text.isEmpty
+        let emptyHometown = self.noHometown as Bool &&
+            self.hometownTextField.text.isEmpty
+        let emptyGender = self.noGender as Bool &&
+            self.genderTextField.text.isEmpty
+        
+        if (emptyBirthday || emptyHometown || emptyGender) {
+            self.showIncompleteAlert()
+            self.hideActivityIndicator()
+        } else if (self.calculateAge(birthdayTextField.text).toInt() < 16) {
+            self.showInvalidAgeAlert()
+            self.hideActivityIndicator()
+        } else {
+            if (self.noAge as Bool) {
+                self.updateAge()
+            }
+            if (self.noHometown as Bool) {
+                self.updateHometown()
+            }
+            if (self.noGender as Bool) {
+                self.updateGender()
+            }
+            
+            self.saveToParse()
+        }
     }
 }
