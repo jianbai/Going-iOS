@@ -54,7 +54,7 @@ class SettingsViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = self.settings[indexPath.row]
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)
@@ -87,33 +87,35 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         switch indexPath.row {
         // Age preferences
-        case 0:
+        case 1:
             self.showAgePreferencesAlert()
             break
         // Gender preferences
-        case 1:
+        case 2:
             self.showGenderPreferencesAlert()
             break
         // FAQ
-        case 2:
+        case 3:
             self.showFaqAlert()
             break
         // RAQ
-        case 3:
+        case 4:
             self.showRaqAlert()
             break
         // Report a bug
-        case 4:
+        case 5:
             self.showBugAlert()
             break
         // Get in touch
-        case 5:
+        case 6:
             self.showContactAlert()
             break
         // Logout
-        case 6:
+        case 7:
             self.logOut()
             break
         default:
@@ -124,15 +126,15 @@ class SettingsViewController: UITableViewController {
 // MARK: - Table cell click handlers
     
     func showAgePreferencesAlert() {
-        
+        self.performSegueWithIdentifier("showAgePreferences", sender: self)
     }
     
     func showGenderPreferencesAlert() {
-        
+        self.performSegueWithIdentifier("showGenderPreferences", sender: self)
     }
     
     func showFaqAlert() {
-        
+        self.performSegueWithIdentifier("showFaq", sender: self)
     }
     
     func showRaqAlert() {

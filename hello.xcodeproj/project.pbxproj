@@ -28,6 +28,8 @@
 		D2D188461A7E28BA00E43DD2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D188451A7E28BA00E43DD2 /* Social.framework */; };
 		D2D1884F1A7E2B7900E43DD2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */; };
 		D2DDD1FB1A81D22900756DCA /* AgePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */; };
+		D2DDD1FD1A81F3AB00756DCA /* GenderPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */; };
+		D2DDD1FF1A81FC8600756DCA /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDD1FE1A81FC8600756DCA /* FaqViewController.swift */; };
 		D2E896B91A79E99600B00376 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B51A79E99600B00376 /* Parse.framework */; };
 		D2E896BB1A79E99600B00376 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B71A79E99600B00376 /* ParseFacebookUtils.framework */; };
 		D2E896C71A79E9FC00B00376 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896BC1A79E9FC00B00376 /* AudioToolbox.framework */; };
@@ -80,6 +82,8 @@
 		D2D188451A7E28BA00E43DD2 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgePreferencesViewController.swift; sourceTree = "<group>"; };
+		D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderPreferencesViewController.swift; sourceTree = "<group>"; };
+		D2DDD1FE1A81FC8600756DCA /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
 		D2E896B51A79E99600B00376 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D2E896B71A79E99600B00376 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		D2E896BC1A79E9FC00B00376 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -167,12 +171,14 @@
 				D25452C21A78DDB100D40D9D /* FriendChat.swift */,
 				D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */,
 				D29B763E1A7E0B4500A11BE7 /* FirebaseConstants.swift */,
+				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
+				D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */,
+				D2DDD1FE1A81FC8600756DCA /* FaqViewController.swift */,
 				D2E896D21A79EACC00B00376 /* hello-Bridging-Header.h */,
 				D25452991A78A4FD00D40D9D /* Main.storyboard */,
 				D254529C1A78A4FD00D40D9D /* Images.xcassets */,
 				D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */,
 				D25452911A78A4FC00D40D9D /* Supporting Files */,
-				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
 			);
 			path = hello;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 				D25452B61A78B2BB00D40D9D /* ThisWeekendViewController.swift in Sources */,
 				D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */,
 				D29B76371A7DF7EE00A11BE7 /* ParseConstants.swift in Sources */,
+				D2DDD1FD1A81F3AB00756DCA /* GenderPreferencesViewController.swift in Sources */,
 				D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */,
 				D25452941A78A4FC00D40D9D /* AppDelegate.swift in Sources */,
 				D2A24E4E1A7B1A810004326F /* LoginTutorial.swift in Sources */,
@@ -342,6 +349,7 @@
 				D29B763F1A7E0B4500A11BE7 /* FirebaseConstants.swift in Sources */,
 				D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */,
 				D2DDD1FB1A81D22900756DCA /* AgePreferencesViewController.swift in Sources */,
+				D2DDD1FF1A81FC8600756DCA /* FaqViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
