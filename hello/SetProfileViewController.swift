@@ -250,7 +250,7 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let saveProfileErrorController = UIAlertController(title: "Uh oh...", message: "You have entered an invalid birthday.", preferredStyle: .Alert)
         let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
         saveProfileErrorController.addAction(okButton)
-        
+
         self.presentViewController(saveProfileErrorController, animated: true, completion: nil)
     }
     

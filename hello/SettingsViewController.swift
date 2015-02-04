@@ -9,18 +9,32 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var profileInfoLabel: UILabel!
 
-    let settings: [String] = ["Age preferences",
+    let settings: [String] = ["",
+        "Age preferences",
         "Gender preferences",
         "FAQ",
         "RAQ",
         "Gahh I found a bug!",
         "Dear Go:",
-        "Log out"]
+        "Log out",
+        ""]
+    let parseConstants: ParseConstants = ParseConstants()
+    let currentUser: PFUser = PFUser.currentUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!]
+
+        let userName = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
+        let userAge = self.currentUser[parseConstants.KEY_AGE] as String
+        let userHometown = self.currentUser[parseConstants.KEY_HOMETOWN] as String
+        
+        self.profileNameLabel.text = userName
+        self.profileInfoLabel.text = userAge + "  : :  " + userHometown
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,8 +57,33 @@ class SettingsViewController: UITableViewController {
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = self.settings[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if (indexPath.row == 0 || indexPath.row == 8) {
+            return 0.5
+        } else {
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRectZero)
+    }
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: CGRectZero)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
