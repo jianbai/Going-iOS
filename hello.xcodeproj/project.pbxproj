@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D24CD1411A82FB6500546D9D /* RaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24CD1401A82FB6500546D9D /* RaqViewController.swift */; };
 		D25452941A78A4FC00D40D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452931A78A4FC00D40D9D /* AppDelegate.swift */; };
 		D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452951A78A4FC00D40D9D /* SettingsViewController.swift */; };
 		D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452971A78A4FC00D40D9D /* FriendsViewController.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D24CD1401A82FB6500546D9D /* RaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaqViewController.swift; sourceTree = "<group>"; };
 		D254528E1A78A4FC00D40D9D /* hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25452921A78A4FC00D40D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25452931A78A4FC00D40D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
 				D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */,
 				D2DDD1FE1A81FC8600756DCA /* FaqViewController.swift */,
+				D24CD1401A82FB6500546D9D /* RaqViewController.swift */,
 				D2E896D21A79EACC00B00376 /* hello-Bridging-Header.h */,
 				D25452991A78A4FD00D40D9D /* Main.storyboard */,
 				D254529C1A78A4FD00D40D9D /* Images.xcassets */,
@@ -349,6 +352,7 @@
 				D29B763F1A7E0B4500A11BE7 /* FirebaseConstants.swift in Sources */,
 				D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */,
 				D2DDD1FB1A81D22900756DCA /* AgePreferencesViewController.swift in Sources */,
+				D24CD1411A82FB6500546D9D /* RaqViewController.swift in Sources */,
 				D2DDD1FF1A81FC8600756DCA /* FaqViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

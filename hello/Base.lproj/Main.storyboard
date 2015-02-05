@@ -169,7 +169,7 @@
                     <connections>
                         <outlet property="profileInfoLabel" destination="Rws-tG-T4i" id="Sv4-fj-iwQ"/>
                         <outlet property="profileNameLabel" destination="6lZ-87-ebK" id="Gsp-kD-Shx"/>
-                        <segue destination="euC-9e-CZm" kind="presentation" identifier="showAgePreferences" modalPresentationStyle="formSheet" id="TUQ-KI-6ae"/>
+                        <segue destination="euC-9e-CZm" kind="presentation" identifier="showAgePreferences" id="TUQ-KI-6ae"/>
                         <segue destination="bub-So-4r0" kind="presentation" identifier="showGenderPreferences" id="H7E-hR-VPM"/>
                         <segue destination="cZ6-Cd-8PD" kind="presentation" identifier="showFaq" id="1fh-cz-GsH"/>
                     </connections>
@@ -216,7 +216,7 @@
         <!--Navigation Controller-->
         <scene sceneID="g7f-U8-irY">
             <objects>
-                <navigationController modalPresentationStyle="formSheet" id="euC-9e-CZm" sceneMemberID="viewController">
+                <navigationController id="euC-9e-CZm" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f3f-cG-ivQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -227,7 +227,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJe-B7-OLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2830" y="-1864"/>
+            <point key="canvasLocation" x="2830" y="-2100"/>
         </scene>
         <!--Match me in groups by gender-->
         <scene sceneID="cfe-RH-NHo">
@@ -288,164 +288,151 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTZ-uF-FsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3683" y="-1198"/>
+            <point key="canvasLocation" x="3683" y="-1432"/>
         </scene>
         <!--FAQ-->
         <scene sceneID="W0Q-jQ-T3D">
             <objects>
-                <viewController id="tV7-k4-r8l" customClass="FaqViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="tV7-k4-r8l" customClass="FaqViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VSd-SH-A1f"/>
                         <viewControllerLayoutGuide type="bottom" id="2i4-SG-70I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MN7-aX-Vfr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9B-Wg-bHy">
-                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9B-Wg-bHy">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this a dating app?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLw-Vi-3NH">
-                                        <rect key="frame" x="8" y="8" width="584" height="22"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGB-3l-vcr">
+                                        <rect key="frame" x="-12" y="0.0" width="624" height="536"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Is this a dating app?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6h4-4I-1gI">
+                                                <rect key="frame" x="20" y="8" width="584" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No! Go is not a place for finding dates, hookups, flings, trysts, affairs, and/or dalliances." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTZ-kw-i4d">
+                                                <rect key="frame" x="20" y="38" width="584" height="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="So then who is this app for?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr1-5T-R5N">
+                                                <rect key="frame" x="20" y="63" width="584" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdb-Fq-uau">
+                                                <rect key="frame" x="20" y="93" width="584" height="17"/>
+                                                <string key="text">Go is for people who want to meet people. If (i) you like meeting new people and (ii) you’re free this weekend, then Go is for you!</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9P-3E-dU4">
+                                                <rect key="frame" x="20" y="148" width="584" height="17"/>
+                                                <string key="text">Matches are groups of 4 people that are free this weekend. If you’re free, press the big shiny “Go” button and Go will match you with 3 other people around you. Chat with each other in the app and make plans to go somewhere cool! Matches only last for one weekend.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Why do matches only last for the weekend?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2n-UI-3pq">
+                                                <rect key="frame" x="20" y="173" width="584" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rM-r5-07Z">
+                                                <rect key="frame" x="20" y="203" width="584" height="17"/>
+                                                <string key="text">Matches disappear every week so you can make new matches and meet more awesome people. So quit dwelling on the past and go again next weekend!</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How do I add friends?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XX5-P5-kNC">
+                                                <rect key="frame" x="20" y="228" width="584" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tL-Bh-cOU">
+                                                <rect key="frame" x="20" y="258" width="584" height="17"/>
+                                                <string key="text">After you meet, you to decide who to keep in touch with. When your matches disappear, you’ll be prompted to choose who you want to keep as friends. Go again to meet more people and grow your friends list.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How do matches work?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwq-pQ-zTh">
+                                                <rect key="frame" x="20" y="118" width="584" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="584" id="vYD-tm-XAM"/>
+                                            <constraint firstItem="xdb-Fq-uau" firstAttribute="top" secondItem="Pr1-5T-R5N" secondAttribute="bottom" constant="8" id="059-ip-sCx"/>
+                                            <constraint firstItem="F2n-UI-3pq" firstAttribute="top" secondItem="p9P-3E-dU4" secondAttribute="bottom" constant="8" id="2ON-UA-ZSg"/>
+                                            <constraint firstItem="p9P-3E-dU4" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="6Um-NY-C25"/>
+                                            <constraint firstAttribute="trailing" secondItem="3tL-Bh-cOU" secondAttribute="trailing" id="6bG-eg-pK8"/>
+                                            <constraint firstAttribute="trailing" secondItem="XX5-P5-kNC" secondAttribute="trailing" id="6be-qq-D20"/>
+                                            <constraint firstAttribute="trailing" secondItem="JTZ-kw-i4d" secondAttribute="trailing" id="BPK-sZ-e1z"/>
+                                            <constraint firstAttribute="trailing" secondItem="cwq-pQ-zTh" secondAttribute="trailing" id="Dld-Y8-Ir1"/>
+                                            <constraint firstAttribute="trailing" secondItem="6h4-4I-1gI" secondAttribute="trailing" id="HvD-cI-UQA"/>
+                                            <constraint firstItem="cwq-pQ-zTh" firstAttribute="top" secondItem="xdb-Fq-uau" secondAttribute="bottom" constant="8" id="IFc-MN-5z1"/>
+                                            <constraint firstItem="JTZ-kw-i4d" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="ILd-IO-sUp"/>
+                                            <constraint firstAttribute="bottom" secondItem="3tL-Bh-cOU" secondAttribute="bottom" constant="16" id="Jwj-NM-2tI"/>
+                                            <constraint firstItem="JTZ-kw-i4d" firstAttribute="top" secondItem="6h4-4I-1gI" secondAttribute="bottom" constant="8" id="KvP-H8-8Y7"/>
+                                            <constraint firstItem="p9P-3E-dU4" firstAttribute="top" secondItem="cwq-pQ-zTh" secondAttribute="bottom" constant="8" id="Ms8-lY-yzT"/>
+                                            <constraint firstItem="9rM-r5-07Z" firstAttribute="top" secondItem="F2n-UI-3pq" secondAttribute="bottom" constant="8" id="QyV-tk-L0b"/>
+                                            <constraint firstAttribute="trailing" secondItem="xdb-Fq-uau" secondAttribute="trailing" id="RPo-5F-ejs"/>
+                                            <constraint firstAttribute="trailing" secondItem="F2n-UI-3pq" secondAttribute="trailing" id="UdO-Hh-zIX"/>
+                                            <constraint firstItem="6h4-4I-1gI" firstAttribute="top" secondItem="aGB-3l-vcr" secondAttribute="top" constant="16" id="bdA-4H-OzH"/>
+                                            <constraint firstAttribute="trailing" secondItem="p9P-3E-dU4" secondAttribute="trailing" id="dWt-2N-Ili"/>
+                                            <constraint firstItem="XX5-P5-kNC" firstAttribute="top" secondItem="9rM-r5-07Z" secondAttribute="bottom" constant="8" id="eT6-G7-dB3"/>
+                                            <constraint firstItem="Pr1-5T-R5N" firstAttribute="top" secondItem="JTZ-kw-i4d" secondAttribute="bottom" constant="8" id="gMA-ef-yf9"/>
+                                            <constraint firstItem="3tL-Bh-cOU" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="hqU-Xo-DDQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pr1-5T-R5N" secondAttribute="trailing" id="jjB-YS-V3L"/>
+                                            <constraint firstItem="3tL-Bh-cOU" firstAttribute="top" secondItem="XX5-P5-kNC" secondAttribute="bottom" constant="8" id="le7-KL-Su1"/>
+                                            <constraint firstItem="6h4-4I-1gI" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="pe2-Yc-z8e"/>
+                                            <constraint firstItem="xdb-Fq-uau" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="pw5-nF-WnF"/>
+                                            <constraint firstItem="F2n-UI-3pq" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="tMx-QW-vON"/>
+                                            <constraint firstItem="Pr1-5T-R5N" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="tUi-6V-Pg9"/>
+                                            <constraint firstItem="cwq-pQ-zTh" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="vkC-Ht-mdM"/>
+                                            <constraint firstAttribute="trailing" secondItem="9rM-r5-07Z" secondAttribute="trailing" id="whY-Oi-7Tq"/>
+                                            <constraint firstItem="XX5-P5-kNC" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="wob-Ei-bbF"/>
+                                            <constraint firstItem="9rM-r5-07Z" firstAttribute="leading" secondItem="aGB-3l-vcr" secondAttribute="leading" id="xIC-eR-Xwp"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No! Go is not a place for finding dates, hookups, flings, trysts, affairs, and/or dalliances." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItH-gf-Pj8">
-                                        <rect key="frame" x="8" y="38" width="584" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="584" id="i6l-Ac-eig"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDW-aO-Hlg">
-                                        <rect key="frame" x="8" y="93" width="584" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="cDH-C1-9kc"/>
-                                        </constraints>
-                                        <string key="text">Go is for people who want to meet people. Real life people, right here in Vancouver. If (i) you like meeting new people and (ii) you’re free this weekend, then Go is for you!</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="cDH-C1-9kc"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How do matches work?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RP-aV-eFs">
-                                        <rect key="frame" x="8" y="118" width="584" height="22"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hec-Jo-IwG">
-                                        <rect key="frame" x="8" y="148" width="584" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="F7E-VW-TLl"/>
-                                        </constraints>
-                                        <string key="text">Matches are groups of 4 people that are free this weekend. If you’re free, press the big shiny “Go” button and Go will match you with 3 other people around you. You can then chat with each other in the app. Make plans to go somewhere cool! Matches only last for one weekend.</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="F7E-VW-TLl"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Why do matches only last for the weekend?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1W6-ad-OfQ">
-                                        <rect key="frame" x="8" y="173" width="584" height="22"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-AE-h88">
-                                        <rect key="frame" x="8" y="203" width="584" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="5A9-Al-Xkc"/>
-                                        </constraints>
-                                        <string key="text">Matches disappear every week so you can make new matches and meet more awesome people. So quit dwelling on the past! Go looks forward, not backward; upward not forward; and always twirling, twirling, twirling towards next weekend!</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="5A9-Al-Xkc"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How do I add friends?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci6-VA-xJi">
-                                        <rect key="frame" x="8" y="228" width="584" height="22"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrU-d6-HWj">
-                                        <rect key="frame" x="8" y="258" width="584" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="17" id="33t-KF-Bdf"/>
-                                        </constraints>
-                                        <string key="text">After you meet, Go leaves it up to you to decide who to keep in touch with. When your match disappears, you’ll be prompted to choose who you want to keep as friends. Keep using Go to meet more people and grow your friends list.</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="33t-KF-Bdf"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So then who is this app for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAv-UJ-K6Z">
-                                        <rect key="frame" x="8" y="63" width="584" height="22"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ci6-VA-xJi" firstAttribute="leading" secondItem="eR6-AE-h88" secondAttribute="leading" id="1DZ-kh-eGE"/>
-                                    <constraint firstItem="Ci6-VA-xJi" firstAttribute="top" secondItem="eR6-AE-h88" secondAttribute="bottom" constant="8" id="4Pw-mB-mQ9"/>
-                                    <constraint firstItem="CLw-Vi-3NH" firstAttribute="top" secondItem="p9B-Wg-bHy" secondAttribute="topMargin" id="4Tk-r4-o0f"/>
-                                    <constraint firstItem="YDW-aO-Hlg" firstAttribute="trailing" secondItem="MAv-UJ-K6Z" secondAttribute="trailing" id="5Ng-US-fzt"/>
-                                    <constraint firstItem="Ci6-VA-xJi" firstAttribute="trailing" secondItem="RrU-d6-HWj" secondAttribute="trailing" id="6be-xz-Ehg"/>
-                                    <constraint firstItem="Ci6-VA-xJi" firstAttribute="leading" secondItem="p9B-Wg-bHy" secondAttribute="leadingMargin" id="7G2-Um-4jr"/>
-                                    <constraint firstItem="1W6-ad-OfQ" firstAttribute="leading" secondItem="Hec-Jo-IwG" secondAttribute="leading" id="C0T-zf-k3f"/>
-                                    <constraint firstItem="ItH-gf-Pj8" firstAttribute="leading" secondItem="CLw-Vi-3NH" secondAttribute="leading" id="HRV-kk-Ccb"/>
-                                    <constraint firstItem="YDW-aO-Hlg" firstAttribute="leading" secondItem="MAv-UJ-K6Z" secondAttribute="leading" id="IzA-sJ-R1h"/>
-                                    <constraint firstItem="1W6-ad-OfQ" firstAttribute="leading" secondItem="eR6-AE-h88" secondAttribute="leading" id="Kvp-Z6-uVX"/>
-                                    <constraint firstItem="Hec-Jo-IwG" firstAttribute="top" secondItem="4RP-aV-eFs" secondAttribute="bottom" constant="8" id="MFT-Kc-lp7"/>
-                                    <constraint firstItem="4RP-aV-eFs" firstAttribute="top" secondItem="YDW-aO-Hlg" secondAttribute="bottom" constant="8" id="Ms1-2N-ybV"/>
-                                    <constraint firstItem="eR6-AE-h88" firstAttribute="top" secondItem="1W6-ad-OfQ" secondAttribute="bottom" constant="8" id="QGe-gq-MJA"/>
-                                    <constraint firstItem="ItH-gf-Pj8" firstAttribute="top" secondItem="CLw-Vi-3NH" secondAttribute="bottom" constant="8" id="QdK-En-Yla"/>
-                                    <constraint firstItem="ItH-gf-Pj8" firstAttribute="trailing" secondItem="MAv-UJ-K6Z" secondAttribute="trailing" id="T9y-vi-heQ"/>
-                                    <constraint firstItem="MAv-UJ-K6Z" firstAttribute="top" secondItem="ItH-gf-Pj8" secondAttribute="bottom" constant="8" id="VkC-OJ-G78"/>
-                                    <constraint firstItem="RrU-d6-HWj" firstAttribute="top" secondItem="Ci6-VA-xJi" secondAttribute="bottom" constant="8" id="a0g-F4-pyJ"/>
-                                    <constraint firstItem="1W6-ad-OfQ" firstAttribute="trailing" secondItem="Hec-Jo-IwG" secondAttribute="trailing" id="fph-Tj-7kA"/>
-                                    <constraint firstItem="MAv-UJ-K6Z" firstAttribute="leading" secondItem="ItH-gf-Pj8" secondAttribute="leading" id="hvR-l3-kJl"/>
-                                    <constraint firstItem="CLw-Vi-3NH" firstAttribute="trailing" secondItem="p9B-Wg-bHy" secondAttribute="trailingMargin" id="j1h-yp-hvU"/>
-                                    <constraint firstItem="4RP-aV-eFs" firstAttribute="leading" secondItem="Hec-Jo-IwG" secondAttribute="leading" id="jHp-IE-iA3"/>
-                                    <constraint firstItem="RrU-d6-HWj" firstAttribute="leading" secondItem="Ci6-VA-xJi" secondAttribute="leading" id="kyJ-JB-BEQ"/>
-                                    <constraint firstItem="eR6-AE-h88" firstAttribute="trailing" secondItem="Ci6-VA-xJi" secondAttribute="trailing" id="mNw-ir-JD2"/>
-                                    <constraint firstItem="4RP-aV-eFs" firstAttribute="trailing" secondItem="YDW-aO-Hlg" secondAttribute="trailing" id="mga-fO-edL"/>
-                                    <constraint firstItem="1W6-ad-OfQ" firstAttribute="trailing" secondItem="eR6-AE-h88" secondAttribute="trailing" id="ntV-Xc-Fw2"/>
-                                    <constraint firstItem="1W6-ad-OfQ" firstAttribute="top" secondItem="Hec-Jo-IwG" secondAttribute="bottom" constant="8" id="uAo-GT-Swv"/>
-                                    <constraint firstItem="YDW-aO-Hlg" firstAttribute="top" secondItem="MAv-UJ-K6Z" secondAttribute="bottom" constant="8" id="vKj-zc-SOG"/>
-                                    <constraint firstItem="YDW-aO-Hlg" firstAttribute="leading" secondItem="4RP-aV-eFs" secondAttribute="leading" id="xbO-A4-Znk"/>
+                                    <constraint firstItem="F2n-UI-3pq" firstAttribute="width" secondItem="p9B-Wg-bHy" secondAttribute="width" id="4qA-Tr-d6j"/>
+                                    <constraint firstItem="p9P-3E-dU4" firstAttribute="width" secondItem="p9B-Wg-bHy" secondAttribute="width" id="99K-Ee-pUU"/>
+                                    <constraint firstItem="9rM-r5-07Z" firstAttribute="width" secondItem="p9B-Wg-bHy" secondAttribute="width" id="Dct-Zi-k3L"/>
+                                    <constraint firstItem="Pr1-5T-R5N" firstAttribute="width" secondItem="p9B-Wg-bHy" secondAttribute="width" id="GUk-Kq-c6H"/>
+                                    <constraint firstItem="cwq-pQ-zTh" firstAttribute="width" secondItem="p9B-Wg-bHy" secondAttribute="width" id="K0Y-AH-Iaz"/>
+                                    <constraint firstAttribute="width" secondItem="JTZ-kw-i4d" secondAttribute="width" id="KqG-sl-FZG"/>
+                                    <constraint firstAttribute="width" secondItem="xdb-Fq-uau" secondAttribute="width" id="PUh-jd-9os"/>
+                                    <constraint firstAttribute="bottom" secondItem="aGB-3l-vcr" secondAttribute="bottom" id="T2I-Td-AW3"/>
+                                    <constraint firstItem="aGB-3l-vcr" firstAttribute="top" secondItem="p9B-Wg-bHy" secondAttribute="top" id="Z8P-gQ-WbZ"/>
+                                    <constraint firstAttribute="width" secondItem="XX5-P5-kNC" secondAttribute="width" id="lwX-55-sEk"/>
+                                    <constraint firstItem="3tL-Bh-cOU" firstAttribute="width" secondItem="p9B-Wg-bHy" secondAttribute="width" id="p0i-EB-0Vr"/>
+                                    <constraint firstAttribute="width" secondItem="6h4-4I-1gI" secondAttribute="width" id="tbI-xe-vp3"/>
+                                    <constraint firstAttribute="trailing" secondItem="aGB-3l-vcr" secondAttribute="trailing" id="wT4-fJ-km7"/>
+                                    <constraint firstItem="aGB-3l-vcr" firstAttribute="leading" secondItem="p9B-Wg-bHy" secondAttribute="leading" id="zDt-Ux-Ojc"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="p9B-Wg-bHy" secondAttribute="trailing" id="5T8-uQ-Irv"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="p9B-Wg-bHy" secondAttribute="bottom" constant="-64" id="Uf4-V3-Jem"/>
-                            <constraint firstItem="p9B-Wg-bHy" firstAttribute="leading" secondItem="MN7-aX-Vfr" secondAttribute="leading" id="XZN-IO-ABe"/>
-                            <constraint firstItem="p9B-Wg-bHy" firstAttribute="top" secondItem="VSd-SH-A1f" secondAttribute="bottom" id="xxy-yt-WO1"/>
+                            <constraint firstItem="p9B-Wg-bHy" firstAttribute="top" secondItem="VSd-SH-A1f" secondAttribute="bottom" id="6EG-FA-Aq1"/>
+                            <constraint firstItem="p9B-Wg-bHy" firstAttribute="leading" secondItem="MN7-aX-Vfr" secondAttribute="leadingMargin" id="8Jn-tj-khq"/>
+                            <constraint firstItem="2i4-SG-70I" firstAttribute="top" secondItem="p9B-Wg-bHy" secondAttribute="bottom" id="goe-pr-c1E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p9B-Wg-bHy" secondAttribute="trailing" id="gzJ-N9-5YG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FAQ" id="BZb-aZ-VSu">
@@ -455,23 +442,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="answerLabel0" destination="ItH-gf-Pj8" id="PXa-th-K1i"/>
-                        <outlet property="answerLabel1" destination="YDW-aO-Hlg" id="R6X-l8-nW3"/>
-                        <outlet property="answerLabel2" destination="Hec-Jo-IwG" id="AAb-xU-Aw9"/>
-                        <outlet property="answerLabel3" destination="eR6-AE-h88" id="Fwd-tZ-hGH"/>
-                        <outlet property="answerLabel4" destination="RrU-d6-HWj" id="KQ5-Jq-qJ4"/>
-                        <outlet property="questionLabel0" destination="CLw-Vi-3NH" id="Lv9-XN-6qc"/>
-                        <outlet property="questionLabel1" destination="MAv-UJ-K6Z" id="okP-m3-3CL"/>
-                        <outlet property="questionLabel2" destination="4RP-aV-eFs" id="IQp-oz-Kqk"/>
-                        <outlet property="questionLabel3" destination="1W6-ad-OfQ" id="h5i-hG-bsU"/>
-                        <outlet property="questionLabel4" destination="Ci6-VA-xJi" id="ckg-Xl-YJW"/>
-                        <outlet property="scrollView" destination="p9B-Wg-bHy" id="zpj-qM-xdS"/>
-                    </connections>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXt-BQ-S5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3683" y="-504"/>
+            <point key="canvasLocation" x="3683" y="-772"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cnZ-Qn-uNJ">
@@ -487,7 +463,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbo-5Y-kJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="-1198"/>
+            <point key="canvasLocation" x="2830" y="-1432"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="naY-g1-m3E">
@@ -503,7 +479,50 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJq-Pb-UtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="-504"/>
+            <point key="canvasLocation" x="2830" y="-772"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="tvV-fR-x9S">
+            <objects>
+                <tableViewController id="9aj-yz-rIw" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KAz-uW-1RA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="EwG-7b-Jvz">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EwG-7b-Jvz" id="KTp-aC-ON5">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9aj-yz-rIw" id="waX-P4-SYI"/>
+                            <outlet property="delegate" destination="9aj-yz-rIw" id="cwG-2P-sJ9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="fVs-VB-AEH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hOs-sL-CxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3683" y="-106"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VPf-M2-3vO">
+            <objects>
+                <navigationController id="kpT-Pl-C5W" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AHQ-xR-pAG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9aj-yz-rIw" kind="relationship" relationship="rootViewController" id="sWl-4X-nwl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7qL-VY-dzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2830" y="-106"/>
         </scene>
         <!--Match me with ages:-->
         <scene sceneID="of8-Tv-M7J">
@@ -564,7 +583,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8h9-yo-kMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3677" y="-1864"/>
+            <point key="canvasLocation" x="3683" y="-2100"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4Nf-O9-Mmo">
