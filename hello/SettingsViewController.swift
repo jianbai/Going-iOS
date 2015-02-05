@@ -92,19 +92,19 @@ class SettingsViewController: UITableViewController {
         switch indexPath.row {
         // Age preferences
         case 1:
-            self.showAgePreferencesAlert()
+            self.performSegueWithIdentifier("showAgePreferences", sender: self)
             break
         // Gender preferences
         case 2:
-            self.showGenderPreferencesAlert()
+            self.performSegueWithIdentifier("showGenderPreferences", sender: self)
             break
         // FAQ
         case 3:
-            self.showFaqAlert()
+            self.performSegueWithIdentifier("showFaq", sender: self)
             break
         // RAQ
         case 4:
-            self.showRaqAlert()
+            self.performSegueWithIdentifier("showRaq", sender: self)
             break
         // Report a bug
         case 5:
@@ -124,22 +124,6 @@ class SettingsViewController: UITableViewController {
     }
     
 // MARK: - Table cell click handlers
-    
-    func showAgePreferencesAlert() {
-        self.performSegueWithIdentifier("showAgePreferences", sender: self)
-    }
-    
-    func showGenderPreferencesAlert() {
-        self.performSegueWithIdentifier("showGenderPreferences", sender: self)
-    }
-    
-    func showFaqAlert() {
-        self.performSegueWithIdentifier("showFaq", sender: self)
-    }
-    
-    func showRaqAlert() {
-        
-    }
     
     func showBugAlert() {
         

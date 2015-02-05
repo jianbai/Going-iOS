@@ -10,5 +10,8 @@ import UIKit
 
 class RaqViewController: UIViewController {
     
+    @IBAction func exitRaq(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }
