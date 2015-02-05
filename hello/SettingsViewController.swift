@@ -108,11 +108,11 @@ class SettingsViewController: UITableViewController {
             break
         // Report a bug
         case 5:
-            self.showBugAlert()
+            self.performSegueWithIdentifier("showBug", sender: self)
             break
         // Get in touch
         case 6:
-            self.showContactAlert()
+            self.performSegueWithIdentifier("showContact", sender: self)
             break
         // Logout
         case 7:
@@ -125,16 +125,14 @@ class SettingsViewController: UITableViewController {
     
 // MARK: - Table cell click handlers
     
-    func showBugAlert() {
-        
-    }
-    
-    func showContactAlert() {
-        
-    }
-    
     func logOut() {
+        if (PFFacebookUtils.session() != nil) {
+            PFFacebookUtils.session().closeAndClearTokenInformation()
+        }
         
+        PFUser.logOut()
+        
+        self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

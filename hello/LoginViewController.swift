@@ -35,15 +35,21 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (PFUser.currentUser() != nil) {
+        self.hideActivityIndicator()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var user = PFUser.currentUser()
+        
+        if (user != nil && PFFacebookUtils.isLinkedWithUser(user)) {
             self.performSegueWithIdentifier("showMain", sender: self)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.loginActivityIndicator.hidden = true
         
         for var i=0; i<self.presentationCountForPageViewController(pageViewController); ++i {
             self.views.append(viewControllerAtIndex(i)!)

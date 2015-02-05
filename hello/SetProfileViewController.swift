@@ -23,6 +23,7 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     var noGender: Bool!
     var noAge: Bool!
     var noHometown: Bool!
+//    var loginViewController: UIViewController!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,7 +49,8 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
         self.birthdayTextField.delegate = self
         self.hometownTextField.delegate = self
         self.genderTextField.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+
+//        self.loginViewController = self.presentingViewController
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -127,10 +129,6 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        if (textField == hometownTextField) {
-
-        }
-        
         animateTextField(textField, up: false)
     }
     
@@ -166,11 +164,6 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setBools(noGender: Bool, noAge: Bool, noHometown: Bool) {
@@ -210,7 +203,10 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     func saveToParse() {
         self.currentUser.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
             if (error == nil) {
-                self.performSegueWithIdentifier("showMain", sender: self)
+                let loginViewController: UIViewController = self.presentingViewController!
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    loginViewController.performSegueWithIdentifier("showMain", sender: loginViewController)
+                })
             } else {
                 self.showErrorAlert()
             }
