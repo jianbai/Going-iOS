@@ -10,6 +10,12 @@ import UIKit
 
 class RaqViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!]
+    }
+    
     @IBAction func exitRaq(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

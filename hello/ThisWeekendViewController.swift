@@ -12,7 +12,8 @@ class ThisWeekendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!]
     }
     
     override func didReceiveMemoryWarning() {
@@ -20,5 +21,8 @@ class ThisWeekendViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func showHelp() {
+        self.performSegueWithIdentifier("showHelp", sender: self)
+    }
     
 }

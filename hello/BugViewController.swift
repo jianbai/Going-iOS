@@ -17,6 +17,8 @@ class BugViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!]
+        
         self.bugTextField.returnKeyType = UIReturnKeyType.Done
         self.bugTextField.delegate = self
     }

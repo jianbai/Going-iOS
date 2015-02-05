@@ -17,6 +17,8 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!]
+        
         self.contactTextField.returnKeyType = UIReturnKeyType.Done
         self.contactTextField.delegate = self
     }

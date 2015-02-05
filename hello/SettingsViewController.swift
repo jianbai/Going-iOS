@@ -27,7 +27,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!]
 
         let userName = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
         let userAge = self.currentUser[parseConstants.KEY_AGE] as String

@@ -69,7 +69,7 @@
         <!--This Weekend-->
         <scene sceneID="WVc-W2-WGZ">
             <objects>
-                <viewController id="akT-zc-Im6" sceneMemberID="viewController">
+                <viewController id="akT-zc-Im6" customClass="ThisWeekendViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HAU-pA-q7U"/>
                         <viewControllerLayoutGuide type="bottom" id="3z7-xY-vgG"/>
@@ -78,38 +78,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet 3 people this weekend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NJ-iF-AOe">
-                                <rect key="frame" x="191" y="245" width="219" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-NS-xO4">
-                                <rect key="frame" x="274" y="295" width="52" height="60"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                <rect key="frame" x="269" y="265" width="62" height="69"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
                                 <state key="normal" title="Go">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How does Go work?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmL-OQ-Ly3">
-                                <rect key="frame" x="238" y="526" width="125" height="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-z9-vYX">
+                                <rect key="frame" x="229" y="506" width="143" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="How does Going work?">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showHelp" destination="akT-zc-Im6" eventType="touchUpInside" id="QxF-S2-AWd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet 3 people this weekend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NJ-iF-AOe">
+                                <rect key="frame" x="191" y="185" width="219" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="7NJ-iF-AOe" secondAttribute="centerY" constant="44" id="8B8-1r-Ry4"/>
-                            <constraint firstAttribute="centerY" secondItem="B0J-NS-xO4" secondAttribute="centerY" constant="-25" id="Dor-Ra-NKx"/>
-                            <constraint firstAttribute="centerX" secondItem="B0J-NS-xO4" secondAttribute="centerX" id="HhW-5f-G2g"/>
-                            <constraint firstItem="3z7-xY-vgG" firstAttribute="top" secondItem="YmL-OQ-Ly3" secondAttribute="bottom" constant="8" id="K7R-S2-8YW"/>
-                            <constraint firstAttribute="centerX" secondItem="YmL-OQ-Ly3" secondAttribute="centerX" constant="-0.5" id="dah-vL-PFU"/>
-                            <constraint firstItem="B0J-NS-xO4" firstAttribute="top" secondItem="7NJ-iF-AOe" secondAttribute="bottom" constant="28" id="fO6-2E-sww"/>
+                            <constraint firstAttribute="centerX" secondItem="B0J-NS-xO4" secondAttribute="centerX" id="E4E-Wh-dXl"/>
+                            <constraint firstItem="3z7-xY-vgG" firstAttribute="top" secondItem="ShR-z9-vYX" secondAttribute="bottom" constant="16" id="LbW-RU-e7Q"/>
+                            <constraint firstAttribute="centerX" secondItem="ShR-z9-vYX" secondAttribute="centerX" id="Pe7-Jw-Of9"/>
+                            <constraint firstAttribute="centerY" secondItem="B0J-NS-xO4" secondAttribute="centerY" constant="0.5" id="ZLp-OA-SYr"/>
                             <constraint firstAttribute="centerX" secondItem="7NJ-iF-AOe" secondAttribute="centerX" constant="-0.5" id="sQb-Pw-Ci4"/>
+                            <constraint firstItem="B0J-NS-xO4" firstAttribute="top" secondItem="7NJ-iF-AOe" secondAttribute="bottom" constant="58" id="sT0-DL-QeX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="This Weekend" id="ZXY-Z0-7jd"/>
+                    <connections>
+                        <segue destination="YQb-vx-wnP" kind="presentation" identifier="showHelp" id="YxT-bc-6XK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q98-WH-BLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -574,6 +581,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Er-tc-he9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3236" y="-1760"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="coo-dI-hU6">
+            <objects>
+                <navigationController id="YQb-vx-wnP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4sv-xW-XRy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yOe-YV-hAT" kind="relationship" relationship="rootViewController" id="Uxy-HR-wkx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFb-aR-TnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2564" y="-484"/>
         </scene>
         <!--Age Preferences-->
         <scene sceneID="of8-Tv-M7J">
@@ -1077,6 +1100,143 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufo-KG-VWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3982" y="-1760"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="I10-Dj-rEK">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="yOe-YV-hAT" userLabel="Help" customClass="HelpViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wov-Nc-NCJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="NBf-XD-bSV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YBK-Rs-azJ">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppf-rl-3vN">
+                                <rect key="frame" x="16" y="64" width="568" height="536"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoc-gN-iNc">
+                                        <rect key="frame" x="-12" y="0.0" width="624" height="536"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free this weekend?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he8-xE-vcB">
+                                                <rect key="frame" x="0.0" y="16" width="568" height="22"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 :: Go" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxY-Cu-evx">
+                                                <rect key="frame" x="0.0" y="54" width="568" height="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-Iy-4Mh">
+                                                <rect key="frame" x="0.0" y="79" width="568" height="34"/>
+                                                <string key="text">Press the big shiny “Go” button and Go will match you with 3 other people around you. Chat with each other in the app and make plans to go somewhere cool!</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 :: Go out" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gau-bF-L9m">
+                                                <rect key="frame" x="0.0" y="121" width="568" height="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go again next weekend to make new matches, meet more people and grow your friends list!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-W5-INv">
+                                                <rect key="frame" x="0.0" y="213" width="568" height="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 :: Go again" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLo-vX-ax3">
+                                                <rect key="frame" x="0.0" y="188" width="568" height="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More questions? Check out the FAQ in the Settings tab." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYm-dJ-9NC">
+                                                <rect key="frame" x="0.0" y="246" width="568" height="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eer-dJ-ROj">
+                                                <rect key="frame" x="0.0" y="146" width="568" height="34"/>
+                                                <string key="text">Matches only last for one weekend, so make sure to meet up! Your matches will disappear at the end of the weekend, and you'll be able to choose who you want to add to your friends list.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="UxY-Cu-evx" secondAttribute="trailing" id="1lY-zu-Wug"/>
+                                            <constraint firstItem="SYm-dJ-9NC" firstAttribute="top" secondItem="Inr-W5-INv" secondAttribute="bottom" constant="16" id="3aT-bp-i6F"/>
+                                            <constraint firstItem="OLo-vX-ax3" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="7ja-5r-ghv"/>
+                                            <constraint firstAttribute="bottom" secondItem="SYm-dJ-9NC" secondAttribute="bottom" constant="16" id="94P-pR-jrH"/>
+                                            <constraint firstAttribute="trailing" secondItem="Inr-W5-INv" secondAttribute="trailing" id="AF0-8l-IbH"/>
+                                            <constraint firstItem="he8-xE-vcB" firstAttribute="top" secondItem="xoc-gN-iNc" secondAttribute="top" constant="16" id="Az8-aX-EC8"/>
+                                            <constraint firstItem="SYm-dJ-9NC" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="Cwd-9B-O7n"/>
+                                            <constraint firstItem="he8-xE-vcB" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="LGh-dt-q2w"/>
+                                            <constraint firstAttribute="trailing" secondItem="OLo-vX-ax3" secondAttribute="trailing" id="LIZ-Qb-YhO"/>
+                                            <constraint firstAttribute="trailing" secondItem="he8-xE-vcB" secondAttribute="trailing" id="VeB-FE-ugg"/>
+                                            <constraint firstItem="gau-bF-L9m" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="X2f-dD-AbO"/>
+                                            <constraint firstItem="Eer-dJ-ROj" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="bOx-UG-hrI"/>
+                                            <constraint firstItem="UxY-Cu-evx" firstAttribute="top" secondItem="he8-xE-vcB" secondAttribute="bottom" constant="16" id="gkB-JF-rOq"/>
+                                            <constraint firstItem="fuE-Iy-4Mh" firstAttribute="top" secondItem="UxY-Cu-evx" secondAttribute="bottom" constant="8" id="grb-Aa-Jmk"/>
+                                            <constraint firstItem="fuE-Iy-4Mh" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="jTH-eQ-vt1"/>
+                                            <constraint firstAttribute="trailing" secondItem="gau-bF-L9m" secondAttribute="trailing" id="nG9-DX-RIb"/>
+                                            <constraint firstAttribute="trailing" secondItem="SYm-dJ-9NC" secondAttribute="trailing" id="pZH-4q-Ttf"/>
+                                            <constraint firstItem="gau-bF-L9m" firstAttribute="top" secondItem="fuE-Iy-4Mh" secondAttribute="bottom" constant="8" id="pfO-Pk-piV"/>
+                                            <constraint firstAttribute="trailing" secondItem="Eer-dJ-ROj" secondAttribute="trailing" id="ptG-BG-fql"/>
+                                            <constraint firstItem="Inr-W5-INv" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="s3g-Sy-6Bq"/>
+                                            <constraint firstItem="OLo-vX-ax3" firstAttribute="top" secondItem="Eer-dJ-ROj" secondAttribute="bottom" constant="8" id="sg9-tp-JbW"/>
+                                            <constraint firstItem="Eer-dJ-ROj" firstAttribute="top" secondItem="gau-bF-L9m" secondAttribute="bottom" constant="8" id="vve-1U-cyH"/>
+                                            <constraint firstItem="UxY-Cu-evx" firstAttribute="leading" secondItem="xoc-gN-iNc" secondAttribute="leading" id="vwH-fg-Pi3"/>
+                                            <constraint firstItem="Inr-W5-INv" firstAttribute="top" secondItem="OLo-vX-ax3" secondAttribute="bottom" constant="8" id="yu5-lt-J9e"/>
+                                            <constraint firstAttribute="trailing" secondItem="fuE-Iy-4Mh" secondAttribute="trailing" id="zvX-rB-8ZE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fuE-Iy-4Mh" firstAttribute="width" secondItem="Ppf-rl-3vN" secondAttribute="width" id="2tz-Fv-6Mz"/>
+                                    <constraint firstItem="he8-xE-vcB" firstAttribute="width" secondItem="Ppf-rl-3vN" secondAttribute="width" id="6oZ-Jg-ILs"/>
+                                    <constraint firstItem="xoc-gN-iNc" firstAttribute="top" secondItem="Ppf-rl-3vN" secondAttribute="top" id="E6g-gs-Gcr"/>
+                                    <constraint firstItem="OLo-vX-ax3" firstAttribute="width" secondItem="Ppf-rl-3vN" secondAttribute="width" id="JUu-qc-A0P"/>
+                                    <constraint firstAttribute="width" secondItem="Inr-W5-INv" secondAttribute="width" id="Li8-nH-zqU"/>
+                                    <constraint firstAttribute="width" secondItem="Eer-dJ-ROj" secondAttribute="width" id="QjQ-nd-yLd"/>
+                                    <constraint firstItem="gau-bF-L9m" firstAttribute="width" secondItem="Ppf-rl-3vN" secondAttribute="width" id="Rlm-Ms-KzG"/>
+                                    <constraint firstAttribute="trailing" secondItem="xoc-gN-iNc" secondAttribute="trailing" id="SsX-se-F6s"/>
+                                    <constraint firstAttribute="width" secondItem="UxY-Cu-evx" secondAttribute="width" id="crS-Rv-Bo5"/>
+                                    <constraint firstAttribute="bottom" secondItem="xoc-gN-iNc" secondAttribute="bottom" id="lV1-nB-iqW"/>
+                                    <constraint firstItem="xoc-gN-iNc" firstAttribute="leading" secondItem="Ppf-rl-3vN" secondAttribute="leading" id="vAZ-x7-QK0"/>
+                                    <constraint firstAttribute="width" secondItem="SYm-dJ-9NC" secondAttribute="width" id="z2U-ca-FQQ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NBf-XD-bSV" firstAttribute="top" secondItem="Ppf-rl-3vN" secondAttribute="bottom" id="Dte-yQ-zl8"/>
+                            <constraint firstItem="Ppf-rl-3vN" firstAttribute="trailing" secondItem="YBK-Rs-azJ" secondAttribute="trailingMargin" id="Dw6-DX-Mvu"/>
+                            <constraint firstItem="Ppf-rl-3vN" firstAttribute="leading" secondItem="YBK-Rs-azJ" secondAttribute="leadingMargin" id="NSe-aM-zwG"/>
+                            <constraint firstItem="Ppf-rl-3vN" firstAttribute="top" secondItem="Wov-Nc-NCJ" secondAttribute="bottom" id="yHX-L3-iJP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="How Going Works" id="OBW-b3-ZZA">
+                        <barButtonItem key="rightBarButtonItem" title="OK" id="yXo-gj-rtS">
+                            <connections>
+                                <action selector="exitHelp:" destination="yOe-YV-hAT" id="ipm-Um-dmA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A2w-MX-g8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3290" y="-484"/>
         </scene>
     </scenes>
     <resources>

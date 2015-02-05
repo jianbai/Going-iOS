@@ -31,7 +31,7 @@ class AgePreferencesViewController: UITableViewController {
         
         self.hideActivityIndicator()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!]
     }
 
     // MARK: - Table view data source
