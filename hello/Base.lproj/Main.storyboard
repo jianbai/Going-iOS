@@ -36,7 +36,9 @@
         <scene sceneID="9cx-Ms-Ohh">
             <objects>
                 <navigationController id="Ndr-Y3-tYt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Friends" id="7ha-4x-1am"/>
+                    <tabBarItem key="tabBarItem" title="" image="Friends" id="7ha-4x-1am">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k8W-7W-2hC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,7 +55,9 @@
         <scene sceneID="uzw-72-awd">
             <objects>
                 <navigationController id="3TW-B5-DT5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ThisWeekend" id="ohY-su-Ttm"/>
+                    <tabBarItem key="tabBarItem" title="" image="ThisWeekend" id="ohY-su-Ttm">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ERW-rF-YNv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -97,7 +101,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet 3 people this weekend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NJ-iF-AOe">
-                                <rect key="frame" x="191" y="185" width="219" height="22"/>
+                                <rect key="frame" x="191" y="211" width="219" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,7 +114,7 @@
                             <constraint firstAttribute="centerX" secondItem="ShR-z9-vYX" secondAttribute="centerX" id="Pe7-Jw-Of9"/>
                             <constraint firstAttribute="centerY" secondItem="B0J-NS-xO4" secondAttribute="centerY" constant="0.5" id="ZLp-OA-SYr"/>
                             <constraint firstAttribute="centerX" secondItem="7NJ-iF-AOe" secondAttribute="centerX" constant="-0.5" id="sQb-Pw-Ci4"/>
-                            <constraint firstItem="B0J-NS-xO4" firstAttribute="top" secondItem="7NJ-iF-AOe" secondAttribute="bottom" constant="58" id="sT0-DL-QeX"/>
+                            <constraint firstItem="B0J-NS-xO4" firstAttribute="top" secondItem="7NJ-iF-AOe" secondAttribute="bottom" constant="32" id="sT0-DL-QeX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="This Weekend" id="ZXY-Z0-7jd"/>
@@ -192,7 +196,9 @@
         <scene sceneID="wEm-cT-EbY">
             <objects>
                 <navigationController id="BKk-Dd-2jP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Settings" id="DLm-Qw-XhW"/>
+                    <tabBarItem key="tabBarItem" title="" image="Settings" id="DLm-Qw-XhW">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X0H-M8-yKe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -899,6 +905,8 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="0.66985580349999996" blue="0.2221956001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.66985580349999996" blue="0.2221956001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BKk-Dd-2jP" kind="relationship" relationship="viewControllers" id="NDw-Ka-fgo"/>
