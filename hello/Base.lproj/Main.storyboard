@@ -83,11 +83,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-NS-xO4">
-                                <rect key="frame" x="269" y="265" width="62" height="69"/>
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
-                                <state key="normal" title="Go">
+                                <state key="normal" title="Go" backgroundImage="GoButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="go" destination="akT-zc-Im6" eventType="touchUpInside" id="Ntj-oT-WRP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-z9-vYX">
                                 <rect key="frame" x="229" y="506" width="143" height="29"/>
@@ -101,24 +105,31 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet 3 people this weekend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NJ-iF-AOe">
-                                <rect key="frame" x="191" y="211" width="219" height="22"/>
+                                <rect key="frame" x="191" y="196" width="219" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Anb-XE-wcy">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="B0J-NS-xO4" firstAttribute="centerX" secondItem="Anb-XE-wcy" secondAttribute="centerX" id="AHf-fu-44w"/>
                             <constraint firstAttribute="centerX" secondItem="B0J-NS-xO4" secondAttribute="centerX" id="E4E-Wh-dXl"/>
                             <constraint firstItem="3z7-xY-vgG" firstAttribute="top" secondItem="ShR-z9-vYX" secondAttribute="bottom" constant="16" id="LbW-RU-e7Q"/>
                             <constraint firstAttribute="centerX" secondItem="ShR-z9-vYX" secondAttribute="centerX" id="Pe7-Jw-Of9"/>
                             <constraint firstAttribute="centerY" secondItem="B0J-NS-xO4" secondAttribute="centerY" constant="0.5" id="ZLp-OA-SYr"/>
+                            <constraint firstItem="B0J-NS-xO4" firstAttribute="centerY" secondItem="Anb-XE-wcy" secondAttribute="centerY" id="fDb-XO-NLS"/>
                             <constraint firstAttribute="centerX" secondItem="7NJ-iF-AOe" secondAttribute="centerX" constant="-0.5" id="sQb-Pw-Ci4"/>
                             <constraint firstItem="B0J-NS-xO4" firstAttribute="top" secondItem="7NJ-iF-AOe" secondAttribute="bottom" constant="32" id="sT0-DL-QeX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="This Weekend" id="ZXY-Z0-7jd"/>
                     <connections>
+                        <outlet property="goActivityIndicator" destination="Anb-XE-wcy" id="msF-F4-NEl"/>
+                        <outlet property="goButton" destination="B0J-NS-xO4" id="mfG-Jy-x0R"/>
+                        <outlet property="meetLabel" destination="7NJ-iF-AOe" id="pih-ET-wVE"/>
                         <segue destination="YQb-vx-wnP" kind="presentation" identifier="showHelp" id="YxT-bc-6XK"/>
                     </connections>
                 </viewController>
@@ -180,6 +191,7 @@
                     <connections>
                         <outlet property="profileInfoLabel" destination="Rws-tG-T4i" id="Sv4-fj-iwQ"/>
                         <outlet property="profileNameLabel" destination="6lZ-87-ebK" id="Gsp-kD-Shx"/>
+                        <outlet property="profileView" destination="G7z-Ac-VhT" id="5W3-PA-Z0r"/>
                         <segue destination="euC-9e-CZm" kind="presentation" identifier="showAgePreferences" id="TUQ-KI-6ae"/>
                         <segue destination="bub-So-4r0" kind="presentation" identifier="showGenderPreferences" id="H7E-hR-VPM"/>
                         <segue destination="cZ6-Cd-8PD" kind="presentation" identifier="showFaq" id="1fh-cz-GsH"/>
@@ -300,6 +312,7 @@
                     <connections>
                         <outlet property="genderPreferencesActivityIndicator" destination="1Rq-J9-6Yi" id="obP-I2-snd"/>
                         <outlet property="saveButton" destination="ltb-zB-wY2" id="Gyh-ov-6EV"/>
+                        <outlet property="saveView" destination="Ny3-7N-fwX" id="xWE-xs-YSm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTZ-uF-FsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -453,6 +466,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="FAQ" id="BZb-aZ-VSu">
                         <barButtonItem key="rightBarButtonItem" title="OK" id="kdN-JD-cHW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="exitFaq:" destination="tV7-k4-r8l" id="FDz-rG-1qQ"/>
                             </connections>
@@ -460,6 +474,9 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="faqView" destination="aGB-3l-vcr" id="w84-kR-xoV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXt-BQ-S5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -553,11 +570,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Report a bug" id="9CQ-cE-Kg1">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="JdX-YS-Tcp">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="cancelBug:" destination="OYM-Hc-fb6" id="pFf-gg-zS6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Report" id="VKG-CI-w5y">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="reportBug:" destination="OYM-Hc-fb6" id="wem-cH-ex8"/>
                             </connections>
@@ -659,6 +678,7 @@
                     <connections>
                         <outlet property="agePreferencesActivityIndicator" destination="fqq-tM-yEK" id="Fc1-kU-7MA"/>
                         <outlet property="saveButton" destination="aCi-jw-UsW" id="QAG-Tp-6yt"/>
+                        <outlet property="saveView" destination="8hB-pv-qar" id="P3g-QP-8sL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8h9-yo-kMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1023,6 +1043,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="RAQ" id="l3R-I6-K50">
                         <barButtonItem key="rightBarButtonItem" title="OK" id="sgc-8H-IqG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="exitRaq:" destination="iL5-nF-2q1" id="Igd-FP-N8j"/>
                             </connections>
@@ -1030,6 +1051,9 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="raqView" destination="qKM-aL-x46" id="lsL-rb-jXa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpO-Qf-qwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1074,11 +1098,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dear Go:" id="oKw-4Q-D34">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="FxY-s4-jbG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="cancelContact:" destination="Bdd-hU-m04" id="Pod-eW-dyg"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Send" id="K8n-rg-xl7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="sendContact:" destination="Bdd-hU-m04" id="DNm-Hs-FQN"/>
                             </connections>
@@ -1234,6 +1260,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="How Going Works" id="OBW-b3-ZZA">
                         <barButtonItem key="rightBarButtonItem" title="OK" id="yXo-gj-rtS">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="exitHelp:" destination="yOe-YV-hAT" id="ipm-Um-dmA"/>
                             </connections>
@@ -1249,6 +1276,7 @@
     </scenes>
     <resources>
         <image name="Friends" width="25" height="25"/>
+        <image name="GoButton" width="100" height="100"/>
         <image name="LoginTutorial0" width="120" height="120"/>
         <image name="Settings" width="25" height="25"/>
         <image name="ThisWeekend" width="25" height="25"/>

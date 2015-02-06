@@ -10,6 +10,7 @@ import UIKit
 
 class AgePreferencesViewController: UITableViewController {
     
+    @IBOutlet weak var saveView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var agePreferencesActivityIndicator: UIActivityIndicatorView!
     
@@ -31,6 +32,8 @@ class AgePreferencesViewController: UITableViewController {
         
         self.hideActivityIndicator()
         
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.saveView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [
@@ -52,6 +55,8 @@ class AgePreferencesViewController: UITableViewController {
         let cellIdentifer = "Cell"
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath) as UITableViewCell
+        
+        cell.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         
         cell.textLabel?.text = self.agePreferences[indexPath.row]
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)

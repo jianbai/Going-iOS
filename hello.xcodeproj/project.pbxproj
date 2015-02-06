@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D2089FA41A83464C0017E32A /* ThisWeekendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */; };
-		D24CD1411A82FB6500546D9D /* RaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24CD1401A82FB6500546D9D /* RaqViewController.swift */; };
 		D25452941A78A4FC00D40D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452931A78A4FC00D40D9D /* AppDelegate.swift */; };
 		D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452951A78A4FC00D40D9D /* SettingsViewController.swift */; };
 		D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452971A78A4FC00D40D9D /* FriendsViewController.swift */; };
@@ -18,6 +17,8 @@
 		D25452AC1A78A4FD00D40D9D /* helloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452AB1A78A4FD00D40D9D /* helloTests.swift */; };
 		D25452C31A78DDB100D40D9D /* FriendChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C21A78DDB100D40D9D /* FriendChat.swift */; };
 		D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */; };
+		D285C2F21A84613700C769AD /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285C2F01A84613700C769AD /* FaqViewController.swift */; };
+		D285C2F31A84613700C769AD /* RaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285C2F11A84613700C769AD /* RaqViewController.swift */; };
 		D29B76371A7DF7EE00A11BE7 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */; };
 		D29B76391A7E07AD00A11BE7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29B76381A7E07AD00A11BE7 /* Firebase.framework */; };
 		D29B763B1A7E07FB00A11BE7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D29B763A1A7E07FB00A11BE7 /* libicucore.dylib */; };
@@ -34,7 +35,6 @@
 		D2D1884F1A7E2B7900E43DD2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */; };
 		D2DDD1FB1A81D22900756DCA /* AgePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */; };
 		D2DDD1FD1A81F3AB00756DCA /* GenderPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */; };
-		D2DDD1FF1A81FC8600756DCA /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DDD1FE1A81FC8600756DCA /* FaqViewController.swift */; };
 		D2E896B91A79E99600B00376 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B51A79E99600B00376 /* Parse.framework */; };
 		D2E896BB1A79E99600B00376 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896B71A79E99600B00376 /* ParseFacebookUtils.framework */; };
 		D2E896C71A79E9FC00B00376 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896BC1A79E9FC00B00376 /* AudioToolbox.framework */; };
@@ -63,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeekendViewController.swift; sourceTree = "<group>"; };
-		D24CD1401A82FB6500546D9D /* RaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaqViewController.swift; sourceTree = "<group>"; };
 		D254528E1A78A4FC00D40D9D /* hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25452921A78A4FC00D40D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25452931A78A4FC00D40D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +76,8 @@
 		D25452AB1A78A4FD00D40D9D /* helloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloTests.swift; sourceTree = "<group>"; };
 		D25452C21A78DDB100D40D9D /* FriendChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendChat.swift; sourceTree = "<group>"; };
 		D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
+		D285C2F01A84613700C769AD /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
+		D285C2F11A84613700C769AD /* RaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaqViewController.swift; sourceTree = "<group>"; };
 		D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
 		D29B76381A7E07AD00A11BE7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		D29B763A1A7E07FB00A11BE7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -93,7 +94,6 @@
 		D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgePreferencesViewController.swift; sourceTree = "<group>"; };
 		D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderPreferencesViewController.swift; sourceTree = "<group>"; };
-		D2DDD1FE1A81FC8600756DCA /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
 		D2E896B51A79E99600B00376 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D2E896B71A79E99600B00376 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		D2E896BC1A79E9FC00B00376 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -185,8 +185,8 @@
 				D29B763E1A7E0B4500A11BE7 /* FirebaseConstants.swift */,
 				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
 				D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */,
-				D2DDD1FE1A81FC8600756DCA /* FaqViewController.swift */,
-				D24CD1401A82FB6500546D9D /* RaqViewController.swift */,
+				D285C2F01A84613700C769AD /* FaqViewController.swift */,
+				D285C2F11A84613700C769AD /* RaqViewController.swift */,
 				D2BECE7A1A83099D0085900B /* BugViewController.swift */,
 				D2BECE7C1A8313560085900B /* ContactViewController.swift */,
 				D2E896D21A79EACC00B00376 /* hello-Bridging-Header.h */,
@@ -356,6 +356,7 @@
 				D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */,
 				D2BECE7D1A8313560085900B /* ContactViewController.swift in Sources */,
 				D29B76371A7DF7EE00A11BE7 /* ParseConstants.swift in Sources */,
+				D285C2F21A84613700C769AD /* FaqViewController.swift in Sources */,
 				D2DDD1FD1A81F3AB00756DCA /* GenderPreferencesViewController.swift in Sources */,
 				D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */,
 				D25452941A78A4FC00D40D9D /* AppDelegate.swift in Sources */,
@@ -366,10 +367,9 @@
 				D29B763F1A7E0B4500A11BE7 /* FirebaseConstants.swift in Sources */,
 				D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */,
 				D2DDD1FB1A81D22900756DCA /* AgePreferencesViewController.swift in Sources */,
-				D24CD1411A82FB6500546D9D /* RaqViewController.swift in Sources */,
 				D2089FA41A83464C0017E32A /* ThisWeekendViewController.swift in Sources */,
-				D2DDD1FF1A81FC8600756DCA /* FaqViewController.swift in Sources */,
 				D2BECE7B1A83099D0085900B /* BugViewController.swift in Sources */,
+				D285C2F31A84613700C769AD /* RaqViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
