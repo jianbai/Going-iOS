@@ -28,14 +28,11 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     var noAge: Bool!
     var noHometown: Bool!
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.hideActivityIndicator()
+        
     }
     
     override func viewDidAppear(animated: Bool) {

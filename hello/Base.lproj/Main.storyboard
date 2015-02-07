@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWG-h4-7WE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vac-zO-Kcf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -131,9 +131,15 @@
                         <outlet property="goButton" destination="B0J-NS-xO4" id="mfG-Jy-x0R"/>
                         <outlet property="meetLabel" destination="7NJ-iF-AOe" id="pih-ET-wVE"/>
                         <segue destination="YQb-vx-wnP" kind="presentation" identifier="showHelp" id="YxT-bc-6XK"/>
+                        <segue destination="PyA-Zb-6iF" kind="custom" identifier="showGroupChat" customClass="ReplaceSegue" customModule="hello" customModuleProvider="target" id="XD6-3a-K7s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q98-WH-BLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Eq5-49-boC">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </objects>
             <point key="canvasLocation" x="1638" y="-80"/>
         </scene>
@@ -222,24 +228,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8WA-Bq-VXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818" y="-902"/>
-        </scene>
-        <!--Group Chat-->
-        <scene sceneID="5r5-zU-GA9">
-            <objects>
-                <viewController title="Group Chat" id="N5P-jb-QgZ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KRF-KQ-Krw"/>
-                        <viewControllerLayoutGuide type="bottom" id="vHG-2V-Q6B"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="52I-du-yLG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N1Y-Es-fRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-584" y="-2440"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g7f-U8-irY">
@@ -621,7 +609,34 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFb-aR-TnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2564" y="-484"/>
+            <point key="canvasLocation" x="2732" y="-732"/>
+        </scene>
+        <!--Group Chat-->
+        <scene sceneID="a8T-3h-BPm">
+            <objects>
+                <tableViewController title="Group Chat" id="PyA-Zb-6iF" customClass="GroupChatViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hae-ka-DnZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UrD-Kt-Jh5">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UrD-Kt-Jh5" id="5lo-wM-GMe">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PyA-Zb-6iF" id="H98-Pf-4PZ"/>
+                            <outlet property="delegate" destination="PyA-Zb-6iF" id="FEC-NW-vDt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="This Weekend" id="ybU-dw-w63"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVl-nd-68m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2732" y="-80"/>
         </scene>
         <!--Age Preferences-->
         <scene sceneID="of8-Tv-M7J">
@@ -697,7 +712,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
+                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
                                 <rect key="frame" x="246" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SYs-r1-Zf2"/>
@@ -717,7 +732,7 @@
                                     <action selector="login" destination="jWG-h4-7WE" eventType="touchUpInside" id="XP8-Aj-6G6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
                                 <rect key="frame" x="304" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ifB-pK-b4y"/>
@@ -741,16 +756,33 @@
                             <constraint firstItem="Nne-T4-HkO" firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" constant="-1" id="zKS-bH-uEK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6Im-Ay-p6L"/>
                     <connections>
                         <outlet property="loginActivityIndicator" destination="Nne-T4-HkO" id="YKT-MZ-d1A"/>
                         <outlet property="loginButton" destination="Qok-U7-LAi" id="JwT-Fq-Oyi"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="showMain" id="Kin-mF-DNg"/>
+                        <segue destination="49e-Tb-3d3" kind="custom" identifier="showMain" customClass="ReplaceSegue" customModule="hello" customModuleProvider="target" id="Kin-mF-DNg"/>
                         <segue destination="O1f-VV-Ixl" kind="presentation" identifier="showSetProfile" id="2fQ-pO-iwx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCt-VS-67y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-762" y="-80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HNI-gy-agJ">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="vac-zO-Kcf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KUN-BG-hvn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jWG-h4-7WE" kind="relationship" relationship="rootViewController" id="YD4-bp-zOT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EBb-YE-aHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1512" y="-80"/>
         </scene>
         <!--LoginTutorial-->
         <scene sceneID="XDo-3z-TA5">
@@ -897,24 +929,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJX-Xk-9gJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4" y="-902"/>
-        </scene>
-        <!--Friend Chat-->
-        <scene sceneID="5hI-Yp-oWO">
-            <objects>
-                <viewController title="Friend Chat" id="uGS-Nj-oxl" customClass="FriendChatController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fTY-5f-lL6"/>
-                        <viewControllerLayoutGuide type="bottom" id="L7a-AH-pCC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZNC-az-p6L">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jx5-5C-b5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-620" y="-1726"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1268,10 +1282,13 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="helpView" destination="xoc-gN-iNc" id="jid-iI-Oxr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2w-MX-g8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3290" y="-484"/>
+            <point key="canvasLocation" x="3458" y="-732"/>
         </scene>
     </scenes>
     <resources>

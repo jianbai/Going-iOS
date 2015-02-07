@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D2089FA41A83464C0017E32A /* ThisWeekendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */; };
+		D2151E2E1A86D27C001D0C58 /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */; };
 		D25452941A78A4FC00D40D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452931A78A4FC00D40D9D /* AppDelegate.swift */; };
 		D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452951A78A4FC00D40D9D /* SettingsViewController.swift */; };
 		D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452971A78A4FC00D40D9D /* FriendsViewController.swift */; };
@@ -15,7 +16,6 @@
 		D254529D1A78A4FD00D40D9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D254529C1A78A4FD00D40D9D /* Images.xcassets */; };
 		D25452A01A78A4FD00D40D9D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */; };
 		D25452AC1A78A4FD00D40D9D /* helloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452AB1A78A4FD00D40D9D /* helloTests.swift */; };
-		D25452C31A78DDB100D40D9D /* FriendChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C21A78DDB100D40D9D /* FriendChat.swift */; };
 		D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */; };
 		D285C2F21A84613700C769AD /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285C2F01A84613700C769AD /* FaqViewController.swift */; };
 		D285C2F31A84613700C769AD /* RaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285C2F11A84613700C769AD /* RaqViewController.swift */; };
@@ -30,6 +30,7 @@
 		D2BECE7B1A83099D0085900B /* BugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BECE7A1A83099D0085900B /* BugViewController.swift */; };
 		D2BECE7D1A8313560085900B /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BECE7C1A8313560085900B /* ContactViewController.swift */; };
 		D2BECE7F1A83248D0085900B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BECE7E1A83248D0085900B /* MainTabBarController.swift */; };
+		D2CAC4F91A8490AF00A87966 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAC4F81A8490AF00A87966 /* GroupChatViewController.swift */; };
 		D2D188441A7E28B400E43DD2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D188431A7E28B400E43DD2 /* Accounts.framework */; };
 		D2D188461A7E28BA00E43DD2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D188451A7E28BA00E43DD2 /* Social.framework */; };
 		D2D1884F1A7E2B7900E43DD2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThisWeekendViewController.swift; sourceTree = "<group>"; };
+		D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
 		D254528E1A78A4FC00D40D9D /* hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25452921A78A4FC00D40D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25452931A78A4FC00D40D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +76,6 @@
 		D25452A51A78A4FD00D40D9D /* helloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = helloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25452AA1A78A4FD00D40D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25452AB1A78A4FD00D40D9D /* helloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloTests.swift; sourceTree = "<group>"; };
-		D25452C21A78DDB100D40D9D /* FriendChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendChat.swift; sourceTree = "<group>"; };
 		D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		D285C2F01A84613700C769AD /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
 		D285C2F11A84613700C769AD /* RaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaqViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		D2BECE7A1A83099D0085900B /* BugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugViewController.swift; sourceTree = "<group>"; };
 		D2BECE7C1A8313560085900B /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		D2BECE7E1A83248D0085900B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		D2CAC4F81A8490AF00A87966 /* GroupChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
 		D2D188431A7E28B400E43DD2 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D2D188451A7E28BA00E43DD2 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D2D1884E1A7E2B7900E43DD2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -178,22 +180,23 @@
 				D2BECE7E1A83248D0085900B /* MainTabBarController.swift */,
 				D25452951A78A4FC00D40D9D /* SettingsViewController.swift */,
 				D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */,
-				D2ABEBD81A8343A400221683 /* HelpViewController.swift */,
+				D2CAC4F81A8490AF00A87966 /* GroupChatViewController.swift */,
 				D25452971A78A4FC00D40D9D /* FriendsViewController.swift */,
-				D25452C21A78DDB100D40D9D /* FriendChat.swift */,
-				D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */,
-				D29B763E1A7E0B4500A11BE7 /* FirebaseConstants.swift */,
+				D2ABEBD81A8343A400221683 /* HelpViewController.swift */,
 				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
 				D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */,
 				D285C2F01A84613700C769AD /* FaqViewController.swift */,
 				D285C2F11A84613700C769AD /* RaqViewController.swift */,
 				D2BECE7A1A83099D0085900B /* BugViewController.swift */,
 				D2BECE7C1A8313560085900B /* ContactViewController.swift */,
+				D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */,
+				D29B763E1A7E0B4500A11BE7 /* FirebaseConstants.swift */,
 				D2E896D21A79EACC00B00376 /* hello-Bridging-Header.h */,
 				D25452991A78A4FD00D40D9D /* Main.storyboard */,
 				D254529C1A78A4FD00D40D9D /* Images.xcassets */,
 				D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */,
 				D25452911A78A4FC00D40D9D /* Supporting Files */,
+				D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */,
 			);
 			path = hello;
 			sourceTree = "<group>";
@@ -361,14 +364,15 @@
 				D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */,
 				D25452941A78A4FC00D40D9D /* AppDelegate.swift in Sources */,
 				D2A24E4E1A7B1A810004326F /* LoginTutorial.swift in Sources */,
-				D25452C31A78DDB100D40D9D /* FriendChat.swift in Sources */,
 				D2A24E4C1A7B09C80004326F /* LoginViewController.swift in Sources */,
 				D2ABEBD91A8343A400221683 /* HelpViewController.swift in Sources */,
 				D29B763F1A7E0B4500A11BE7 /* FirebaseConstants.swift in Sources */,
+				D2CAC4F91A8490AF00A87966 /* GroupChatViewController.swift in Sources */,
 				D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */,
 				D2DDD1FB1A81D22900756DCA /* AgePreferencesViewController.swift in Sources */,
 				D2089FA41A83464C0017E32A /* ThisWeekendViewController.swift in Sources */,
 				D2BECE7B1A83099D0085900B /* BugViewController.swift in Sources */,
+				D2151E2E1A86D27C001D0C58 /* ReplaceSegue.swift in Sources */,
 				D285C2F31A84613700C769AD /* RaqViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
