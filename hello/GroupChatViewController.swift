@@ -13,16 +13,14 @@ import Foundation
 import UIKit
 import Foundation
 
-class GroupChatViewController: JSQMessagesViewController {
-    
-    //    var groupChatRef: Firebase!
+class GroupChatViewController: JSQMessagesViewController, UITextFieldDelegate {
 
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
     var currentUser: PFUser!
     var messages = [Message]()
-    var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
-    var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
+    var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0))
+    var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.0))
     var batchMessages = true
 
     // *** STEP 1: STORE FIREBASE REFERENCES
@@ -66,14 +64,20 @@ class GroupChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.currentUser = PFUser.currentUser()
 
         self.navigationItem.hidesBackButton = true
         self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
 
-        
+        inputToolbar.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        inputToolbar.contentView.textView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        inputToolbar.contentView.textView.delegate = self
+        inputToolbar.contentView.textView.placeHolder = "Write a message"
         inputToolbar.contentView.leftBarButtonItem = nil
+        inputToolbar.contentView.rightBarButtonItem.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 16)
         automaticallyScrollsToMostRecentMessage = true
         
         sender = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
@@ -84,6 +88,29 @@ class GroupChatViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func addSingleEventObserver() {
+        let currentUserRef = Firebase(url: firebaseConstants.URL_USERS)
+            .childByAppendingPath(self.currentUser.objectId)
+            .childByAppendingPath(firebaseConstants.KEY_MATCHED)
+        
+        currentUserRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) -> Void in
+            var isMatched = snapshot.value as Bool
+            
+            if (!isMatched) {
+                self.onMatchExpired()
+            }
+        })
+    }
+    
+    func onMatchExpired() {
+        self.performSegueWithIdentifier("showMatchExpired", sender: self)
     }
     
     // ACTIONS
@@ -136,11 +163,13 @@ class GroupChatViewController: JSQMessagesViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as JSQMessagesCollectionViewCell
         
+        cell.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        
         let message = messages[indexPath.item]
         if message.sender() == sender {
-            cell.textView.textColor = UIColor.blackColor()
+            cell.textView.textColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         } else {
-            cell.textView.textColor = UIColor.whiteColor()
+            cell.textView.textColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.0)
         }
         
         let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor, NSUnderlineStyleAttributeName: 1]
@@ -167,7 +196,9 @@ class GroupChatViewController: JSQMessagesViewController {
             }
         }
         
-        return NSAttributedString(string:message.sender())
+        var tag = message.sender() + " :: " + message.time()
+        
+        return NSAttributedString(string:tag)
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {

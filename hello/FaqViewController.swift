@@ -21,6 +21,10 @@ class FaqViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
             NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationItem.rightBarButtonItem?.setTitleTextAttributes([
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()],
+            forState: UIControlState.Normal)
     }
     
     @IBAction func exitFaq(sender: AnyObject) {

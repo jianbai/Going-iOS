@@ -23,9 +23,18 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
             NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationItem.rightBarButtonItem?.setTitleTextAttributes([
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()],
+            forState: UIControlState.Normal)
+        self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()],
+            forState: UIControlState.Normal)
         
         self.contactTextField.returnKeyType = UIReturnKeyType.Done
         self.contactTextField.delegate = self
+        self.contactTextField.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
