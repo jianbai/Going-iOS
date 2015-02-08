@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vac-zO-Kcf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hOm-7D-8pl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -62,6 +62,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hBe-FS-ElH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="akT-zc-Im6" kind="relationship" relationship="rootViewController" id="ULV-uB-0Bs"/>
                     </connections>
@@ -131,15 +134,9 @@
                         <outlet property="goButton" destination="B0J-NS-xO4" id="mfG-Jy-x0R"/>
                         <outlet property="meetLabel" destination="7NJ-iF-AOe" id="pih-ET-wVE"/>
                         <segue destination="YQb-vx-wnP" kind="presentation" identifier="showHelp" id="YxT-bc-6XK"/>
-                        <segue destination="PyA-Zb-6iF" kind="custom" identifier="showGroupChat" customClass="ReplaceSegue" customModule="hello" customModuleProvider="target" id="XD6-3a-K7s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q98-WH-BLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Eq5-49-boC">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
             </objects>
             <point key="canvasLocation" x="1638" y="-80"/>
         </scene>
@@ -612,29 +609,21 @@
             <point key="canvasLocation" x="2732" y="-732"/>
         </scene>
         <!--Group Chat-->
-        <scene sceneID="a8T-3h-BPm">
+        <scene sceneID="vAQ-Tz-vVz">
             <objects>
-                <tableViewController title="Group Chat" id="PyA-Zb-6iF" customClass="GroupChatViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hae-ka-DnZ">
+                <viewController title="Group Chat" id="hOm-7D-8pl" customClass="GroupChatViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PdU-iE-HbR"/>
+                        <viewControllerLayoutGuide type="bottom" id="XQU-yC-k7j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="egz-Ou-54p">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UrD-Kt-Jh5">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UrD-Kt-Jh5" id="5lo-wM-GMe">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="PyA-Zb-6iF" id="H98-Pf-4PZ"/>
-                            <outlet property="delegate" destination="PyA-Zb-6iF" id="FEC-NW-vDt"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="This Weekend" id="ybU-dw-w63"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eVl-nd-68m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="This Weekend" id="Mtg-sZ-O19"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdg-2z-uxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2732" y="-80"/>
         </scene>
@@ -712,7 +701,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
+                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
                                 <rect key="frame" x="246" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SYs-r1-Zf2"/>
@@ -732,7 +721,7 @@
                                     <action selector="login" destination="jWG-h4-7WE" eventType="touchUpInside" id="XP8-Aj-6G6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
                                 <rect key="frame" x="304" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ifB-pK-b4y"/>
