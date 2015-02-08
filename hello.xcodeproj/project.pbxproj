@@ -78,6 +78,7 @@
 		D2A24E4C1A7B09C80004326F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A24E4B1A7B09C80004326F /* LoginViewController.swift */; };
 		D2A24E4E1A7B1A810004326F /* LoginTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */; };
 		D2A795C01A873A4100B6C0AE /* MatchExpiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A795BF1A873A4100B6C0AE /* MatchExpiredViewController.swift */; };
+		D2A795C21A87721B00B6C0AE /* MatchMadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A795C11A87721B00B6C0AE /* MatchMadeViewController.swift */; };
 		D2ABEBD91A8343A400221683 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABEBD81A8343A400221683 /* HelpViewController.swift */; };
 		D2BECE7B1A83099D0085900B /* BugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BECE7A1A83099D0085900B /* BugViewController.swift */; };
 		D2BECE7D1A8313560085900B /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BECE7C1A8313560085900B /* ContactViewController.swift */; };
@@ -218,6 +219,7 @@
 		D2A24E4B1A7B09C80004326F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTutorial.swift; sourceTree = "<group>"; };
 		D2A795BF1A873A4100B6C0AE /* MatchExpiredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchExpiredViewController.swift; sourceTree = "<group>"; };
+		D2A795C11A87721B00B6C0AE /* MatchMadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchMadeViewController.swift; sourceTree = "<group>"; };
 		D2ABEBD81A8343A400221683 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		D2BECE7A1A83099D0085900B /* BugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugViewController.swift; sourceTree = "<group>"; };
 		D2BECE7C1A8313560085900B /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 				D2BECE7E1A83248D0085900B /* MainTabBarController.swift */,
 				D25452951A78A4FC00D40D9D /* SettingsViewController.swift */,
 				D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */,
+				D2A795C11A87721B00B6C0AE /* MatchMadeViewController.swift */,
 				D2CAC4F81A8490AF00A87966 /* GroupChatViewController.swift */,
 				D2A795BF1A873A4100B6C0AE /* MatchExpiredViewController.swift */,
 				D25452971A78A4FC00D40D9D /* FriendsViewController.swift */,
@@ -730,6 +733,7 @@
 				D20F23B31A86E76900DA6A5E /* JSQMessagesViewController.m in Sources */,
 				D20F23CA1A86E76900DA6A5E /* JSQMessagesTypingIndicatorFooterView.m in Sources */,
 				D2ABEBD91A8343A400221683 /* HelpViewController.swift in Sources */,
+				D2A795C21A87721B00B6C0AE /* MatchMadeViewController.swift in Sources */,
 				D20F23B71A86E76900DA6A5E /* JSQMessagesTimestampFormatter.m in Sources */,
 				D20F23B11A86E76900DA6A5E /* UIView+JSQMessages.m in Sources */,
 				D20F23C61A86E76900DA6A5E /* JSQMessagesLoadEarlierHeaderView.m in Sources */,

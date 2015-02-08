@@ -25,7 +25,6 @@ struct ParseConstants {
     let KEY_HOMETOWN_NAME = "name"
     let KEY_IS_MATCHED = "isMatched"
     let KEY_IS_SEARCHING = "isSearching"
-    let KEY_USER_MEMBER_IDS = "userMemberIds"
     let KEY_GROUP_MEMBER_IDS = "memberIds"
     let KEY_GROUP_ID = "groupId"
     let KEY_AGE_SETTINGS_0 = "ageSettings0"

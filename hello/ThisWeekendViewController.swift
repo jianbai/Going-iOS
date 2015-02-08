@@ -19,6 +19,10 @@ class ThisWeekendViewController: UIViewController {
     let ref: Firebase = Firebase(url: FirebaseConstants().URL_USERS)
         .childByAppendingPath(PFUser.currentUser().objectId)
         .childByAppendingPath(FirebaseConstants().KEY_MATCHED)
+    var groupChatRef: Firebase!
+    var memberIds: [String]!
+    var groupMembers: [PFUser] = []
+    var groupMembersRelation: PFRelation!
     var isSearching: Bool = false
     
     override func viewDidLoad() {
@@ -31,10 +35,11 @@ class ThisWeekendViewController: UIViewController {
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
             NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
         var isMatched = self.currentUser[parseConstants.KEY_IS_MATCHED] as Bool
         
         if (isMatched) {
-            performSegueWithIdentifier("showGroupChat", sender: self)
+            self.segueWithGroupMembers("showGroupChat")
         }
     }
     
@@ -58,8 +63,22 @@ class ThisWeekendViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        NSLog("DISAPPEAR OBSERVERS")
-        self.ref.removeAllObservers()
+        if (self.isSearching) {
+            NSLog("DISAPPEAR OBSERVERS")
+            self.ref.removeAllObservers()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        
+        if (segue.identifier == "showMatchMade") {
+            var matchMadeViewController = segue.destinationViewController as MatchMadeViewController
+            matchMadeViewController.groupMembers = self.groupMembers
+        } else if (segue.identifier == "showGroupChat") {
+            var groupChatViewController = segue.destinationViewController as GroupChatViewController
+            groupChatViewController.groupMembers = self.groupMembers
+        }
     }
     
     func startObserver() {
@@ -76,12 +95,33 @@ class ThisWeekendViewController: UIViewController {
         NSLog("MATCH MADE")
         self.ref.removeAllObservers()
         self.hideActivityIndicator()
+        
         self.isSearching = false
         self.currentUser[parseConstants.KEY_IS_SEARCHING] = false
         self.currentUser[parseConstants.KEY_IS_MATCHED] = true
         self.currentUser.save()
         
-        self.performSegueWithIdentifier("showGroupChat", sender: self)
+        self.segueWithGroupMembers("showMatchMade")
+    }
+    
+    func segueWithGroupMembers(identifier: String) {
+        var query = PFQuery(className: self.parseConstants.CLASS_GROUPS)
+        query.whereKey(self.parseConstants.KEY_GROUP_MEMBER_IDS, equalTo: self.currentUser.objectId)
+        query.getFirstObjectInBackgroundWithBlock { (group, error) -> Void in
+            self.groupChatRef = Firebase(url: self.firebaseConstants.URL_GROUP_CHATS).childByAppendingPath(group.objectId)
+            self.memberIds = group[self.parseConstants.KEY_GROUP_MEMBER_IDS] as [String]
+            for member in self.memberIds {
+                if (member != self.currentUser.objectId) {
+                    var user = PFUser.query().getObjectWithId(member) as PFUser
+                    self.groupMembers.append(user)
+                    self.groupMembersRelation.addObject(user)
+                }
+            }
+            self.currentUser[self.parseConstants.KEY_GROUP_ID] = group.objectId
+            self.currentUser.save()
+            
+            self.performSegueWithIdentifier(identifier, sender: self)
+        }
     }
     
     func showActivityIndicator() {
