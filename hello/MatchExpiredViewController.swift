@@ -87,5 +87,11 @@ class MatchExpiredViewController: UITableViewController {
         self.currentUser[parseConstants.KEY_MATCH_DIALOG_SEEN] = false
         self.currentUser[parseConstants.KEY_IS_MATCHED] = false
         self.currentUser.save()
+        
+        let groupChatViewController = self.presentingViewController! as UIViewController
+        
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            groupChatViewController.performSegueWithIdentifier("showThisWeekend", sender: groupChatViewController)
+        })
     }
 }
