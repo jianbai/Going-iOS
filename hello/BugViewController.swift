@@ -41,7 +41,6 @@ class BugViewController: UIViewController, UITextFieldDelegate {
         self.reportButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

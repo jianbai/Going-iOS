@@ -101,7 +101,9 @@ class MatchExpiredViewController: UITableViewController {
         }
         
         let groupChatViewController = self.presentingViewController! as UIViewController
-        
+        groupChatViewController.title = "This Weekend"
+        var item = groupChatViewController.tabBarController?.tabBar.items![1] as UITabBarItem
+        item.title = nil
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             groupChatViewController.performSegueWithIdentifier("showThisWeekend", sender: groupChatViewController)
         })

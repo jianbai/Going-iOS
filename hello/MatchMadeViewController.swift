@@ -15,6 +15,7 @@ class MatchMadeViewController: UIViewController {
     @IBOutlet weak var memberInfoLabel1: UILabel!
     @IBOutlet weak var memberNameLabel2: UILabel!
     @IBOutlet weak var memberInfoLabel2: UILabel!
+    @IBOutlet weak var helloButton: UIButton!
     
     let parseConstants: ParseConstants = ParseConstants()
     let currentUser: PFUser = PFUser.currentUser()
@@ -24,6 +25,7 @@ class MatchMadeViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.styleHelloButton()
         
         if (self.groupMembers.count != 3) {
             getGroupMembers()
@@ -41,6 +43,14 @@ class MatchMadeViewController: UIViewController {
             memberNames[i].text = member[parseConstants.KEY_FIRST_NAME] as? String
             memberInfo[i].text = memberInfoText
         }
+    }
+    
+    func styleHelloButton() {
+        self.helloButton.backgroundColor = UIColor.clearColor()
+        self.helloButton.layer.cornerRadius = 5
+        self.helloButton.layer.borderWidth = 1
+        self.helloButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.helloButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
     func getGroupMembers() {
@@ -69,6 +79,9 @@ class MatchMadeViewController: UIViewController {
         
         let thisWeekendViewController = self.presentingViewController! as UIViewController
         
+        thisWeekendViewController.title = "This Weekend"
+        var item = thisWeekendViewController.tabBarController?.tabBar.items![1] as UITabBarItem
+        item.title = nil
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             thisWeekendViewController.performSegueWithIdentifier("showGroupChat", sender: thisWeekendViewController)
         })

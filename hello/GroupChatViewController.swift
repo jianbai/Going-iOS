@@ -108,6 +108,9 @@ class GroupChatViewController: JSQMessagesViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showMatchExpired") {
             self.definesPresentationContext = true
+            self.title = "Match Expired!"
+            var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
+            item.title = nil
             var matchExpiredViewController = segue.destinationViewController as MatchExpiredViewController
             matchExpiredViewController.groupMembers = self.groupMembers
             matchExpiredViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext

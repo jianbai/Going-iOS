@@ -37,9 +37,10 @@ class ThisWeekendViewController: UIViewController {
         
         self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
         var isMatched = self.currentUser[parseConstants.KEY_IS_MATCHED] as Bool
+        var matchDialogSeen = self.currentUser[parseConstants.KEY_MATCH_DIALOG_SEEN] as Bool
         
         if (isMatched) {
-            self.segueWithGroupMembers("showGroupChat")
+            matchDialogSeen ? self.segueWithGroupMembers("showGroupChat") : self.segueWithGroupMembers("showMatchMade")
         }
     }
     
@@ -74,6 +75,9 @@ class ThisWeekendViewController: UIViewController {
         
         if (segue.identifier == "showMatchMade") {
             self.definesPresentationContext = true
+            self.title = "Match Made!"
+            var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
+            item.title = nil
             var matchMadeViewController = segue.destinationViewController as MatchMadeViewController
             matchMadeViewController.groupMembers = self.groupMembers
             matchMadeViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
