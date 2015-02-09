@@ -48,7 +48,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gjA-1d-U9f"/>
+                    <navigationItem key="navigationItem" id="gjA-1d-U9f">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="0Fd-69-uB5">
+                            <color key="tintColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                            <connections>
+                                <action selector="editFriend:" destination="emH-dk-Uke" id="zp0-gf-XLX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="6bA-3G-tsX" kind="show" identifier="showEditFriend" id="hBT-Up-6Gq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXS-ZG-G4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -337,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKW-vl-PoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3276" y="722"/>
+            <point key="canvasLocation" x="4070" y="722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wEm-cT-EbY">
@@ -1447,6 +1457,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2w-MX-g8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4070" y="-80"/>
+        </scene>
+        <!--Edit Friend-->
+        <scene sceneID="rZl-8M-Qfp">
+            <objects>
+                <tableViewController title="Edit Friend" id="6bA-3G-tsX" customClass="EditFriendViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ney-tj-jMh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="cSa-Uf-VrH">
+                            <rect key="frame" x="0.0" y="64" width="600" height="100"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Age  : :  Hometown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAv-Ef-wJC">
+                                    <rect key="frame" x="8" y="69" width="152" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="RSm-sA-JnN"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzZ-Zh-hNN">
+                                    <rect key="frame" x="8" y="8" width="120" height="54"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="YAv-Ef-wJC" firstAttribute="leading" secondItem="cSa-Uf-VrH" secondAttribute="leadingMargin" id="BHD-AV-r2O"/>
+                                <constraint firstItem="rzZ-Zh-hNN" firstAttribute="top" secondItem="cSa-Uf-VrH" secondAttribute="topMargin" id="C9C-CL-GHC"/>
+                                <constraint firstAttribute="bottom" secondItem="YAv-Ef-wJC" secondAttribute="bottom" constant="12" id="De9-zx-vHv"/>
+                                <constraint firstItem="YAv-Ef-wJC" firstAttribute="top" secondItem="rzZ-Zh-hNN" secondAttribute="bottom" constant="4" id="WlU-QO-3dl"/>
+                                <constraint firstItem="rzZ-Zh-hNN" firstAttribute="leading" secondItem="YAv-Ef-wJC" secondAttribute="leading" id="s4e-YO-guK"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vOO-Qn-x5r">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vOO-Qn-x5r" id="wUN-us-Km3">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit Friend" id="bkb-nQ-oiE"/>
+                    <connections>
+                        <outlet property="friendInfoLabel" destination="YAv-Ef-wJC" id="PK7-DO-FhU"/>
+                        <outlet property="friendNameLabel" destination="rzZ-Zh-hNN" id="3JY-hU-17T"/>
+                        <outlet property="friendProfileView" destination="cSa-Uf-VrH" id="pWH-gg-qqM"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7p4-IK-WlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3276" y="722"/>
         </scene>
     </scenes>
     <resources>

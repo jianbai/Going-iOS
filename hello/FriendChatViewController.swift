@@ -13,8 +13,8 @@ class FriendChatViewController: JSQMessagesViewController {
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
     let currentUser: PFUser = PFUser.currentUser()
-    var chatId: String?
-    var friend: PFUser?
+    var chatId: String!
+    var friend: PFUser!
     var messages = [Message]()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0))
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.0))
@@ -59,11 +59,14 @@ class FriendChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
 
-        self.navigationItem.title = self.friend![parseConstants.KEY_FIRST_NAME] as? String
+        self.navigationItem.title = self.friend[parseConstants.KEY_FIRST_NAME] as? String
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: Selector("editFriend:"))
         
         self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         inputToolbar.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         inputToolbar.contentView.textView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
@@ -80,6 +83,13 @@ class FriendChatViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showEditFriend") {
+            var editFriendViewController = segue.destinationViewController as EditFriendViewController
+            editFriendViewController.friend = self.friend
+        }
     }
     
     // ACTIONS
@@ -189,4 +199,7 @@ class FriendChatViewController: JSQMessagesViewController {
         return kJSQMessagesCollectionViewCellLabelHeightDefault
     }
 
+    @IBAction func editFriend(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("showEditFriend", sender: self)
+    }
 }

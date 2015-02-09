@@ -104,6 +104,7 @@
 		D2E896D11A79E9FC00B00376 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E896C61A79E9FC00B00376 /* SystemConfiguration.framework */; };
 		D2E896DA1A7A0C7F00B00376 /* LoginPageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */; };
 		D2F2AAC31A88AE2A00F3F51F /* FriendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F2AAC21A88AE2A00F3F51F /* FriendChatViewController.swift */; };
+		D2F2AAC51A88BFFC00F3F51F /* EditFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F2AAC41A88BFFC00F3F51F /* EditFriendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 		D2E896D21A79EACC00B00376 /* hello-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hello-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageContentViewController.swift; sourceTree = "<group>"; };
 		D2F2AAC21A88AE2A00F3F51F /* FriendChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendChatViewController.swift; sourceTree = "<group>"; };
+		D2F2AAC41A88BFFC00F3F51F /* EditFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFriendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +497,7 @@
 				D2A795BF1A873A4100B6C0AE /* MatchExpiredViewController.swift */,
 				D25452971A78A4FC00D40D9D /* FriendsViewController.swift */,
 				D2F2AAC21A88AE2A00F3F51F /* FriendChatViewController.swift */,
+				D2F2AAC41A88BFFC00F3F51F /* EditFriendViewController.swift */,
 				D2ABEBD81A8343A400221683 /* HelpViewController.swift */,
 				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
 				D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */,
@@ -713,6 +716,7 @@
 				D20F23D01A86E77300DA6A5E /* JSQSystemSoundPlayer.m in Sources */,
 				D20F23BF1A86E76900DA6A5E /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
 				D2BECE7F1A83248D0085900B /* MainTabBarController.swift in Sources */,
+				D2F2AAC51A88BFFC00F3F51F /* EditFriendViewController.swift in Sources */,
 				D20F23B91A86E76900DA6A5E /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
 				D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */,
 				D20F23BA1A86E76900DA6A5E /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,

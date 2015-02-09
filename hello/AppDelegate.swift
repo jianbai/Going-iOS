@@ -9,8 +9,6 @@
 // TODO: Get rid of hanging views before segue
 // TODO: Put indicators in for delays # match made
 // TODO: Design match made / expired alerts
-// TODO: Adding and removing friends
-// TODO: View friend profile / report / delete
 // TODO: Convert settings to push segues
 // TODO: Empty table views
 // TODO: Slide animations
