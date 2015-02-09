@@ -6,9 +6,7 @@
 //  Copyright (c) 2015 spw. All rights reserved.
 //
 
-// TODO: Slide animations
-
-// TODO: Location saving
+// TODO: Push notification
 
 // TODO: Get rid of hanging views before segue
 // TODO: Put indicators in for delays # match made

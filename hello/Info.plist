@@ -28,8 +28,12 @@
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
+		<string>location-services</string>
+		<string>gps</string>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Going uses location services to match you with people around you</string>
 	<key>FacebookAppID</key>
 	<string>748438291904311</string>
 	<key>FacebookDisplayName</key>
