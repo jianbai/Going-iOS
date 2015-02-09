@@ -73,7 +73,8 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     @IBAction func sendContact(sender: UIBarButtonItem) {
         var contactText = self.contactTextField.text
         self.currentUser.addObject(contactText, forKey: parseConstants.KEY_CONTACT_US)
-        self.currentUser.save()
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

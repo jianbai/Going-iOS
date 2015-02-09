@@ -56,14 +56,16 @@ class MatchMadeViewController: UIViewController {
                 }
             }
             self.currentUser[self.parseConstants.KEY_GROUP_ID] = group.objectId
-            self.currentUser.save()
+            self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            })
         }
     }
     
     @IBAction func sayHello() {
         self.currentUser[parseConstants.KEY_MATCH_DIALOG_SEEN] = true
         self.currentUser[parseConstants.KEY_PICK_FRIENDS_DIALOG_SEEN] = false
-        self.currentUser.save()
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
         
         let thisWeekendViewController = self.presentingViewController! as UIViewController
         

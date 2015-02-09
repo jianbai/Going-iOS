@@ -101,7 +101,8 @@ class ThisWeekendViewController: UIViewController {
         self.isSearching = false
         self.currentUser[parseConstants.KEY_IS_SEARCHING] = false
         self.currentUser[parseConstants.KEY_IS_MATCHED] = true
-        self.currentUser.save()
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
         
         self.segueWithGroupMembers("showMatchMade")
     }
@@ -120,7 +121,14 @@ class ThisWeekendViewController: UIViewController {
                 }
             }
             self.currentUser[self.parseConstants.KEY_GROUP_ID] = group.objectId
-            self.currentUser.save()
+            self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            })
+            
+            if let installation = PFInstallation.currentInstallation() {
+                installation[self.parseConstants.KEY_INSTALLATION_GROUP_ID] = group.objectId
+                installation.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+                })
+            }
             
             self.performSegueWithIdentifier(identifier, sender: self)
         }
@@ -148,7 +156,8 @@ class ThisWeekendViewController: UIViewController {
             self.showActivityIndicator()
             self.isSearching = true
             self.currentUser[parseConstants.KEY_IS_SEARCHING] = true
-            self.currentUser.save()
+            self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            })
             NSLog("GOGOGO")
         }
     }

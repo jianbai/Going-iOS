@@ -188,7 +188,8 @@ class AgePreferencesViewController: UITableViewController {
             }
         }
         
-        self.currentUser.save()
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

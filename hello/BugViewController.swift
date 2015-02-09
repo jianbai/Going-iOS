@@ -72,7 +72,8 @@ class BugViewController: UIViewController, UITextFieldDelegate {
     @IBAction func reportBug(sender: UIBarButtonItem) {
         var bugText = self.bugTextField.text
         self.currentUser.addObject(bugText, forKey: parseConstants.KEY_BUG_REPORTS)
-        self.currentUser.save()
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

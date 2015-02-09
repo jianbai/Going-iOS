@@ -119,7 +119,8 @@ class GenderPreferencesViewController: UITableViewController {
         
         self.currentUser[parseConstants.KEY_GENDER_SETTINGS] = self.gender
         
-        self.currentUser.save()
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

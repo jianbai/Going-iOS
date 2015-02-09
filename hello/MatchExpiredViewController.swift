@@ -12,6 +12,7 @@ class MatchExpiredViewController: UITableViewController {
 
     let parseConstants: ParseConstants = ParseConstants()
     let currentUser: PFUser = PFUser.currentUser()
+    var groupMembersRelation: PFRelation!
     var friendsRelation: PFRelation!
     var groupMembers: [PFUser] = []
     var isChecked: [Bool] = [true, true, true]
@@ -19,6 +20,7 @@ class MatchExpiredViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
         self.friendsRelation = self.currentUser.relationForKey(self.parseConstants.KEY_FRIENDS_RELATION)
     }
     
@@ -78,6 +80,7 @@ class MatchExpiredViewController: UITableViewController {
 
     @IBAction func addFriends() {
         for var i=0; i<3; ++i {
+            self.groupMembersRelation.removeObject(self.groupMembers[i])
             if self.isChecked[i] {
                 self.friendsRelation.addObject(self.groupMembers[i])
             }
@@ -86,7 +89,14 @@ class MatchExpiredViewController: UITableViewController {
         self.currentUser[parseConstants.KEY_PICK_FRIENDS_DIALOG_SEEN] = true
         self.currentUser[parseConstants.KEY_MATCH_DIALOG_SEEN] = false
         self.currentUser[parseConstants.KEY_IS_MATCHED] = false
-        self.currentUser.save()
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
+        
+        if let installation = PFInstallation.currentInstallation() {
+            installation.removeObjectForKey(parseConstants.KEY_INSTALLATION_GROUP_ID)
+            installation.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            })
+        }
         
         let groupChatViewController = self.presentingViewController! as UIViewController
         

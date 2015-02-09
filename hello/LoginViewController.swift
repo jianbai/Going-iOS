@@ -215,7 +215,8 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
                     }
                 }
                 
-                self.currentUser.save()
+                self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+                })
             }
         }
     }
