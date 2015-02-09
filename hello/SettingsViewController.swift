@@ -141,7 +141,9 @@ class SettingsViewController: UITableViewController {
         
         PFUser.logOut()
         
-        self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
+        self.tabBarController?.dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
+        
     }
     
 }

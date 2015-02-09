@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vac-zO-Kcf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jWG-h4-7WE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -934,29 +934,13 @@
                     <connections>
                         <outlet property="loginActivityIndicator" destination="Nne-T4-HkO" id="YKT-MZ-d1A"/>
                         <outlet property="loginButton" destination="Qok-U7-LAi" id="JwT-Fq-Oyi"/>
-                        <segue destination="49e-Tb-3d3" kind="custom" identifier="showMain" customClass="ReplaceSegue" customModule="hello" customModuleProvider="target" id="Kin-mF-DNg"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="showMain" id="Kin-mF-DNg"/>
                         <segue destination="O1f-VV-Ixl" kind="presentation" identifier="showSetProfile" id="2fQ-pO-iwx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCt-VS-67y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4" y="-80"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="HNI-gy-agJ">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="vac-zO-Kcf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KUN-BG-hvn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="jWG-h4-7WE" kind="relationship" relationship="rootViewController" id="YD4-bp-zOT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EBb-YE-aHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4" y="-902"/>
         </scene>
         <!--LoginTutorial-->
         <scene sceneID="XDo-3z-TA5">
