@@ -8,13 +8,13 @@
         <!--Friends-->
         <scene sceneID="mxY-nq-kXM">
             <objects>
-                <tableViewController id="txL-ow-PHR" sceneMemberID="viewController">
+                <tableViewController title="Friends" id="txL-ow-PHR" customClass="FriendsViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FBb-3v-pk1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cdO-1c-1M0">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="cdO-1c-1M0">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cdO-1c-1M0" id="Jkl-OI-mFA">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -28,17 +28,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="AQE-be-ITm"/>
                     <connections>
-                        <segue destination="emH-dk-Uke" kind="presentation" id="LFD-Iz-HAS"/>
+                        <segue destination="emH-dk-Uke" kind="show" identifier="showFriendChat" id="LFD-Iz-HAS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kD-3w-EWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1638" y="722"/>
         </scene>
-        <!--View Controller-->
+        <!--Friend Chat View Controller-->
         <scene sceneID="E7b-hF-WFT">
             <objects>
-                <viewController id="emH-dk-Uke" sceneMemberID="viewController">
+                <viewController id="emH-dk-Uke" customClass="FriendChatViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="frW-jq-v0E"/>
                         <viewControllerLayoutGuide type="bottom" id="bZS-Kn-gd8"/>
