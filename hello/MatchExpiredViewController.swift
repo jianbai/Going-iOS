@@ -9,6 +9,7 @@
 import UIKit
 
 class MatchExpiredViewController: UITableViewController {
+    @IBOutlet weak var addButton: UIButton!
 
     let parseConstants: ParseConstants = ParseConstants()
     let currentUser: PFUser = PFUser.currentUser()
@@ -21,9 +22,18 @@ class MatchExpiredViewController: UITableViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.styleAddButton()
         
         self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
         self.friendsRelation = self.currentUser.relationForKey(self.parseConstants.KEY_FRIENDS_RELATION)
+    }
+    
+    func styleAddButton() {
+        self.addButton.backgroundColor = UIColor.clearColor()
+        self.addButton.layer.cornerRadius = 5
+        self.addButton.layer.borderWidth = 1
+        self.addButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.addButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
     // MARK: - Table view data source
@@ -42,6 +52,7 @@ class MatchExpiredViewController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath) as UITableViewCell
         
         cell.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        cell.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
         
         cell.textLabel?.text = self.groupMembers[indexPath.row][parseConstants.KEY_FIRST_NAME] as? String
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)

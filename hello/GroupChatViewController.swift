@@ -74,6 +74,9 @@ class GroupChatViewController: JSQMessagesViewController {
             self.collectionView.addSubview(self.emptyView)
         }
         
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: ("showProfiles:"))
+        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.currentUser = PFUser.currentUser()
@@ -114,6 +117,12 @@ class GroupChatViewController: JSQMessagesViewController {
             var matchExpiredViewController = segue.destinationViewController as MatchExpiredViewController
             matchExpiredViewController.groupMembers = self.groupMembers
             matchExpiredViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        } else if (segue.identifier == "showProfiles") {
+            self.definesPresentationContext = true
+            var profilesViewController = segue.destinationViewController as ProfilesViewController
+            profilesViewController.groupMembers = self.groupMembers
+            profilesViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: ("exitProfiles:"))
         }
     }
     
@@ -241,5 +250,14 @@ class GroupChatViewController: JSQMessagesViewController {
         }
         
         return kJSQMessagesCollectionViewCellLabelHeightDefault
+    }
+    
+    @IBAction func showProfiles(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("showProfiles", sender: self)
+    }
+    
+    @IBAction func exitProfiles(sender: UIBarButtonItem) {
+        self.navigationController?.visibleViewController.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: ("showProfiles:"))
     }
 }
