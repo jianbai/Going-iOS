@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 spw. All rights reserved.
 //
 
-// TODO: Design match made / expired alerts
 // TODO: Slide animations
 
 // TODO: Location saving

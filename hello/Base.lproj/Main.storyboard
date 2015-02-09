@@ -916,6 +916,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yqf-Ez-nej" id="mfk-Rq-SqR">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -1018,26 +1019,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
-                                <rect key="frame" x="230" y="41" width="25" height="25"/>
-                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-T4-HkO">
                                 <rect key="frame" x="289" y="515" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
-                                <rect key="frame" x="263" y="32" width="91" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="xMr-vb-7h8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="xMr-vb-7h8"/>
-                                    </mask>
-                                </variation>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-U7-LAi">
                                 <rect key="frame" x="195" y="501" width="210" height="46"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
@@ -1061,18 +1045,36 @@
                                     <action selector="showPrivacy" destination="jWG-h4-7WE" eventType="touchUpInside" id="neb-ci-Xgi"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
+                                <rect key="frame" x="238" y="41" width="25" height="25"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
+                                <rect key="frame" x="271" y="32" width="91" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="xMr-vb-7h8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xMr-vb-7h8"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="daj-uK-0q7" secondAttribute="centerX" constant="-8" id="Ah1-Ok-kzY"/>
+                            <constraint firstItem="IE3-NU-G8W" firstAttribute="centerY" secondItem="daj-uK-0q7" secondAttribute="centerY" id="GDO-xn-VvI"/>
+                            <constraint firstAttribute="centerX" secondItem="IE3-NU-G8W" secondAttribute="centerX" constant="49.5" id="TCn-FM-Lq6"/>
                             <constraint firstItem="Nne-T4-HkO" firstAttribute="centerY" secondItem="Qok-U7-LAi" secondAttribute="centerY" constant="0.5" id="USv-Ll-QT0"/>
-                            <constraint firstItem="daj-uK-0q7" firstAttribute="top" secondItem="cbi-en-2lG" secondAttribute="bottom" constant="12" id="W1R-h5-cq4"/>
-                            <constraint firstItem="daj-uK-0q7" firstAttribute="centerY" secondItem="IE3-NU-G8W" secondAttribute="centerY" id="ZTP-ev-kRr"/>
-                            <constraint firstItem="daj-uK-0q7" firstAttribute="leading" secondItem="IE3-NU-G8W" secondAttribute="trailing" constant="8" id="ZsY-qo-2h3"/>
+                            <constraint firstItem="daj-uK-0q7" firstAttribute="leading" secondItem="IE3-NU-G8W" secondAttribute="trailing" constant="8" id="UkL-Jk-BUg"/>
                             <constraint firstItem="61X-0B-Y1A" firstAttribute="top" secondItem="qUZ-4a-iLU" secondAttribute="bottom" constant="12" id="beA-9w-NwG"/>
+                            <constraint firstItem="daj-uK-0q7" firstAttribute="top" secondItem="cbi-en-2lG" secondAttribute="bottom" constant="12" id="c2e-dh-5DZ"/>
                             <constraint firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" constant="-0.5" id="iRS-rs-hye"/>
                             <constraint firstItem="qUZ-4a-iLU" firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" id="lc0-Xm-Vi9"/>
                             <constraint firstItem="qUZ-4a-iLU" firstAttribute="top" secondItem="Qok-U7-LAi" secondAttribute="bottom" constant="12" id="o7h-g7-8Ca"/>
+                            <constraint firstAttribute="centerX" secondItem="daj-uK-0q7" secondAttribute="centerX" constant="-16.5" id="yfc-qB-Wrr"/>
                             <constraint firstItem="Nne-T4-HkO" firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" constant="-1" id="zKS-bH-uEK"/>
                         </constraints>
                     </view>

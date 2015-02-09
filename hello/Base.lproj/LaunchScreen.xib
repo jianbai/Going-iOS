@@ -10,17 +10,25 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="oHr-LP-f3H">
-                    <rect key="frame" x="204" y="227" width="25" height="25"/>
+                <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="FB8-PM-NMX">
+                    <rect key="frame" x="178" y="227" width="25" height="25"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akk-s1-v54">
-                    <rect key="frame" x="237" y="222" width="39" height="36"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKJ-aQ-NM4">
+                    <rect key="frame" x="211" y="218" width="91" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="76" id="Ck3-90-sJO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Ck3-90-sJO"/>
+                        </mask>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet 3 people this weekend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHC-t0-P3o">
-                    <rect key="frame" x="131" y="277" width="219" height="22"/>
+                    <rect key="frame" x="131" y="285" width="219" height="22"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -28,22 +36,17 @@
             </subviews>
             <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstItem="oHr-LP-f3H" firstAttribute="centerY" secondItem="akk-s1-v54" secondAttribute="centerY" constant="-0.5" id="1yK-oi-Bkr"/>
-                <constraint firstAttribute="centerX" secondItem="oHr-LP-f3H" secondAttribute="centerX" constant="23.5" id="6wD-3d-opt"/>
-                <constraint firstAttribute="centerY" secondItem="oHr-LP-f3H" secondAttribute="centerY" constant="0.5" id="MuZ-Fd-GTM"/>
+                <constraint firstAttribute="centerX" secondItem="HKJ-aQ-NM4" secondAttribute="centerX" constant="-16.5" id="3nV-kr-Y1z"/>
+                <constraint firstAttribute="centerX" secondItem="FB8-PM-NMX" secondAttribute="centerX" constant="49.5" id="EOu-md-FvB"/>
+                <constraint firstItem="BHC-t0-P3o" firstAttribute="top" secondItem="HKJ-aQ-NM4" secondAttribute="bottom" constant="24" id="FxV-c8-v9T"/>
+                <constraint firstAttribute="centerY" secondItem="FB8-PM-NMX" secondAttribute="centerY" constant="0.5" id="P7M-QC-cqS"/>
                 <constraint firstAttribute="centerX" secondItem="BHC-t0-P3o" secondAttribute="centerX" constant="-0.5" id="SXg-Sn-C1O"/>
-                <constraint firstAttribute="centerX" secondItem="akk-s1-v54" secondAttribute="centerX" constant="-16.5" id="jin-Nj-yAk"/>
-                <constraint firstItem="akk-s1-v54" firstAttribute="leading" secondItem="oHr-LP-f3H" secondAttribute="trailing" constant="8" id="kba-Oi-LZF"/>
-                <constraint firstItem="BHC-t0-P3o" firstAttribute="top" secondItem="akk-s1-v54" secondAttribute="bottom" constant="19" id="wEe-HO-W5F"/>
-                <constraint firstAttribute="centerY" secondItem="akk-s1-v54" secondAttribute="centerY" id="wV2-lD-dKH"/>
+                <constraint firstItem="HKJ-aQ-NM4" firstAttribute="leading" secondItem="FB8-PM-NMX" secondAttribute="trailing" constant="8" id="UW0-t9-9Yq"/>
+                <constraint firstAttribute="centerY" secondItem="HKJ-aQ-NM4" secondAttribute="centerY" constant="0.5" id="bLt-AF-rum"/>
+                <constraint firstItem="HKJ-aQ-NM4" firstAttribute="centerY" secondItem="FB8-PM-NMX" secondAttribute="centerY" id="ubY-eb-axo"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="1yK-oi-Bkr"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
