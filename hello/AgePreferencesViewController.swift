@@ -31,6 +31,7 @@ class AgePreferencesViewController: UITableViewController {
         super.viewDidLoad()
         
         self.hideActivityIndicator()
+        self.styleSaveButton()
         
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.saveView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
@@ -41,6 +42,14 @@ class AgePreferencesViewController: UITableViewController {
             NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
 
+    func styleSaveButton() {
+        self.saveButton.backgroundColor = UIColor.clearColor()
+        self.saveButton.layer.cornerRadius = 5
+        self.saveButton.layer.borderWidth = 1
+        self.saveButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.saveButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,6 +66,7 @@ class AgePreferencesViewController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath) as UITableViewCell
         
         cell.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        cell.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
         
         cell.textLabel?.text = self.agePreferences[indexPath.row]
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)

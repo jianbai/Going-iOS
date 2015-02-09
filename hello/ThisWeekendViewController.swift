@@ -33,7 +33,7 @@ class ThisWeekendViewController: UIViewController {
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
+            NSForegroundColorAttributeName: UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)]
         
         self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
         var isMatched = self.currentUser[parseConstants.KEY_IS_MATCHED] as Bool
@@ -80,6 +80,8 @@ class ThisWeekendViewController: UIViewController {
         } else if (segue.identifier == "showGroupChat") {
             var groupChatViewController = segue.destinationViewController as GroupChatViewController
             groupChatViewController.groupMembers = self.groupMembers
+        } else if (segue.identifier == "showHelp") {
+            segue.destinationViewController.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         }
     }
     

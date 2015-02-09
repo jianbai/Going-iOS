@@ -36,6 +36,9 @@ class SettingsViewController: UITableViewController {
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
             NSForegroundColorAttributeName: UIColor.whiteColor()]
 
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
         let userName = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
         let userAge = self.currentUser[parseConstants.KEY_AGE] as String
         let userHometown = self.currentUser[parseConstants.KEY_HOMETOWN] as String
@@ -43,7 +46,7 @@ class SettingsViewController: UITableViewController {
         self.profileNameLabel.text = userName
         self.profileInfoLabel.text = userAge + "  : :  " + userHometown
     }
-
+    
 // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

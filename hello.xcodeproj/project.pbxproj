@@ -105,6 +105,7 @@
 		D2E896DA1A7A0C7F00B00376 /* LoginPageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */; };
 		D2F2AAC31A88AE2A00F3F51F /* FriendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F2AAC21A88AE2A00F3F51F /* FriendChatViewController.swift */; };
 		D2F2AAC51A88BFFC00F3F51F /* EditFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F2AAC41A88BFFC00F3F51F /* EditFriendViewController.swift */; };
+		D2F2AAC71A89020600F3F51F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F2AAC61A89020600F3F51F /* PrivacyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,7 @@
 		D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageContentViewController.swift; sourceTree = "<group>"; };
 		D2F2AAC21A88AE2A00F3F51F /* FriendChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendChatViewController.swift; sourceTree = "<group>"; };
 		D2F2AAC41A88BFFC00F3F51F /* EditFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFriendViewController.swift; sourceTree = "<group>"; };
+		D2F2AAC61A89020600F3F51F /* PrivacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,6 +490,7 @@
 				D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */,
 				D2A24E4B1A7B09C80004326F /* LoginViewController.swift */,
 				D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */,
+				D2F2AAC61A89020600F3F51F /* PrivacyViewController.swift */,
 				D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */,
 				D2BECE7E1A83248D0085900B /* MainTabBarController.swift */,
 				D25452951A78A4FC00D40D9D /* SettingsViewController.swift */,
@@ -725,6 +728,7 @@
 				D29B76371A7DF7EE00A11BE7 /* ParseConstants.swift in Sources */,
 				D2F2AAC31A88AE2A00F3F51F /* FriendChatViewController.swift in Sources */,
 				D20F23AD1A86E76900DA6A5E /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
+				D2F2AAC71A89020600F3F51F /* PrivacyViewController.swift in Sources */,
 				D285C2F21A84613700C769AD /* FaqViewController.swift in Sources */,
 				D20F23B21A86E76900DA6A5E /* JSQMessagesKeyboardController.m in Sources */,
 				D2DDD1FD1A81F3AB00756DCA /* GenderPreferencesViewController.swift in Sources */,

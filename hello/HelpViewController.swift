@@ -21,6 +21,8 @@ class HelpViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
             NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: Selector("exitHelp:"))
     }
     
     @IBAction func exitHelp(sender: AnyObject) {

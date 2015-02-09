@@ -31,6 +31,7 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
         self.hideActivityIndicator()
         
     }
@@ -52,6 +53,8 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
             self.views.append(viewControllerAtIndex(i)!)
         }
         
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.styleLoginButton()
         self.pageViewController.dataSource = self
     
         let startingViewController : LoginPageContentViewController = self.viewControllerAtIndex(0)!
@@ -59,21 +62,20 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         self.pageViewController.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: nil)
         
         // Change the size of page view controller
-        self.pageViewController.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height - 120);
+        self.pageViewController.view.frame = CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 180);
         
         self.addChildViewController(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
         
         let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = UIColor.grayColor()
-        appearance.currentPageIndicatorTintColor = UIColor.whiteColor()
+        appearance.pageIndicatorTintColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 0.30)
+        appearance.currentPageIndicatorTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
         appearance.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -82,7 +84,22 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         if (segue.identifier == "showSetProfile") {
             var setProfileViewController = segue.destinationViewController as SetProfileViewController
             setProfileViewController.setBools(self.noGender!, noAge: self.noAge!, noHometown: self.noHometown!)
+        } else if (segue.identifier == "showPrivacy") {
+            var nav = segue.destinationViewController.navigationBar
+            
+            nav.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+            nav.translucent = false
+            nav.titleTextAttributes = [
+                NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+                NSForegroundColorAttributeName: UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)]
+            nav.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         }
+    }
+    
+    func styleLoginButton() {
+        self.loginButton.backgroundColor = UIColor.clearColor()
+        self.loginButton.layer.cornerRadius = 5
+        self.loginButton.layer.backgroundColor = UIColor(red: (59.0/255.0), green: (89.0/255.0), blue: (152.0/255.0), alpha: 1.0).CGColor
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
@@ -125,6 +142,7 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         let pageContentViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginPageContentViewController") as LoginPageContentViewController
         pageContentViewController.image = self.pageImages[index]
         pageContentViewController.text = self.pageText[index]
+        pageContentViewController.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         pageContentViewController.pageIndex = index
         
         return pageContentViewController;
@@ -136,6 +154,10 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
+    }
+    
+    @IBAction func showPrivacy() {
+        self.performSegueWithIdentifier("showPrivacy", sender: self)
     }
     
     @IBAction func login() {

@@ -6,12 +6,9 @@
 //  Copyright (c) 2015 spw. All rights reserved.
 //
 
-// TODO: Design login screen
-// TODO: Design buttons
-// TODO: Slide animations
 // TODO: Design match made / expired alerts
-// TODO: 
-// TODO: Convert settings to push segues
+// TODO: Slide animations
+
 // TODO: Location saving
 
 // TODO: Get rid of hanging views before segue
@@ -25,7 +22,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Enable Parse local data store
