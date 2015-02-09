@@ -8,13 +8,14 @@
 
 // TODO: Get rid of hanging views before segue
 // TODO: Put indicators in for delays # match made
-// TODO: Match expired listener
-// TODO: Save match made / expired seen to Parse
 // TODO: Design match made / expired alerts
 // TODO: Adding and removing friends
-// TODO: Friends view
-// TODO: Friend chat
 // TODO: View friend profile / report / delete
+// TODO: Convert settings to push segues
+// TODO: Empty table views
+// TODO: Slide animations
+// TODO: Design buttons
+// TODO: Design login screen
 
 import UIKit
 
