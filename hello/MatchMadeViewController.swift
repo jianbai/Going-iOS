@@ -23,6 +23,8 @@ class MatchMadeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        
         if (self.groupMembers.count != 3) {
             getGroupMembers()
         }
@@ -59,8 +61,12 @@ class MatchMadeViewController: UIViewController {
     }
     
     @IBAction func sayHello() {
-        let nav = self.presentingViewController! as UINavigationController
-        let thisWeekendViewController = nav.visibleViewController as UIViewController
+        self.currentUser[parseConstants.KEY_MATCH_DIALOG_SEEN] = true
+        self.currentUser[parseConstants.KEY_PICK_FRIENDS_DIALOG_SEEN] = false
+        self.currentUser.save()
+        
+        let thisWeekendViewController = self.presentingViewController! as UIViewController
+        
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             thisWeekendViewController.performSegueWithIdentifier("showGroupChat", sender: thisWeekendViewController)
         })

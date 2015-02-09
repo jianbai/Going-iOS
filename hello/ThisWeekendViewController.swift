@@ -73,8 +73,10 @@ class ThisWeekendViewController: UIViewController {
         super.prepareForSegue(segue, sender: sender)
         
         if (segue.identifier == "showMatchMade") {
+            self.definesPresentationContext = true
             var matchMadeViewController = segue.destinationViewController as MatchMadeViewController
             matchMadeViewController.groupMembers = self.groupMembers
+            matchMadeViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         } else if (segue.identifier == "showGroupChat") {
             var groupChatViewController = segue.destinationViewController as GroupChatViewController
             groupChatViewController.groupMembers = self.groupMembers

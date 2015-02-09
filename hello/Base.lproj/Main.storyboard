@@ -157,7 +157,7 @@
                         <outlet property="meetLabel" destination="7NJ-iF-AOe" id="pih-ET-wVE"/>
                         <segue destination="YQb-vx-wnP" kind="presentation" identifier="showHelp" id="YxT-bc-6XK"/>
                         <segue destination="hOm-7D-8pl" kind="custom" identifier="showGroupChat" customClass="ReplaceSegue" customModule="hello" customModuleProvider="target" id="ti9-T6-lJE"/>
-                        <segue destination="0Ha-If-eWM" kind="presentation" identifier="showMatchMade" id="UBt-mu-L8H"/>
+                        <segue destination="0Ha-If-eWM" kind="presentation" identifier="showMatchMade" id="F6r-Lp-YNC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q98-WH-BLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,43 +244,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTm-xS-SQ3">
-                                <rect key="frame" x="259" y="281" width="83" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <rect key="frame" x="277" y="153" width="47" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPf-4J-Xdc">
-                                <rect key="frame" x="279" y="327" width="43" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <rect key="frame" x="284" y="183" width="33" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynn-Qt-Os2">
-                                <rect key="frame" x="259" y="409" width="83" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <rect key="frame" x="277" y="224" width="47" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbS-AR-60b">
-                                <rect key="frame" x="279" y="455" width="43" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-PF-2P4">
-                                <rect key="frame" x="259" y="153" width="83" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <rect key="frame" x="284" y="254" width="33" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3b-FY-aYz">
-                                <rect key="frame" x="279" y="199" width="43" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <rect key="frame" x="284" y="112" width="33" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXO-5o-vcM">
-                                <rect key="frame" x="265" y="546" width="70" height="34"/>
+                                <rect key="frame" x="265" y="550" width="70" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Say hello">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -290,32 +284,48 @@
                                     <action selector="sayHello" destination="0Ha-If-eWM" eventType="touchUpInside" id="gbf-de-zqe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match made!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvp-Ne-xbH">
+                                <rect key="frame" x="249" y="36" width="102" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-PF-2P4">
+                                <rect key="frame" x="277" y="82" width="47" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QTm-xS-SQ3" firstAttribute="top" secondItem="UPf-4J-Xdc" secondAttribute="top" constant="-46" id="7pt-8s-GEM"/>
-                            <constraint firstItem="QTm-xS-SQ3" firstAttribute="top" secondItem="X3b-FY-aYz" secondAttribute="bottom" constant="60" id="BfV-Vw-L66"/>
                             <constraint firstItem="8Gz-PF-2P4" firstAttribute="centerX" secondItem="QTm-xS-SQ3" secondAttribute="centerX" id="DMe-7h-99o"/>
                             <constraint firstItem="X3b-FY-aYz" firstAttribute="top" secondItem="8Gz-PF-2P4" secondAttribute="bottom" constant="8" id="J0l-5V-cot"/>
                             <constraint firstItem="8Gz-PF-2P4" firstAttribute="centerX" secondItem="X3b-FY-aYz" secondAttribute="centerX" id="K4I-fw-Ycy"/>
                             <constraint firstItem="ynn-Qt-Os2" firstAttribute="centerX" secondItem="IbS-AR-60b" secondAttribute="centerX" id="Mq0-FI-pcu"/>
-                            <constraint firstAttribute="centerY" secondItem="QTm-xS-SQ3" secondAttribute="centerY" id="NCb-am-Ysh"/>
-                            <constraint firstItem="OzR-rs-2zI" firstAttribute="top" secondItem="hXO-5o-vcM" secondAttribute="bottom" constant="20" id="RYp-KO-x8f"/>
+                            <constraint firstItem="OzR-rs-2zI" firstAttribute="top" secondItem="hXO-5o-vcM" secondAttribute="bottom" constant="16" id="RYp-KO-x8f"/>
                             <constraint firstAttribute="centerX" secondItem="QTm-xS-SQ3" secondAttribute="centerX" constant="-0.5" id="Uww-ge-hQ1"/>
                             <constraint firstItem="UPf-4J-Xdc" firstAttribute="top" secondItem="QTm-xS-SQ3" secondAttribute="bottom" constant="8" id="aE6-JT-otK"/>
+                            <constraint firstItem="QTm-xS-SQ3" firstAttribute="top" secondItem="X3b-FY-aYz" secondAttribute="bottom" constant="24" id="b38-PS-Qdq"/>
                             <constraint firstItem="ynn-Qt-Os2" firstAttribute="centerX" secondItem="QTm-xS-SQ3" secondAttribute="centerX" id="dEa-En-A9f"/>
                             <constraint firstItem="IbS-AR-60b" firstAttribute="top" secondItem="ynn-Qt-Os2" secondAttribute="bottom" constant="8" id="eSy-fS-mbK"/>
+                            <constraint firstItem="ynn-Qt-Os2" firstAttribute="top" secondItem="UPf-4J-Xdc" secondAttribute="bottom" constant="24" id="fUG-y7-Zy1"/>
                             <constraint firstAttribute="centerX" secondItem="hXO-5o-vcM" secondAttribute="centerX" id="fcN-jM-u0R"/>
-                            <constraint firstItem="ynn-Qt-Os2" firstAttribute="top" secondItem="UPf-4J-Xdc" secondAttribute="bottom" constant="60" id="jhj-pq-jE7"/>
+                            <constraint firstItem="Jm6-d7-EOD" firstAttribute="top" secondItem="qvp-Ne-xbH" secondAttribute="bottom" constant="-9" id="ggP-9g-lH5"/>
+                            <constraint firstItem="8Gz-PF-2P4" firstAttribute="top" secondItem="qvp-Ne-xbH" secondAttribute="bottom" constant="24" id="rLf-jo-qAc"/>
+                            <constraint firstItem="qvp-Ne-xbH" firstAttribute="top" secondItem="Jm6-d7-EOD" secondAttribute="bottom" constant="16" id="riH-SC-oM4"/>
                             <constraint firstItem="QTm-xS-SQ3" firstAttribute="centerX" secondItem="UPf-4J-Xdc" secondAttribute="centerX" id="ruZ-FT-Q1K"/>
+                            <constraint firstAttribute="centerX" secondItem="qvp-Ne-xbH" secondAttribute="centerX" id="swp-2p-TYb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="ggP-9g-lH5"/>
                                 <exclude reference="7pt-8s-GEM"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Match made!" id="XHt-Rk-4Ir"/>
+                    <navigationItem key="navigationItem" title="Match made!" id="t3S-U4-385"/>
                     <connections>
                         <outlet property="memberInfoLabel0" destination="X3b-FY-aYz" id="HG7-YL-fRa"/>
                         <outlet property="memberInfoLabel1" destination="UPf-4J-Xdc" id="9aY-qx-uis"/>
@@ -745,13 +755,61 @@
                     </view>
                     <navigationItem key="navigationItem" title="This Weekend" id="Mtg-sZ-O19"/>
                     <connections>
-                        <segue destination="n3R-5L-Lzd" kind="presentation" identifier="showMatchExpired" id="8UZ-ZT-fFs"/>
                         <segue destination="akT-zc-Im6" kind="custom" identifier="showThisWeekend" customClass="ReplaceSegue" customModule="hello" customModuleProvider="target" id="uhr-Sg-JDA"/>
+                        <segue destination="91G-WM-58r" kind="presentation" identifier="showMatchExpired" id="4Ex-Mi-8mT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdg-2z-uxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3276" y="-902"/>
+        </scene>
+        <!--Match Expired-->
+        <scene sceneID="JMp-Ki-QoI">
+            <objects>
+                <tableViewController title="Match Expired" id="91G-WM-58r" customClass="MatchExpiredViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iz0-cC-6Z6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="6Ek-a6-6c6">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pb-cH-pHu">
+                                    <rect key="frame" x="233" y="5" width="135" height="34"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                    <state key="normal" title="Add to friends list">
+                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addFriends" destination="91G-WM-58r" eventType="touchUpInside" id="B7X-8j-DkN"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="6pb-cH-pHu" secondAttribute="centerY" id="oOB-H2-E7B"/>
+                                <constraint firstAttribute="centerX" secondItem="6pb-cH-pHu" secondAttribute="centerX" id="v2R-Pf-Jhf"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="yqf-Ez-nej">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yqf-Ez-nej" id="mfk-Rq-SqR">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="91G-WM-58r" id="gZE-Kq-Wqs"/>
+                            <outlet property="delegate" destination="91G-WM-58r" id="5VQ-Mi-KDy"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1H-J7-75s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4070" y="-902"/>
         </scene>
         <!--Age Preferences-->
         <scene sceneID="of8-Tv-M7J">
@@ -1406,24 +1464,6 @@
             </objects>
             <point key="canvasLocation" x="4070" y="-80"/>
         </scene>
-        <!--Match Expired-->
-        <scene sceneID="IsW-3a-ldI">
-            <objects>
-                <viewController title="Match Expired" id="n3R-5L-Lzd" customClass="MatchExpiredViewController" customModule="hello" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5vg-Ym-Xpt"/>
-                        <viewControllerLayoutGuide type="bottom" id="cZr-hh-a8w"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ODV-s3-5y1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PMB-ps-5ZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4070" y="-902"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Friends" width="25" height="25"/>
@@ -1433,6 +1473,6 @@
         <image name="ThisWeekend" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ULV-uB-0Bs"/>
+        <segue reference="uhr-Sg-JDA"/>
     </inferredMetricsTieBreakers>
 </document>

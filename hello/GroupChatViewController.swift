@@ -18,7 +18,7 @@ class GroupChatViewController: JSQMessagesViewController, UITextFieldDelegate {
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
     var currentUser: PFUser!
-    var groupMembers: [PFUser]!
+    var groupMembers: [PFUser] = []
     var messages = [Message]()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0))
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.0))
@@ -86,9 +86,24 @@ class GroupChatViewController: JSQMessagesViewController, UITextFieldDelegate {
         setupFirebase()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.addSingleEventObserver()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showMatchExpired") {
+            self.definesPresentationContext = true
+            var matchExpiredViewController = segue.destinationViewController as MatchExpiredViewController
+            matchExpiredViewController.groupMembers = self.groupMembers
+            matchExpiredViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -111,6 +126,7 @@ class GroupChatViewController: JSQMessagesViewController, UITextFieldDelegate {
     }
     
     func onMatchExpired() {
+        NSLog("MATCH EXPIRED")
         self.performSegueWithIdentifier("showMatchExpired", sender: self)
     }
     
