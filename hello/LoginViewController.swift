@@ -68,7 +68,7 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         let appearance = UIPageControl.appearance()
         appearance.pageIndicatorTintColor = UIColor.grayColor()
         appearance.currentPageIndicatorTintColor = UIColor.whiteColor()
-        appearance.backgroundColor = UIColor.darkGrayColor()
+        appearance.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
     }
     
     override func didReceiveMemoryWarning() {

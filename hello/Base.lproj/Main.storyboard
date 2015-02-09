@@ -13,6 +13,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="4aP-wI-y3E">
+                            <rect key="frame" x="0.0" y="130" width="600" height="300"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="NE8-e1-EFc">
+                                    <rect key="frame" x="240" y="60" width="120" height="120"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="KC6-Jh-UvD"/>
+                                        <constraint firstAttribute="height" constant="120" id="nQx-wg-HEW"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't met anyone yet!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A79-qp-MET">
+                                    <rect key="frame" x="215" y="192" width="171" height="17"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P46-Bv-0Zu">
+                                    <rect key="frame" x="191" y="245" width="219" height="34"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                    <state key="normal" title="Meet 3 people this weekend">
+                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="meetThisWeekend" destination="txL-ow-PHR" eventType="touchUpInside" id="NRC-xH-t1k"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstItem="A79-qp-MET" firstAttribute="top" secondItem="NE8-e1-EFc" secondAttribute="bottom" constant="12" id="9tV-Op-XjC"/>
+                                <constraint firstItem="P46-Bv-0Zu" firstAttribute="centerX" secondItem="NE8-e1-EFc" secondAttribute="centerX" id="HfG-Wu-D3h"/>
+                                <constraint firstAttribute="centerX" secondItem="NE8-e1-EFc" secondAttribute="centerX" id="ayz-7c-ZaP"/>
+                                <constraint firstItem="P46-Bv-0Zu" firstAttribute="top" secondItem="A79-qp-MET" secondAttribute="bottom" constant="36" id="hid-wR-0mi"/>
+                                <constraint firstItem="A79-qp-MET" firstAttribute="centerX" secondItem="NE8-e1-EFc" secondAttribute="centerX" id="uN6-Ne-Gr5"/>
+                                <constraint firstItem="NE8-e1-EFc" firstAttribute="top" secondItem="4aP-wI-y3E" secondAttribute="top" constant="60" id="zFB-8l-pvv"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="cdO-1c-1M0">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -28,6 +67,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="AQE-be-ITm"/>
                     <connections>
+                        <outlet property="emptyView" destination="4aP-wI-y3E" id="sqC-BS-dTN"/>
                         <segue destination="emH-dk-Uke" kind="show" identifier="showFriendChat" id="LFD-Iz-HAS"/>
                     </connections>
                 </tableViewController>
@@ -46,7 +86,40 @@
                     <view key="view" contentMode="scaleToFill" id="hd6-lG-tDe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="Q9L-v3-rkg">
+                                <rect key="frame" x="240" y="196" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="KXw-ub-MF9"/>
+                                    <constraint firstAttribute="height" constant="120" id="hh6-qu-OOY"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYK-qn-alV">
+                                <rect key="frame" x="150" y="76" width="300" height="120"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="9kL-kq-OPm"/>
+                                    <constraint firstAttribute="width" constant="300" id="PeB-ey-DS2"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No messages yet : ( Say hello!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9L-fN-uUg">
+                                <rect key="frame" x="28" y="352" width="544" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="Q9L-v3-rkg" firstAttribute="top" secondItem="EYK-qn-alV" secondAttribute="bottom" id="4Kj-q6-BvL"/>
+                            <constraint firstItem="u9L-fN-uUg" firstAttribute="top" secondItem="Q9L-v3-rkg" secondAttribute="bottom" constant="36" id="AtA-Fc-h5k"/>
+                            <constraint firstAttribute="centerX" secondItem="EYK-qn-alV" secondAttribute="centerX" id="BFI-0m-dzo"/>
+                            <constraint firstItem="EYK-qn-alV" firstAttribute="top" secondItem="frW-jq-v0E" secondAttribute="bottom" constant="12" id="h9b-X5-sm1"/>
+                            <constraint firstAttribute="centerX" secondItem="Q9L-v3-rkg" secondAttribute="centerX" id="jOO-hl-cY5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u9L-fN-uUg" secondAttribute="trailing" constant="12" id="qGU-tH-kCj"/>
+                            <constraint firstItem="u9L-fN-uUg" firstAttribute="leading" secondItem="hd6-lG-tDe" secondAttribute="leadingMargin" constant="12" id="wwL-Ma-WY0"/>
+                            <constraint firstItem="u9L-fN-uUg" firstAttribute="centerX" secondItem="Q9L-v3-rkg" secondAttribute="centerX" id="yho-fh-ues"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gjA-1d-U9f">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="0Fd-69-uB5">
@@ -57,6 +130,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyView" destination="hd6-lG-tDe" id="vfe-yE-ht7"/>
                         <segue destination="6bA-3G-tsX" kind="show" identifier="showEditFriend" id="hBT-Up-6Gq"/>
                     </connections>
                 </viewController>
@@ -762,9 +836,44 @@
                     <view key="view" contentMode="scaleToFill" id="egz-Ou-54p">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="gZy-cy-TaV">
+                                <rect key="frame" x="240" y="152" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="84P-rr-Lnn"/>
+                                    <constraint firstAttribute="height" constant="120" id="Fw7-hd-RS8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This chat will disappear at the end of the weekend, so make plans to meet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp4-J4-euP">
+                                <rect key="frame" x="28" y="308" width="544" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqp-Sk-2xz">
+                                <rect key="frame" x="150" y="32" width="300" height="120"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="5uX-PF-sID"/>
+                                    <constraint firstAttribute="width" constant="300" id="9GV-og-vIj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="eqp-Sk-2xz" secondAttribute="centerX" id="0OZ-B2-Wnc"/>
+                            <constraint firstItem="Fp4-J4-euP" firstAttribute="top" secondItem="gZy-cy-TaV" secondAttribute="bottom" constant="36" id="cyF-tk-9Fg"/>
+                            <constraint firstItem="Fp4-J4-euP" firstAttribute="leading" secondItem="egz-Ou-54p" secondAttribute="leadingMargin" constant="12" id="gxd-Mj-uUd"/>
+                            <constraint firstItem="gZy-cy-TaV" firstAttribute="top" secondItem="eqp-Sk-2xz" secondAttribute="bottom" id="mFf-18-abt"/>
+                            <constraint firstItem="Fp4-J4-euP" firstAttribute="centerX" secondItem="gZy-cy-TaV" secondAttribute="centerX" id="nzr-3a-VAZ"/>
+                            <constraint firstItem="eqp-Sk-2xz" firstAttribute="top" secondItem="PdU-iE-HbR" secondAttribute="bottom" constant="12" id="wkD-id-JM0"/>
+                            <constraint firstAttribute="centerX" secondItem="gZy-cy-TaV" secondAttribute="centerX" id="xYr-RJ-cCj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fp4-J4-euP" secondAttribute="trailing" constant="12" id="zTS-4p-dfX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="This Weekend" id="Mtg-sZ-O19"/>
                     <connections>
+                        <outlet property="emptyView" destination="egz-Ou-54p" id="HZm-na-RLn"/>
                         <segue destination="akT-zc-Im6" kind="custom" identifier="showThisWeekend" customClass="ReplaceSegue" customModule="hello" customModuleProvider="target" id="uhr-Sg-JDA"/>
                         <segue destination="91G-WM-58r" kind="presentation" identifier="showMatchExpired" id="4Ex-Mi-8mT"/>
                     </connections>
@@ -797,7 +906,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
                                 <constraint firstAttribute="centerY" secondItem="6pb-cH-pHu" secondAttribute="centerY" id="oOB-H2-E7B"/>
                                 <constraint firstAttribute="centerX" secondItem="6pb-cH-pHu" secondAttribute="centerX" id="v2R-Pf-Jhf"/>
@@ -1517,6 +1626,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Empty" width="120" height="120"/>
         <image name="Friends" width="25" height="25"/>
         <image name="GoButton" width="100" height="100"/>
         <image name="LoginTutorial0" width="120" height="120"/>

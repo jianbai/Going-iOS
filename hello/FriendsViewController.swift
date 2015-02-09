@@ -9,6 +9,7 @@
 import UIKit
 
 class FriendsViewController: UITableViewController {
+    @IBOutlet weak var emptyView: UIView!
 
     let currentUser = PFUser.currentUser()
     let parseConstants: ParseConstants = ParseConstants()
@@ -44,6 +45,8 @@ class FriendsViewController: UITableViewController {
         query.orderByAscending(self.parseConstants.KEY_FIRST_NAME)
         query.findObjectsInBackgroundWithBlock { (friends, error) -> Void in
             self.friends = friends as [PFUser]
+            self.emptyView.hidden = self.friends.count != 0
+            
             self.tableView.reloadData()
         }
     }
@@ -67,6 +70,8 @@ class FriendsViewController: UITableViewController {
         
         cell.textLabel?.text = self.friends[indexPath.row][self.parseConstants.KEY_FIRST_NAME] as? String
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)
+        
+        cell.hidden = self.friends.count == 0
         
         return cell
     }
@@ -103,6 +108,10 @@ class FriendsViewController: UITableViewController {
             self.definesPresentationContext = true
             friendChatViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         }
+    }
+    
+    @IBAction func meetThisWeekend() {
+        self.tabBarController?.selectedIndex = 1
     }
 }
 

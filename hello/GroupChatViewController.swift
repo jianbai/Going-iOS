@@ -14,6 +14,7 @@ import UIKit
 import Foundation
 
 class GroupChatViewController: JSQMessagesViewController {
+    @IBOutlet var emptyView: UIView!
 
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
@@ -41,6 +42,9 @@ class GroupChatViewController: JSQMessagesViewController {
                 
                 let message = Message(text: text, sender: sender, time: time)
                 self.messages.append(message)
+                
+                self.emptyView.removeFromSuperview()
+                
                 self.finishReceivingMessage()
             })
         }
@@ -65,6 +69,11 @@ class GroupChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (self.messages.count == 0) {
+            self.collectionView.addSubview(self.emptyView)
+        }
+        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.currentUser = PFUser.currentUser()

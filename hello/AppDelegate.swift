@@ -6,14 +6,18 @@
 //  Copyright (c) 2015 spw. All rights reserved.
 //
 
+// TODO: Design login screen
+// TODO: Design buttons
+// TODO: Slide animations
+// TODO: Design match made / expired alerts
+// TODO: 
+// TODO: Convert settings to push segues
+// TODO: Location saving
+
 // TODO: Get rid of hanging views before segue
 // TODO: Put indicators in for delays # match made
-// TODO: Design match made / expired alerts
-// TODO: Convert settings to push segues
-// TODO: Empty table views
-// TODO: Slide animations
-// TODO: Design buttons
-// TODO: Design login screen
+
+// TODO: Refactor
 
 import UIKit
 
