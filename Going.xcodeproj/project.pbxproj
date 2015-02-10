@@ -58,6 +58,8 @@
 		D20F23CA1A86E76900DA6A5E /* JSQMessagesTypingIndicatorFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F23991A86E76900DA6A5E /* JSQMessagesTypingIndicatorFooterView.m */; };
 		D20F23CB1A86E76900DA6A5E /* JSQMessagesTypingIndicatorFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20F239A1A86E76900DA6A5E /* JSQMessagesTypingIndicatorFooterView.xib */; };
 		D20F23D01A86E77300DA6A5E /* JSQSystemSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F23CF1A86E77300DA6A5E /* JSQSystemSoundPlayer.m */; };
+		D210AE6D1A89C81900F54DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25452991A78A4FD00D40D9D /* Main.storyboard */; };
+		D210AE6E1A89C88000F54DF7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */; };
 		D2151E2E1A86D27C001D0C58 /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */; };
 		D2151E301A86DBB5001D0C58 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2151E2F1A86DBB5001D0C58 /* Message.swift */; };
 		D241BF7F1A89B733004246B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D241BF7E1A89B733004246B3 /* Images.xcassets */; };
@@ -668,6 +670,7 @@
 				D20F239B1A86E76900DA6A5E /* bubble.png in Resources */,
 				D20F23A41A86E76900DA6A5E /* bubble_stroked_tailless@2x.png in Resources */,
 				D20F239D1A86E76900DA6A5E /* bubble_min.png in Resources */,
+				D210AE6D1A89C81900F54DF7 /* Main.storyboard in Resources */,
 				D20F23A91A86E76900DA6A5E /* typing.png in Resources */,
 				D241BF7F1A89B733004246B3 /* Images.xcassets in Resources */,
 				D20F23A71A86E76900DA6A5E /* camera.png in Resources */,
@@ -676,6 +679,7 @@
 				D20F23A31A86E76900DA6A5E /* bubble_stroked_tailless.png in Resources */,
 				D20F23A81A86E76900DA6A5E /* camera@2x.png in Resources */,
 				D20F23B41A86E76900DA6A5E /* JSQMessagesViewController.xib in Resources */,
+				D210AE6E1A89C88000F54DF7 /* LaunchScreen.xib in Resources */,
 				D20F239E1A86E76900DA6A5E /* bubble_min@2x.png in Resources */,
 				D20F23A21A86E76900DA6A5E /* bubble_stroked@2x.png in Resources */,
 				D20F23A61A86E76900DA6A5E /* bubble_tailless@2x.png in Resources */,
@@ -813,8 +817,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Scott Wang (83P2ZG8EML)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Scott Wang (83P2ZG8EML)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -856,8 +860,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Scott Wang (83P2ZG8EML)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Scott Wang (83P2ZG8EML)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -881,7 +885,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Scott Wang (83P2ZG8EML)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library-1.6.2",
@@ -900,6 +905,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = Going;
+				PROVISIONING_PROFILE = "6721687d-3e66-496b-b2a2-6e203ead282a";
 				SWIFT_OBJC_BRIDGING_HEADER = "Going/Going-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -912,7 +918,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Scott Wang (83P2ZG8EML)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/parse-library-1.6.2",
@@ -931,6 +938,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = Going;
+				PROVISIONING_PROFILE = "6721687d-3e66-496b-b2a2-6e203ead282a";
 				SWIFT_OBJC_BRIDGING_HEADER = "Going/Going-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -940,7 +948,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -962,7 +970,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Facebook
         PFFacebookUtils.initializeFacebook()
         
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         return true
@@ -60,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         PFPush.handlePush(userInfo)
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
     
     func applicationWillResignActive(application: UIApplication) {
