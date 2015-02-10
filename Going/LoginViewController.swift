@@ -28,12 +28,14 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     var noAge: Bool!
     var noHometown: Bool!
     
+    var loadingScreen: UIView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
         self.hideActivityIndicator()
-        
+     
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -43,6 +45,8 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         
         if (user != nil && PFFacebookUtils.isLinkedWithUser(user)) {
             self.performSegueWithIdentifier("showMain", sender: self)
+        } else {
+            loadingScreen.removeFromSuperview()
         }
     }
     
@@ -72,6 +76,10 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         appearance.pageIndicatorTintColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 0.30)
         appearance.currentPageIndicatorTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
         appearance.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
     }
     
     override func prefersStatusBarHidden() -> Bool {

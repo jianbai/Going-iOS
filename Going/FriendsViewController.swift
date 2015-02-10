@@ -10,6 +10,7 @@ import UIKit
 
 class FriendsViewController: UITableViewController {
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var meetButton: UIButton!
 
     let currentUser = PFUser.currentUser()
     let parseConstants: ParseConstants = ParseConstants()
@@ -18,8 +19,15 @@ class FriendsViewController: UITableViewController {
     var chatId: String?
     var friend: PFUser?
     
+    var loadingScreen: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
+        self.styleMeetButton()
 
         self.friendsRelation = self.currentUser.relationForKey(parseConstants.KEY_FRIENDS_RELATION)
         
@@ -32,12 +40,20 @@ class FriendsViewController: UITableViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        self.loadFriends()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.loadFriends()
+    }
+    
+    func styleMeetButton() {
+        self.meetButton.backgroundColor = UIColor.clearColor()
+        self.meetButton.layer.cornerRadius = 5
+        self.meetButton.layer.borderWidth = 1
+        self.meetButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.meetButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
     func loadFriends() {
@@ -48,6 +64,10 @@ class FriendsViewController: UITableViewController {
             self.emptyView.hidden = self.friends.count != 0
             
             self.tableView.reloadData()
+            
+            if (self.loadingScreen != nil) {
+                self.loadingScreen.removeFromSuperview()
+            }
         }
     }
 
@@ -111,7 +131,9 @@ class FriendsViewController: UITableViewController {
     }
     
     @IBAction func meetThisWeekend() {
-        self.tabBarController?.selectedIndex = 1
+        var tabBarController = self.tabBarController!
+        var viewControllers = tabBarController.viewControllers! as [UIViewController]
+        tabBarController.delegate?.tabBarController!(tabBarController, shouldSelectViewController: viewControllers[1])
     }
 }
 

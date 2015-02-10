@@ -29,8 +29,14 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
     var groupMembersRelation: PFRelation!
     var isSearching: Bool = false
     
+    var loadingScreen: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
 
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -48,6 +54,8 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
         
         if (isMatched) {
             matchDialogSeen ? self.segueWithGroupMembers("showGroupChat") : self.segueWithGroupMembers("showMatchMade")
+        } else {
+            loadingScreen.removeFromSuperview()
         }
     }
     
@@ -110,7 +118,7 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
     func onMatchMade() {
         NSLog("MATCH MADE")
         self.ref.removeAllObservers()
-        self.hideActivityIndicator()
+
         
         self.isSearching = false
         self.currentUser[parseConstants.KEY_IS_SEARCHING] = false

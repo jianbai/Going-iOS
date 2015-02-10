@@ -52,6 +52,7 @@ class MatchExpiredViewController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath) as UITableViewCell
         
         cell.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        cell.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         
         cell.textLabel?.text = self.groupMembers[indexPath.row][parseConstants.KEY_FIRST_NAME] as? String
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)

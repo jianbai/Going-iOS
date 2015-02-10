@@ -24,6 +24,8 @@ class GroupChatViewController: JSQMessagesViewController {
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0))
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.0))
     var batchMessages = true
+    
+    var loadingScreen: UIView!
 
     // *** STEP 1: STORE FIREBASE REFERENCES
     var groupChatRef: Firebase!
@@ -46,6 +48,10 @@ class GroupChatViewController: JSQMessagesViewController {
                 self.emptyView.removeFromSuperview()
                 
                 self.finishReceivingMessage()
+                
+                if (self.loadingScreen != nil) {
+                    self.loadingScreen.removeFromSuperview()
+                }
             })
         }
         
@@ -93,6 +99,10 @@ class GroupChatViewController: JSQMessagesViewController {
         automaticallyScrollsToMostRecentMessage = true
         
         sender = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
+        
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
  
         setupFirebase()
     }
@@ -106,6 +116,11 @@ class GroupChatViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        loadingScreen.removeFromSuperview()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -143,6 +158,10 @@ class GroupChatViewController: JSQMessagesViewController {
     func onMatchExpired() {
         NSLog("MATCH EXPIRED")
         self.performSegueWithIdentifier("showMatchExpired", sender: self)
+        
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
     }
     
     // ACTIONS

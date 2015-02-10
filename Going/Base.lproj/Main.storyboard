@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="4aP-wI-y3E">
-                            <rect key="frame" x="0.0" y="130" width="600" height="300"/>
+                            <rect key="frame" x="0.0" y="130" width="600" height="320"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="NE8-e1-EFc">
@@ -31,10 +31,11 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P46-Bv-0Zu">
-                                    <rect key="frame" x="191" y="245" width="219" height="34"/>
+                                    <rect key="frame" x="167" y="257" width="267" height="46"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                    <inset key="contentEdgeInsets" minX="24" minY="12" maxX="24" maxY="12"/>
                                     <state key="normal" title="Meet 3 people this weekend">
-                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" red="0.99215686270000003" green="0.66274509800000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -47,7 +48,7 @@
                                 <constraint firstItem="A79-qp-MET" firstAttribute="top" secondItem="NE8-e1-EFc" secondAttribute="bottom" constant="12" id="9tV-Op-XjC"/>
                                 <constraint firstItem="P46-Bv-0Zu" firstAttribute="centerX" secondItem="NE8-e1-EFc" secondAttribute="centerX" id="HfG-Wu-D3h"/>
                                 <constraint firstAttribute="centerX" secondItem="NE8-e1-EFc" secondAttribute="centerX" id="ayz-7c-ZaP"/>
-                                <constraint firstItem="P46-Bv-0Zu" firstAttribute="top" secondItem="A79-qp-MET" secondAttribute="bottom" constant="36" id="hid-wR-0mi"/>
+                                <constraint firstItem="P46-Bv-0Zu" firstAttribute="top" secondItem="A79-qp-MET" secondAttribute="bottom" constant="48" id="hid-wR-0mi"/>
                                 <constraint firstItem="A79-qp-MET" firstAttribute="centerX" secondItem="NE8-e1-EFc" secondAttribute="centerX" id="uN6-Ne-Gr5"/>
                                 <constraint firstItem="NE8-e1-EFc" firstAttribute="top" secondItem="4aP-wI-y3E" secondAttribute="top" constant="60" id="zFB-8l-pvv"/>
                             </constraints>
@@ -68,6 +69,7 @@
                     <navigationItem key="navigationItem" title="Friends" id="AQE-be-ITm"/>
                     <connections>
                         <outlet property="emptyView" destination="4aP-wI-y3E" id="sqC-BS-dTN"/>
+                        <outlet property="meetButton" destination="P46-Bv-0Zu" id="rAj-MM-vwv"/>
                         <segue destination="emH-dk-Uke" kind="show" identifier="showFriendChat" id="LFD-Iz-HAS"/>
                     </connections>
                 </tableViewController>
@@ -1050,17 +1052,9 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
                                 <rect key="frame" x="271" y="32" width="91" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="xMr-vb-7h8"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="xMr-vb-7h8"/>
-                                    </mask>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
@@ -1130,7 +1124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NQ-j0-INc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="-902"/>
+            <point key="canvasLocation" x="-812" y="-80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wXW-4i-xBd">
@@ -1739,6 +1733,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdM-1Q-ka9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4878" y="-1698"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YvD-K9-B4l">
+            <objects>
+                <viewController id="9fh-Wa-XgU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Fk-Cy-xCk"/>
+                        <viewControllerLayoutGuide type="bottom" id="v0N-B4-Gfi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o01-6s-Nwi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ShK-6p-ojF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

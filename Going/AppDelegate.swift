@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 spw. All rights reserved.
 //
 
-// TODO: Push notification
-
-// TODO: Get rid of hanging views before segue
-// TODO: Put indicators in for delays # match made
+// TODO: Make loading pretty
+// TODO: Change edit friend to modal
+// TODO: Change profile info
 
 // TODO: Refactor
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM7-OY-WiB">
+                    <rect key="frame" x="271" y="279" width="91" height="43"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2G8-2y-Biz">
+                    <rect key="frame" x="241" y="291" width="20" height="20"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free this weekend?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15R-oz-reH">
+                    <rect key="frame" x="225" y="346" width="151" height="22"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="15R-oz-reH" secondAttribute="centerX" id="CKY-NC-tCr"/>
+                <constraint firstAttribute="centerX" secondItem="NM7-OY-WiB" secondAttribute="centerX" constant="-16" id="Lcb-yW-MRD"/>
+                <constraint firstItem="2G8-2y-Biz" firstAttribute="centerY" secondItem="NM7-OY-WiB" secondAttribute="centerY" id="WGf-k9-l8K"/>
+                <constraint firstItem="15R-oz-reH" firstAttribute="top" secondItem="NM7-OY-WiB" secondAttribute="bottom" constant="24" id="fhR-tL-EKN"/>
+                <constraint firstItem="NM7-OY-WiB" firstAttribute="leading" secondItem="2G8-2y-Biz" secondAttribute="trailing" constant="10" id="ijF-jV-6n9"/>
+                <constraint firstAttribute="centerY" secondItem="NM7-OY-WiB" secondAttribute="centerY" id="n7V-r6-Ac4"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

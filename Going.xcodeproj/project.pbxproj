@@ -60,6 +60,7 @@
 		D20F23D01A86E77300DA6A5E /* JSQSystemSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D20F23CF1A86E77300DA6A5E /* JSQSystemSoundPlayer.m */; };
 		D210AE6D1A89C81900F54DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25452991A78A4FD00D40D9D /* Main.storyboard */; };
 		D210AE6E1A89C88000F54DF7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */; };
+		D210AE721A89D54400F54DF7 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = D210AE711A89D54400F54DF7 /* Loading.xib */; };
 		D2151E2E1A86D27C001D0C58 /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */; };
 		D2151E301A86DBB5001D0C58 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2151E2F1A86DBB5001D0C58 /* Message.swift */; };
 		D241BF7F1A89B733004246B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D241BF7E1A89B733004246B3 /* Images.xcassets */; };
@@ -200,6 +201,7 @@
 		D20F23CF1A86E77300DA6A5E /* JSQSystemSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQSystemSoundPlayer.m; sourceTree = "<group>"; };
 		D210AE661A89BA1300F54DF7 /* GoingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoingTests.swift; sourceTree = "<group>"; };
 		D210AE6B1A89BAA000F54DF7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D210AE711A89D54400F54DF7 /* Loading.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
 		D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
 		D2151E2F1A86DBB5001D0C58 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D241BF7E1A89B733004246B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 				D2E896D21A79EACC00B00376 /* Going-Bridging-Header.h */,
 				D25452991A78A4FD00D40D9D /* Main.storyboard */,
 				D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */,
+				D210AE711A89D54400F54DF7 /* Loading.xib */,
 				D241BF7E1A89B733004246B3 /* Images.xcassets */,
 				D25452911A78A4FC00D40D9D /* Supporting Files */,
 				D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */,
@@ -681,6 +684,7 @@
 				D20F23B41A86E76900DA6A5E /* JSQMessagesViewController.xib in Resources */,
 				D210AE6E1A89C88000F54DF7 /* LaunchScreen.xib in Resources */,
 				D20F239E1A86E76900DA6A5E /* bubble_min@2x.png in Resources */,
+				D210AE721A89D54400F54DF7 /* Loading.xib in Resources */,
 				D20F23A21A86E76900DA6A5E /* bubble_stroked@2x.png in Resources */,
 				D20F23A61A86E76900DA6A5E /* bubble_tailless@2x.png in Resources */,
 				D20F23AA1A86E76900DA6A5E /* typing@2x.png in Resources */,
