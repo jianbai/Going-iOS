@@ -28,6 +28,11 @@ class FriendChatViewController: JSQMessagesViewController {
     func setupFirebase() {
         // *** STEP 2: SETUP FIREBASE
         self.friendChatRef = Firebase(url: self.firebaseConstants.URL_FRIEND_CHATS).childByAppendingPath(self.chatId)
+        self.friendChatRef.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) -> Void in
+            if (snapshot.value as NSObject == NSNull() && self.loadingScreen != nil) {
+                self.loadingScreen.removeFromSuperview()
+            }
+        })
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE
         self.friendChatRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
             let text = snapshot.value["message"] as? String
@@ -45,7 +50,6 @@ class FriendChatViewController: JSQMessagesViewController {
                 self.loadingScreen.removeFromSuperview()
             }
         })
-        
         
     }
     
@@ -107,6 +111,15 @@ class FriendChatViewController: JSQMessagesViewController {
         if (segue.identifier == "showEditFriend") {
             var editFriendViewController = segue.destinationViewController as EditFriendViewController
             editFriendViewController.friend = self.friend
+            
+            self.definesPresentationContext = true
+            var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
+            item.title = nil
+
+            editFriendViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            
+            self.navigationItem.backBarButtonItem = nil
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: ("exitEdit:"))
         }
     }
     
@@ -215,6 +228,11 @@ class FriendChatViewController: JSQMessagesViewController {
         }
         
         return kJSQMessagesCollectionViewCellLabelHeightDefault
+    }
+    
+    @IBAction func exitEdit(sender: UIBarButtonItem) {
+        self.navigationController?.visibleViewController.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: ("editFriend:"))
     }
 
     @IBAction func editFriend(sender: UIBarButtonItem) {

@@ -16,17 +16,5 @@ class HelpViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.helpView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: Selector("exitHelp:"))
     }
-    
-    @IBAction func exitHelp(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
 }

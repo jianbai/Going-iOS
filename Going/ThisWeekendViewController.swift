@@ -40,9 +40,11 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
 
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        self.locationManager.stopUpdatingLocation()
         
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
@@ -101,7 +103,13 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
             var groupChatViewController = segue.destinationViewController as GroupChatViewController
             groupChatViewController.groupMembers = self.groupMembers
         } else if (segue.identifier == "showHelp") {
-            segue.destinationViewController.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+            self.title = "How Going Works"
+            var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
+            item.title = nil
+            self.definesPresentationContext = true
+            var helpViewController = segue.destinationViewController as HelpViewController
+            helpViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: ("exitHelp"))
         }
     }
     
@@ -297,6 +305,15 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func showHelp() {
         self.performSegueWithIdentifier("showHelp", sender: self)
+    }
+    
+    @IBAction func exitHelp() {
+        self.title = "This Weekend"
+        var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
+        item.title = nil
+        
+        self.navigationController?.visibleViewController.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationItem.rightBarButtonItem = nil
     }
     
 }

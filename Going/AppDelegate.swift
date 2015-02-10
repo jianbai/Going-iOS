@@ -6,10 +6,6 @@
 //  Copyright (c) 2015 spw. All rights reserved.
 //
 
-// TODO: Make loading pretty
-// TODO: Change edit friend to modal
-// TODO: Change profile info
-
 // TODO: Refactor
 
 import UIKit

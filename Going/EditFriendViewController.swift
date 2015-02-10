@@ -129,7 +129,11 @@ class EditFriendViewController: UITableViewController {
         self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
         }
         
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        var friendChatViewController = self.presentingViewController
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            friendChatViewController?.navigationController?.popToRootViewControllerAnimated(true)
+            return
+        })
     }
 
     func reportFriend() {

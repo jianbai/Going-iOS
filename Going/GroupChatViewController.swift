@@ -37,6 +37,12 @@ class GroupChatViewController: JSQMessagesViewController {
         query.getFirstObjectInBackgroundWithBlock { (group, error) -> Void in
             self.groupChatRef = Firebase(url: self.firebaseConstants.URL_GROUP_CHATS).childByAppendingPath(group.objectId)
             // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE
+            self.groupChatRef.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) -> Void in
+                if (snapshot.value as NSObject == NSNull() && self.loadingScreen != nil) {
+                    self.loadingScreen.removeFromSuperview()
+                }
+            })
+            
             self.groupChatRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
                 let text = snapshot.value["message"] as? String
                 let sender = snapshot.value["author"] as? String
@@ -133,6 +139,9 @@ class GroupChatViewController: JSQMessagesViewController {
             matchExpiredViewController.groupMembers = self.groupMembers
             matchExpiredViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         } else if (segue.identifier == "showProfiles") {
+            self.title = "In This Chat"
+            var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
+            item.title = nil
             self.definesPresentationContext = true
             var profilesViewController = segue.destinationViewController as ProfilesViewController
             profilesViewController.groupMembers = self.groupMembers
@@ -276,6 +285,10 @@ class GroupChatViewController: JSQMessagesViewController {
     }
     
     @IBAction func exitProfiles(sender: UIBarButtonItem) {
+        self.title = "This Weekend"
+        var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
+        item.title = nil
+        
         self.navigationController?.visibleViewController.dismissViewControllerAnimated(true, completion: nil)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: ("showProfiles:"))
     }
