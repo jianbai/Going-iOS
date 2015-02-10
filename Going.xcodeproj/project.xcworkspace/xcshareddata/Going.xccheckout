@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1F00E100-7B74-40E1-B10A-37EBF0F906DF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Going</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4F8F63609638033422CFEEAC78C390CB66BE9B9B</key>
+		<string>https://github.com/jianbai/hello-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Going.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4F8F63609638033422CFEEAC78C390CB66BE9B9B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jianbai/hello-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4F8F63609638033422CFEEAC78C390CB66BE9B9B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4F8F63609638033422CFEEAC78C390CB66BE9B9B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hello</string>
+		</dict>
+	</array>
+</dict>
+</plist>
