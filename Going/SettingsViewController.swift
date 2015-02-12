@@ -18,8 +18,8 @@ class SettingsViewController: UITableViewController {
         "Gender preferences",
         "FAQ",
         "RAQ",
-        "Gahh I found a bug!",
-        "Dear Go:",
+        "I found a bug!",
+        "Dear Going:",
         "Log out",
         ""]
     let parseConstants: ParseConstants = ParseConstants()
