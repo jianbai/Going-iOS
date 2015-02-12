@@ -7,6 +7,7 @@
 //
 
 class ReplaceSegue: UIStoryboardSegue {
+    
     override func perform() {
         let source = self.sourceViewController as UIViewController
         let destination = self.destinationViewController as UIViewController
@@ -16,6 +17,8 @@ class ReplaceSegue: UIStoryboardSegue {
         if let index = find(stack, source) {
             stack[index] = destination
         }
+        
         nav.viewControllers = stack
     }
+    
 }

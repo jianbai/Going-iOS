@@ -9,31 +9,28 @@
 import UIKit
 
 class MatchExpiredViewController: UITableViewController {
+    
     @IBOutlet weak var addButton: UIButton!
 
     let parseConstants: ParseConstants = ParseConstants()
-    let currentUser: PFUser = PFUser.currentUser()
+
+    var currentUser: PFUser!
     var groupMembersRelation: PFRelation!
     var friendsRelation: PFRelation!
     var groupMembers: [PFUser] = []
     var isChecked: [Bool] = [true, true, true]
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.currentUser = PFUser.currentUser()
+        
         self.styleAddButton()
         
         self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
         self.friendsRelation = self.currentUser.relationForKey(self.parseConstants.KEY_FRIENDS_RELATION)
-    }
-    
-    func styleAddButton() {
-        self.addButton.backgroundColor = UIColor.clearColor()
-        self.addButton.layer.cornerRadius = 5
-        self.addButton.layer.borderWidth = 1
-        self.addButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
-        self.addButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
     // MARK: - Table view data source
@@ -90,6 +87,18 @@ class MatchExpiredViewController: UITableViewController {
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
     }
+    
+    // MARK: - Helper Functions
+    
+    func styleAddButton() {
+        self.addButton.backgroundColor = UIColor.clearColor()
+        self.addButton.layer.cornerRadius = 5
+        self.addButton.layer.borderWidth = 1
+        self.addButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.addButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+    }
+
+    // MARK: - Actions
 
     @IBAction func addFriends() {
         for var i=0; i<3; ++i {

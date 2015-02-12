@@ -18,104 +18,35 @@ class GroupChatViewController: JSQMessagesViewController {
 
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
+    
     var currentUser: PFUser!
     var groupMembers: [PFUser] = []
     var messages = [Message]()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0))
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.0))
     var batchMessages = true
-    
     var loadingScreen: UIView!
-
-    // *** STEP 1: STORE FIREBASE REFERENCES
     var groupChatRef: Firebase!
     
-    func setupFirebase() {
-        // *** STEP 2: SETUP FIREBASE
-        var query = PFQuery(className: self.parseConstants.CLASS_GROUPS)
-        query.whereKey(self.parseConstants.KEY_GROUP_MEMBER_IDS, equalTo: self.currentUser.objectId)
-        query.getFirstObjectInBackgroundWithBlock { (group, error) -> Void in
-            self.groupChatRef = Firebase(url: self.firebaseConstants.URL_GROUP_CHATS).childByAppendingPath(group.objectId)
-            // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE
-            self.groupChatRef.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) -> Void in
-                if (snapshot.value as NSObject == NSNull() && self.loadingScreen != nil) {
-                    self.loadingScreen.removeFromSuperview()
-                }
-            })
-            
-            self.groupChatRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-                let text = snapshot.value["message"] as? String
-                let sender = snapshot.value["author"] as? String
-                let time = snapshot.value["time"] as? String
-                
-                let message = Message(text: text, sender: sender, time: time)
-                self.messages.append(message)
-                
-                self.emptyView.removeFromSuperview()
-                
-                self.finishReceivingMessage()
-                
-                if (self.loadingScreen != nil) {
-                    self.loadingScreen.removeFromSuperview()
-                }
-            })
-        }
-        
-
-    }
-    
-    func sendMessage(text: String!, sender: String!, time: String!) {
-        // *** STEP 3: ADD A MESSAGE TO FIREBASE
-        self.groupChatRef.childByAutoId().setValue([
-            "message":text,
-            "author":sender,
-            "time":time
-            ])
-    }
-    
-    func tempSendMessage(text: String!, sender: String!, time: String!) {
-        let message = Message(text: text, sender: sender, time: time)
-        messages.append(message)
-    }
-    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if (self.messages.count == 0) {
-            self.collectionView.addSubview(self.emptyView)
-        }
-        
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: ("showProfiles:"))
-        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        
+        self.showLoadingScreen()
         self.currentUser = PFUser.currentUser()
-
-        self.navigationItem.hidesBackButton = true
-        self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
-
-        inputToolbar.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        inputToolbar.contentView.textView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        inputToolbar.contentView.textView.placeHolder = "Write a message"
-        inputToolbar.contentView.leftBarButtonItem = nil
-        inputToolbar.contentView.rightBarButtonItem.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-        automaticallyScrollsToMostRecentMessage = true
+        self.sender = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
         
-        sender = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
-        
-        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
-        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.view.addSubview(loadingScreen)
+        self.styleNavigationBar()
+        self.styleCollectionView()
+        self.styleInputToolbar()
  
-        setupFirebase()
+        self.setupFirebase()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.addSingleEventObserver()
     }
     
@@ -150,43 +81,7 @@ class GroupChatViewController: JSQMessagesViewController {
         }
     }
     
-    func addSingleEventObserver() {
-        let currentUserRef = Firebase(url: firebaseConstants.URL_USERS)
-            .childByAppendingPath(self.currentUser.objectId)
-            .childByAppendingPath(firebaseConstants.KEY_MATCHED)
-        
-        currentUserRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) -> Void in
-            var isMatched = snapshot.value as Bool
-            
-            if (!isMatched) {
-                self.onMatchExpired()
-            }
-        })
-    }
-    
-    func onMatchExpired() {
-        NSLog("MATCH EXPIRED")
-        self.performSegueWithIdentifier("showMatchExpired", sender: self)
-        
-        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
-        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.view.addSubview(loadingScreen)
-    }
-    
-    // ACTIONS
-    
-    func receivedMessagePressed(sender: UIBarButtonItem) {
-        // Simulate reciving message
-        showTypingIndicator = !showTypingIndicator
-        scrollToBottomAnimated(true)
-    }
-    
-    func getTimeStamp(date: NSDate) -> String {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "h'.'mm a"
-        
-        return dateFormatter.stringFromDate(date)
-    }
+    // MARK: - CollectionView Delegate
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -238,8 +133,6 @@ class GroupChatViewController: JSQMessagesViewController {
         return cell
     }
     
-    
-    // View  usernames above bubbles
     override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.item];
         
@@ -279,6 +172,118 @@ class GroupChatViewController: JSQMessagesViewController {
         
         return kJSQMessagesCollectionViewCellLabelHeightDefault
     }
+    
+    // MARK: - Helper Functions
+    
+    func showLoadingScreen() {
+        self.loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        self.loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
+    }
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: ("showProfiles:"))
+        self.navigationItem.hidesBackButton = true
+    }
+    
+    func styleCollectionView() {
+        if (self.messages.count == 0) {
+            self.collectionView.addSubview(self.emptyView)
+        }
+        
+        self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        self.automaticallyScrollsToMostRecentMessage = true
+    }
+    
+    func styleInputToolbar() {
+        self.inputToolbar.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.inputToolbar.contentView.textView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.inputToolbar.contentView.textView.placeHolder = "Write a message"
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+        self.inputToolbar.contentView.rightBarButtonItem.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 16)
+    }
+    
+    func setupFirebase() {
+        var query = PFQuery(className: self.parseConstants.CLASS_GROUPS)
+        query.whereKey(self.parseConstants.KEY_GROUP_MEMBER_IDS, equalTo: self.currentUser.objectId)
+        query.getFirstObjectInBackgroundWithBlock { (group, error) -> Void in
+            self.groupChatRef = Firebase(url: self.firebaseConstants.URL_GROUP_CHATS).childByAppendingPath(group.objectId)
+            self.groupChatRef.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) -> Void in
+                if (snapshot.value as NSObject == NSNull() && self.loadingScreen != nil) {
+                    self.loadingScreen.removeFromSuperview()
+                }
+            })
+            
+            self.groupChatRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+                let text = snapshot.value["message"] as? String
+                let sender = snapshot.value["author"] as? String
+                let time = snapshot.value["time"] as? String
+                
+                let message = Message(text: text, sender: sender, time: time)
+                self.messages.append(message)
+                
+                self.emptyView.removeFromSuperview()
+                
+                self.finishReceivingMessage()
+                
+                if (self.loadingScreen != nil) {
+                    self.loadingScreen.removeFromSuperview()
+                }
+            })
+        }
+    }
+    
+    func sendMessage(text: String!, sender: String!, time: String!) {
+        self.groupChatRef.childByAutoId().setValue([
+            "message":text,
+            "author":sender,
+            "time":time
+            ])
+    }
+    
+    func tempSendMessage(text: String!, sender: String!, time: String!) {
+        let message = Message(text: text, sender: sender, time: time)
+        messages.append(message)
+    }
+    
+    func addSingleEventObserver() {
+        let currentUserRef = Firebase(url: firebaseConstants.URL_USERS)
+            .childByAppendingPath(self.currentUser.objectId)
+            .childByAppendingPath(firebaseConstants.KEY_MATCHED)
+        
+        currentUserRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) -> Void in
+            var isMatched = snapshot.value as Bool
+            
+            if (!isMatched) {
+                self.onMatchExpired()
+            }
+        })
+    }
+    
+    func onMatchExpired() {
+        self.performSegueWithIdentifier("showMatchExpired", sender: self)
+        
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
+    }
+    
+    func receivedMessagePressed(sender: UIBarButtonItem) {
+        showTypingIndicator = !showTypingIndicator
+        scrollToBottomAnimated(true)
+    }
+    
+    func getTimeStamp(date: NSDate) -> String {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "h'.'mm a"
+        
+        return dateFormatter.stringFromDate(date)
+    }
+    
+    // ACTIONS
     
     @IBAction func showProfiles(sender: UIBarButtonItem) {
         performSegueWithIdentifier("showProfiles", sender: self)

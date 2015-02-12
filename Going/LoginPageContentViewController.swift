@@ -1,5 +1,5 @@
 //
-//  LoginTutorialViewController.swift
+//  LoginPageContentViewController.swift
 //  Going
 //
 //  Created by scott on 1/28/15.
@@ -18,22 +18,17 @@ class LoginPageContentViewController: UIViewController {
     var image: String
 
     required init(coder aDecoder: NSCoder) {
-        pageIndex = 0
-        text = LoginTutorial().getText()[0]
-        image = LoginTutorial().getImages()[0]
+        self.pageIndex = 0
+        self.text = LoginTutorial().getText()[0]
+        self.image = LoginTutorial().getImages()[0]
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tutorialLabel.text = text
-        tutorialImageView.image = UIImage(named: image)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.tutorialLabel.text = text
+        self.tutorialImageView.image = UIImage(named: image)
     }
     
 }

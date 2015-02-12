@@ -9,6 +9,7 @@
 import UIKit
 
 class BugViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var bugLabel: UILabel!
     @IBOutlet weak var bugTextField: UITextField!
     @IBOutlet weak var reportButton: UIButton!
@@ -16,30 +17,21 @@ class BugViewController: UIViewController, UITextFieldDelegate {
     let currentUser: PFUser = PFUser.currentUser()
     let parseConstants: ParseConstants = ParseConstants()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         
         self.styleReportButton()
-        
-        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.styleNavigationBar()
         
         self.bugTextField.returnKeyType = UIReturnKeyType.Done
         self.bugTextField.delegate = self
         self.bugTextField.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
     }
     
-    func styleReportButton() {
-        self.reportButton.backgroundColor = UIColor.clearColor()
-        self.reportButton.layer.cornerRadius = 5
-        self.reportButton.layer.borderWidth = 1
-        self.reportButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
-        self.reportButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-    }
+    // MARK: - TextField Delegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -52,6 +44,24 @@ class BugViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.animateTextField(textField, up: false)
+    }
+    
+    // MARK: - Helper Functions
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+    
+    func styleReportButton() {
+        self.reportButton.backgroundColor = UIColor.clearColor()
+        self.reportButton.layer.cornerRadius = 5
+        self.reportButton.layer.borderWidth = 1
+        self.reportButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.reportButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
     func animateTextField(textField: UITextField, up: Bool) {
@@ -69,6 +79,8 @@ class BugViewController: UIViewController, UITextFieldDelegate {
         
         UIView.commitAnimations()
     }
+    
+    // MARK: - Actions
 
     @IBAction func report(sender: UIButton) {
         var bugText = self.bugTextField.text

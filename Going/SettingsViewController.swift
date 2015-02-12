@@ -25,29 +25,17 @@ class SettingsViewController: UITableViewController {
     let parseConstants: ParseConstants = ParseConstants()
     let currentUser: PFUser = PFUser.currentUser()
     
+// MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.profileView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
-
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-        
-        let userName = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
-        let userAge = self.currentUser[parseConstants.KEY_AGE] as String
-        let userHometown = self.currentUser[parseConstants.KEY_HOMETOWN] as String
-        
-        self.profileNameLabel.text = userName
-        self.profileInfoLabel.text = userAge + "  : :  " + userHometown
+        self.styleNavigationBar()
+        self.setupProfile()
     }
     
-// MARK: - Table view data source
+// MARK: - TableView Data Source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -68,6 +56,8 @@ class SettingsViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: - TableView Delegate
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if (indexPath.row == 0 || indexPath.row == 8) {
@@ -131,6 +121,25 @@ class SettingsViewController: UITableViewController {
     }
     
 // MARK: - Table cell click handlers
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    }
+    
+    func setupProfile() {
+        self.profileView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        let userName = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
+        let userAge = self.currentUser[parseConstants.KEY_AGE] as String
+        let userHometown = self.currentUser[parseConstants.KEY_HOMETOWN] as String
+        self.profileNameLabel.text = userName
+        self.profileInfoLabel.text = userAge + "  : :  " + userHometown
+    }
     
     func logOut() {
         if (PFFacebookUtils.session() != nil) {

@@ -45,4 +45,5 @@ struct ParseConstants {
     let KEY_LONGITUDE = "longitude"
     let KEY_BUG_REPORTS = "bugReports"
     let KEY_CONTACT_US = "contactUs"
+    
 }

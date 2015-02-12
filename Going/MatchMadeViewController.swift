@@ -9,6 +9,7 @@
 import UIKit
 
 class MatchMadeViewController: UIViewController {
+    
     @IBOutlet weak var memberNameLabel0: UILabel!
     @IBOutlet weak var memberInfoLabel0: UILabel!
     @IBOutlet weak var memberNameLabel1: UILabel!
@@ -18,13 +19,17 @@ class MatchMadeViewController: UIViewController {
     @IBOutlet weak var helloButton: UIButton!
     
     let parseConstants: ParseConstants = ParseConstants()
-    let currentUser: PFUser = PFUser.currentUser()
+    
+    var currentUser: PFUser!
     var groupMembers: [PFUser] = []
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.currentUser = PFUser.currentUser()
+
         self.styleHelloButton()
         
         if (self.groupMembers.count != 3) {
@@ -44,6 +49,8 @@ class MatchMadeViewController: UIViewController {
             memberInfo[i].text = memberInfoText
         }
     }
+    
+    // MARK: - Helper Functions
     
     func styleHelloButton() {
         self.helloButton.backgroundColor = UIColor.clearColor()
@@ -70,6 +77,8 @@ class MatchMadeViewController: UIViewController {
             })
         }
     }
+    
+    // MARK: - Actions
     
     @IBAction func sayHello() {
         self.currentUser[parseConstants.KEY_MATCH_DIALOG_SEEN] = true

@@ -9,6 +9,7 @@
 import UIKit
 
 class EditFriendViewController: UITableViewController {
+    
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendInfoLabel: UILabel!
     @IBOutlet weak var friendProfileView: UIView!
@@ -18,22 +19,22 @@ class EditFriendViewController: UITableViewController {
         "Report",
         ""]
     let parseConstants: ParseConstants = ParseConstants()
-    let currentUser: PFUser = PFUser.currentUser()
+    
+    var currentUser: PFUser!
     var friendsRelation: PFRelation?
     var friend: PFUser!
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.friendsRelation = self.currentUser.relationForKey(parseConstants.KEY_FRIENDS_RELATION)
-        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+
+        self.styleNavigationBar()
+        
+        self.currentUser = PFUser.currentUser()
+        self.friendsRelation = self.currentUser.relationForKey(parseConstants.KEY_FRIENDS_RELATION)
         self.friendProfileView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
 
         let friendName = friend[parseConstants.KEY_FIRST_NAME] as String
         let friendAge = friend[parseConstants.KEY_AGE] as String
@@ -97,31 +98,49 @@ class EditFriendViewController: UITableViewController {
         switch indexPath.row {
             // Delete
         case 1:
-            let deleteController = UIAlertController(title: "Delete friend?", message: "This friend will be removed from your friend list and you will be unable to chat again. Are you sure?", preferredStyle: .Alert)
-            let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            deleteController.addAction(cancelButton)
-            let deleteButton = UIAlertAction(title: "Delete", style: .Default, handler: { (action) -> Void in
-                self.deleteFriend()
-            })
-            deleteController.addAction(deleteButton)
-            
-            self.presentViewController(deleteController, animated: true, completion: nil)
+            self.showDeleteAlert()
             break
             // Report
         case 2:
-            let reportController = UIAlertController(title: "Report?", message: "If a user makes you feel at all uncomfortable, please report them. They will be flagged, removed from your friends list and prevented from contacting you again.", preferredStyle: .Alert)
-            let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            reportController.addAction(cancelButton)
-            let reportButton = UIAlertAction(title: "Report", style: .Destructive, handler: { (action) -> Void in
-                self.reportFriend()
-            })
-            reportController.addAction(reportButton)
-            
-            self.presentViewController(reportController, animated: true, completion: nil)
+            self.showReportAlert()
             break
         default:
             break
         }
+    }
+    
+    // MARK: Helper Functions
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+    
+    func showDeleteAlert() {
+        let deleteController = UIAlertController(title: "Delete friend?", message: "This friend will be removed from your friend list and you will be unable to chat again. Are you sure?", preferredStyle: .Alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        deleteController.addAction(cancelButton)
+        let deleteButton = UIAlertAction(title: "Delete", style: .Default, handler: { (action) -> Void in
+            self.deleteFriend()
+        })
+        deleteController.addAction(deleteButton)
+        
+        self.presentViewController(deleteController, animated: true, completion: nil)
+    }
+    
+    func showReportAlert() {
+        let reportController = UIAlertController(title: "Report?", message: "If a user makes you feel at all uncomfortable, please report them. They will be flagged, removed from your friends list and prevented from contacting you again.", preferredStyle: .Alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        reportController.addAction(cancelButton)
+        let reportButton = UIAlertAction(title: "Report", style: .Destructive, handler: { (action) -> Void in
+            self.reportFriend()
+        })
+        reportController.addAction(reportButton)
+        
+        self.presentViewController(reportController, animated: true, completion: nil)
     }
     
     func deleteFriend() {

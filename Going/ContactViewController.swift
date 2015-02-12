@@ -16,38 +16,21 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     let currentUser: PFUser = PFUser.currentUser()
     let parseConstants: ParseConstants = ParseConstants()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         
         self.styleSendButton()
-        
-        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationItem.rightBarButtonItem?.setTitleTextAttributes([
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()],
-            forState: UIControlState.Normal)
-        self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()],
-            forState: UIControlState.Normal)
+        self.styleNavigationBar()
         
         self.contactTextField.returnKeyType = UIReturnKeyType.Done
         self.contactTextField.delegate = self
         self.contactTextField.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
     }
     
-    func styleSendButton() {
-        self.sendButton.backgroundColor = UIColor.clearColor()
-        self.sendButton.layer.cornerRadius = 5
-        self.sendButton.layer.borderWidth = 1
-        self.sendButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
-        self.sendButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-    }
+    // MARK: - TextField Delegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -60,6 +43,24 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.animateTextField(textField, up: false)
+    }
+    
+    // MARK: - Helper Functions
+    
+    func styleSendButton() {
+        self.sendButton.backgroundColor = UIColor.clearColor()
+        self.sendButton.layer.cornerRadius = 5
+        self.sendButton.layer.borderWidth = 1
+        self.sendButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.sendButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+    }
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     
     func animateTextField(textField: UITextField, up: Bool) {
@@ -77,6 +78,8 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         
         UIView.commitAnimations()
     }
+    
+    // MARK: - Actions
     
     @IBAction func send() {
         var contactText = self.contactTextField.text

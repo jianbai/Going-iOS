@@ -22,20 +22,32 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
     let ref: Firebase = Firebase(url: "https://sayhello.firebaseio.com/web/data/users")
+    
     var views: [LoginPageContentViewController] = []
     var currentUser: PFUser!
     var noGender: Bool!
     var noAge: Bool!
     var noHometown: Bool!
-    
     var loadingScreen: UIView!
+    
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.pageViewController.dataSource = self
+        
+        self.setupLoginTutorial()
+        self.styleLoginButton()
+        self.showLoadingScreen()
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
         self.hideActivityIndicator()
-     
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -46,40 +58,8 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         if (user != nil && PFFacebookUtils.isLinkedWithUser(user)) {
             self.performSegueWithIdentifier("showMain", sender: self)
         } else {
-            loadingScreen.removeFromSuperview()
+            self.hideLoadingScreen()
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        for var i=0; i<self.presentationCountForPageViewController(pageViewController); ++i {
-            self.views.append(viewControllerAtIndex(i)!)
-        }
-        
-        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.styleLoginButton()
-        self.pageViewController.dataSource = self
-    
-        let startingViewController : LoginPageContentViewController = self.viewControllerAtIndex(0)!
-        let viewControllers: NSArray = [startingViewController]
-        self.pageViewController.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: nil)
-        
-        // Change the size of page view controller
-        self.pageViewController.view.frame = CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 180);
-        
-        self.addChildViewController(self.pageViewController)
-        self.view.addSubview(self.pageViewController.view)
-        self.pageViewController.didMoveToParentViewController(self)
-        
-        let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 0.30)
-        appearance.currentPageIndicatorTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        appearance.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        
-        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
-        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.view.addSubview(loadingScreen)
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -94,21 +74,11 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
             setProfileViewController.setBools(self.noGender!, noAge: self.noAge!, noHometown: self.noHometown!)
         } else if (segue.identifier == "showPrivacy") {
             var nav = segue.destinationViewController.navigationBar
-            
-            nav.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-            nav.translucent = false
-            nav.titleTextAttributes = [
-                NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-                NSForegroundColorAttributeName: UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)]
-            nav.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+            self.styleNavigationBar(nav)
         }
     }
     
-    func styleLoginButton() {
-        self.loginButton.backgroundColor = UIColor.clearColor()
-        self.loginButton.layer.cornerRadius = 5
-        self.loginButton.layer.backgroundColor = UIColor(red: (59.0/255.0), green: (89.0/255.0), blue: (152.0/255.0), alpha: 1.0).CGColor
-    }
+    // MARK: - PageViewController Data Source
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
@@ -164,29 +134,45 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         return 0
     }
     
-    @IBAction func showPrivacy() {
-        self.performSegueWithIdentifier("showPrivacy", sender: self)
+    // MARK: - Helper Functions
+    
+    func styleLoginButton() {
+        self.loginButton.backgroundColor = UIColor.clearColor()
+        self.loginButton.layer.cornerRadius = 5
+        self.loginButton.layer.backgroundColor = UIColor(red: (59.0/255.0), green: (89.0/255.0), blue: (152.0/255.0), alpha: 1.0).CGColor
     }
     
-    @IBAction func login() {
-        self.showActivityIndicator()
+    func setupLoginTutorial() {
+        for var i=0; i<self.presentationCountForPageViewController(pageViewController); ++i {
+            self.views.append(viewControllerAtIndex(i)!)
+        }
         
-        PFFacebookUtils.logInWithPermissions(permissions, {
-            (user: PFUser!, error: NSError!) -> Void in
-            self.currentUser = PFUser.currentUser()
-            
-            if user == nil {
-                NSLog("Uh oh. The user cancelled the Facebook login.")
-                self.showErrorAlert()
-                self.hideActivityIndicator()
-            } else if user.isNew {
-                NSLog("User signed up and logged in through Facebook!")
-                self.fetchFacebookData()
-            } else {
-                NSLog("User logged in through Facebook!")
-                self.performSegueWithIdentifier("showMain", sender: self)
-            }
-        })
+        let startingViewController : LoginPageContentViewController = self.viewControllerAtIndex(0)!
+        let viewControllers: NSArray = [startingViewController]
+        self.pageViewController
+            .setViewControllers(viewControllers, direction: .Forward, animated: false, completion: nil)
+        
+        // Change the size of page view controller
+        self.pageViewController.view.frame =
+            CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 180);
+        
+        self.addChildViewController(self.pageViewController)
+        self.view.addSubview(self.pageViewController.view)
+        self.pageViewController.didMoveToParentViewController(self)
+        
+        let appearance = UIPageControl.appearance()
+        appearance.pageIndicatorTintColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 0.30)
+        appearance.currentPageIndicatorTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        appearance.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+    }
+    
+    func styleNavigationBar(nav: UINavigationBar) {
+        nav.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        nav.translucent = false
+        nav.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)]
+        nav.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
     }
     
     func fetchFacebookData() {
@@ -216,10 +202,8 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
                     if (error == nil) {
                         self.saveUserToFirebase()
                         if (self.isUserProfileIncomplete()) {
-                            NSLog("profile incomplete")
                             self.performSegueWithIdentifier("showSetProfile", sender: self)
                         } else {
-                            NSLog("profile complete")
                             self.performSegueWithIdentifier("showMain", sender: self)
                         }
                     } else {
@@ -358,6 +342,41 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         loginButton.hidden = false
         loginActivityIndicator.hidden = true
         loginActivityIndicator.stopAnimating()
+    }
+    
+    func showLoadingScreen() {
+        self.loadingScreen =
+            NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        self.loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
+    }
+    
+    func hideLoadingScreen() {
+        self.loadingScreen.removeFromSuperview()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func showPrivacy() {
+        self.performSegueWithIdentifier("showPrivacy", sender: self)
+    }
+    
+    @IBAction func login() {
+        self.showActivityIndicator()
+        
+        PFFacebookUtils.logInWithPermissions(permissions, {
+            (user: PFUser!, error: NSError!) -> Void in
+            self.currentUser = PFUser.currentUser()
+            
+            if user == nil {
+                self.showErrorAlert()
+                self.hideActivityIndicator()
+            } else if user.isNew {
+                self.fetchFacebookData()
+            } else {
+                self.performSegueWithIdentifier("showMain", sender: self)
+            }
+        })
     }
     
 }

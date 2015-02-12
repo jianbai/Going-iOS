@@ -29,4 +29,5 @@ struct LoginTutorial {
     func getImages() -> [String] {
         return self.imageArray
     }
+    
 }

@@ -22,29 +22,20 @@ class GenderPreferencesViewController: UITableViewController {
         ""]
     let parseConstants: ParseConstants = ParseConstants()
     let currentUser: PFUser = PFUser.currentUser()
+    
     var gender: Int = 0
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideActivityIndicator()
-        self.styleSaveButton()
         self.gender = self.getGenderPreference()
-        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.saveView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
-    }
-    
-    func styleSaveButton() {
-        self.saveButton.backgroundColor = UIColor.clearColor()
-        self.saveButton.layer.cornerRadius = 5
-        self.saveButton.layer.borderWidth = 1
-        self.saveButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
-        self.saveButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        
+        self.hideActivityIndicator()
+        self.StyleNavigationBar()
+        self.styleSaveButton()
     }
     
     // MARK: - Table view data source
@@ -67,6 +58,7 @@ class GenderPreferencesViewController: UITableViewController {
         
         cell.textLabel?.text = self.genderPreferences[indexPath.row]
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)
+        cell.textLabel?.textColor = UIColor(red: 0.20, green: 0.20, blue: 0.20, alpha: 1.0)
         
         if (indexPath.row == self.getGenderPreference()) {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
@@ -107,9 +99,27 @@ class GenderPreferencesViewController: UITableViewController {
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
     }
+
+    // MARK: - Helper functions
     
     func getGenderPreference() -> Int {
         return self.currentUser[parseConstants.KEY_GENDER_SETTINGS] as Int
+    }
+    
+    func StyleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+    
+    func styleSaveButton() {
+        self.saveButton.backgroundColor = UIColor.clearColor()
+        self.saveButton.layer.cornerRadius = 5
+        self.saveButton.layer.borderWidth = 1
+        self.saveButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.saveButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
     func hideActivityIndicator() {
@@ -131,7 +141,7 @@ class GenderPreferencesViewController: UITableViewController {
         
         self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

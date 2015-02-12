@@ -9,13 +9,22 @@
 import UIKit
 
 class FaqViewController: UIViewController {
+    
     @IBOutlet weak var faqView: UIView!
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         self.faqView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.styleNavigationBar()
+    }
+    
+    // MARK: - Helper Functions
+    
+    func styleNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [

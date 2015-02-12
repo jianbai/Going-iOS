@@ -9,11 +9,13 @@
 import UIKit
 
 class FriendChatViewController: JSQMessagesViewController {
+    
     @IBOutlet var emptyView: UIView!
     
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
-    let currentUser: PFUser = PFUser.currentUser()
+    
+    var currentUser: PFUser!
     var chatId: String!
     var friend: PFUser!
     var messages = [Message]()
@@ -21,83 +23,22 @@ class FriendChatViewController: JSQMessagesViewController {
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.0))
     var batchMessages = true
     var loadingScreen: UIView!
-    
-    // *** STEP 1: STORE FIREBASE REFERENCES
     var friendChatRef: Firebase!
     
-    func setupFirebase() {
-        // *** STEP 2: SETUP FIREBASE
-        self.friendChatRef = Firebase(url: self.firebaseConstants.URL_FRIEND_CHATS).childByAppendingPath(self.chatId)
-        self.friendChatRef.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) -> Void in
-            if (snapshot.value as NSObject == NSNull() && self.loadingScreen != nil) {
-                self.loadingScreen.removeFromSuperview()
-            }
-        })
-        // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE
-        self.friendChatRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-            let text = snapshot.value["message"] as? String
-            let sender = snapshot.value["author"] as? String
-            let time = snapshot.value["time"] as? String
-            
-            let message = Message(text: text, sender: sender, time: time)
-            self.messages.append(message)
-            
-            self.emptyView.removeFromSuperview()
-            
-            self.finishReceivingMessage()
-            
-            if (self.loadingScreen != nil) {
-                self.loadingScreen.removeFromSuperview()
-            }
-        })
-        
-    }
-    
-    func sendMessage(text: String!, sender: String!, time: String!) {
-        // *** STEP 3: ADD A MESSAGE TO FIREBASE
-        self.friendChatRef.childByAutoId().setValue([
-            "message":text,
-            "author":sender,
-            "time":time
-            ])
-    }
-    
-    func tempSendMessage(text: String!, sender: String!, time: String!) {
-        let message = Message(text: text, sender: sender, time: time)
-        messages.append(message)
-    }
+    // MARK: - Lifecycle
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
-        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.view.addSubview(loadingScreen)
-        
-        if (self.messages.count == 0) {
-            self.collectionView.addSubview(self.emptyView)
-        }
-        
         self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-
-        self.navigationItem.title = self.friend[parseConstants.KEY_FIRST_NAME] as? String
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: Selector("editFriend:"))
         
-        self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        self.showLoadingScreen()
+        self.currentUser = PFUser.currentUser()
+        self.sender = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-        
-        inputToolbar.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        inputToolbar.contentView.textView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        inputToolbar.contentView.textView.placeHolder = "Write a message"
-        inputToolbar.contentView.leftBarButtonItem = nil
-        inputToolbar.contentView.rightBarButtonItem.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 16)
-        automaticallyScrollsToMostRecentMessage = true
-        
-        sender = self.currentUser[parseConstants.KEY_FIRST_NAME] as String
+        self.styleNavigationBar()
+        self.styleCollectionView()
+        self.styleInputToolbar()
         
         setupFirebase()
     }
@@ -115,7 +56,7 @@ class FriendChatViewController: JSQMessagesViewController {
             self.definesPresentationContext = true
             var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
             item.title = nil
-
+            
             editFriendViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
             
             self.navigationItem.backBarButtonItem = nil
@@ -123,20 +64,7 @@ class FriendChatViewController: JSQMessagesViewController {
         }
     }
     
-    // ACTIONS
-    
-    func receivedMessagePressed(sender: UIBarButtonItem) {
-        // Simulate reciving message
-        showTypingIndicator = !showTypingIndicator
-        scrollToBottomAnimated(true)
-    }
-    
-    func getTimeStamp(date: NSDate) -> String {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "h'.'mm a"
-        
-        return dateFormatter.stringFromDate(date)
-    }
+    // MARK: - CollectionView Delegate
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -188,8 +116,6 @@ class FriendChatViewController: JSQMessagesViewController {
         return cell
     }
     
-    
-    // View  usernames above bubbles
     override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.item];
         
@@ -229,6 +155,92 @@ class FriendChatViewController: JSQMessagesViewController {
         
         return kJSQMessagesCollectionViewCellLabelHeightDefault
     }
+    
+    // MARK: - Helper Functions
+    
+    func showLoadingScreen() {
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
+    }
+    
+    func styleNavigationBar() {
+        self.navigationItem.title = self.friend[parseConstants.KEY_FIRST_NAME] as? String
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: Selector("editFriend:"))
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    }
+    
+    func styleCollectionView() {
+        if (self.messages.count == 0) {
+            self.collectionView.addSubview(self.emptyView)
+        }
+        
+        self.collectionView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        self.automaticallyScrollsToMostRecentMessage = true
+    }
+    
+    func styleInputToolbar() {
+        self.inputToolbar.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.inputToolbar.contentView.textView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.inputToolbar.contentView.textView.placeHolder = "Write a message"
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+        self.inputToolbar.contentView.rightBarButtonItem.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 16)
+    }
+    
+    func setupFirebase() {
+        self.friendChatRef = Firebase(url: self.firebaseConstants.URL_FRIEND_CHATS).childByAppendingPath(self.chatId)
+        self.friendChatRef.observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot) -> Void in
+            if (snapshot.value as NSObject == NSNull() && self.loadingScreen != nil) {
+                self.loadingScreen.removeFromSuperview()
+            }
+        })
+        self.friendChatRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+            let text = snapshot.value["message"] as? String
+            let sender = snapshot.value["author"] as? String
+            let time = snapshot.value["time"] as? String
+            
+            let message = Message(text: text, sender: sender, time: time)
+            self.messages.append(message)
+            
+            self.emptyView.removeFromSuperview()
+            
+            self.finishReceivingMessage()
+            
+            if (self.loadingScreen != nil) {
+                self.loadingScreen.removeFromSuperview()
+            }
+        })
+        
+    }
+    
+    func sendMessage(text: String!, sender: String!, time: String!) {
+        self.friendChatRef.childByAutoId().setValue([
+            "message":text,
+            "author":sender,
+            "time":time
+            ])
+    }
+    
+    func tempSendMessage(text: String!, sender: String!, time: String!) {
+        let message = Message(text: text, sender: sender, time: time)
+        messages.append(message)
+    }
+    
+    func receivedMessagePressed(sender: UIBarButtonItem) {
+        showTypingIndicator = !showTypingIndicator
+        scrollToBottomAnimated(true)
+    }
+    
+    func getTimeStamp(date: NSDate) -> String {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "h'.'mm a"
+        
+        return dateFormatter.stringFromDate(date)
+    }
+    
+    // MARK: - ACTIONS
     
     @IBAction func exitEdit(sender: UIBarButtonItem) {
         self.navigationController?.visibleViewController.dismissViewControllerAnimated(true, completion: nil)

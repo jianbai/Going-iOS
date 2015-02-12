@@ -11,44 +11,39 @@ import UIKit
 import CoreLocation
 
 class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
+    
     @IBOutlet weak var meetLabel: UILabel!
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var goActivityIndicator: UIActivityIndicatorView!
     
     let parseConstants: ParseConstants = ParseConstants()
     let firebaseConstants: FirebaseConstants = FirebaseConstants()
-    let currentUser: PFUser = PFUser.currentUser()
     let locationManager: CLLocationManager = CLLocationManager()
     let ref: Firebase = Firebase(url: FirebaseConstants().URL_USERS)
         .childByAppendingPath(PFUser.currentUser().objectId)
         .childByAppendingPath(FirebaseConstants().KEY_MATCHED)
+    
+    var currentUser: PFUser!
     var currentLocation: CLLocation?
     var groupChatRef: Firebase!
     var memberIds: [String]!
     var groupMembers: [PFUser] = []
     var groupMembersRelation: PFRelation!
     var isSearching: Bool = false
-    
     var loadingScreen: UIView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         
-        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
-        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.view.addSubview(loadingScreen)
+        self.styleNavigationBar()
+        self.showLoadingScreen()
+        self.currentUser = PFUser.currentUser()
 
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        self.locationManager.stopUpdatingLocation()
-        
-        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)]
         
         self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
         var isMatched = self.currentUser[parseConstants.KEY_IS_MATCHED] as Bool
@@ -63,27 +58,21 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.isSearching = self.currentUser[parseConstants.KEY_IS_SEARCHING] as Bool
         
         if (self.isSearching) {
             self.showActivityIndicator()
             self.startObserver()
-            self.triggerLocationServices()
         } else {
             self.hideActivityIndicator()
         }
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         if (self.isSearching) {
-            NSLog("DISAPPEAR OBSERVERS")
             self.ref.removeAllObservers()
         }
     }
@@ -113,8 +102,46 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    // MARK: - CLLocationManager Delegate
+    
+    
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        switch (status) {
+        case .Restricted, .Denied:
+            self.showRequestLocationServicesAlert()
+            break
+        default:
+            break
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        self.currentLocation = self.locationManager.location
+        self.locationManager.stopUpdatingLocation()
+        self.currentUser[parseConstants.KEY_LATITUDE] = self.currentLocation?.coordinate.latitude
+        self.currentUser[parseConstants.KEY_LONGITUDE] = self.currentLocation?.coordinate.longitude
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
+    }
+    
+    // MARK: - Helper Functions
+    
+    func showLoadingScreen() {
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
+    }
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)]
+    }
+    
     func startObserver() {
-        NSLog("START OBSERVER")
         self.ref.observeEventType(.Value, withBlock: { (snapshot) -> Void in
             var isMatched = snapshot.value as Bool
             if (isMatched) {
@@ -124,7 +151,6 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func onMatchMade() {
-        NSLog("MATCH MADE")
         self.ref.removeAllObservers()
 
         
@@ -178,55 +204,43 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
         self.meetLabel.text = "Meet 3 people this weekend"
     }
     
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        NSLog("DID CHANGE STATUS")
-        switch (status) {
-        case .NotDetermined, .Restricted, .Denied:
-            NSLog("STATUS RESTRICTED OR DENIED")
-            let alertController = UIAlertController(
-                title: "Location Access Disabled",
-                message: "Going requires location services to make sure people are actually close enough to each other to meet. Please open this app's settings and enable location services -- it'll be a lot more fun!",
-                preferredStyle: .Alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+    func showRequestLocationServicesAlert() {
+        let alertController = UIAlertController(
+            title: "Location Access Disabled",
+            message: "Going requires location services to make sure people are actually close enough to each other to meet. Please open this app's settings and enable location services -- it'll be a lot more fun!",
+            preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            self.hideActivityIndicator()
+            self.isSearching = false
+            self.currentUser[self.parseConstants.KEY_IS_SEARCHING] = false
+            self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            })
+        }
+        alertController.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+            if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                UIApplication.sharedApplication().openURL(url)
                 self.hideActivityIndicator()
                 self.isSearching = false
                 self.currentUser[self.parseConstants.KEY_IS_SEARCHING] = false
                 self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
                 })
             }
-            alertController.addAction(cancelAction)
-            
-            let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(url)
-                    self.hideActivityIndicator()
-                    self.isSearching = false
-                    self.currentUser[self.parseConstants.KEY_IS_SEARCHING] = false
-                    self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
-                    })
-                }
-            }
-            alertController.addAction(openAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-            break
-        default:
-            NSLog("STATUS SOMETHING ELSE")
-            self.getCurrentLocation()
         }
+        alertController.addAction(openAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    
     func triggerLocationServices() {
-        NSLog("TRIGGERD")
         if CLLocationManager.locationServicesEnabled() {
-            NSLog("LS ENABLED")
             if self.locationManager.respondsToSelector("requestWhenInUseAuthorization") {
-                NSLog("RESPONDING")
                 self.checkLocationAuthorizationStatus()
             } else {
-                NSLog("NOT RESPONDING")
-                self.getCurrentLocation()
+                self.locationManager.startUpdatingLocation()
             }
         }
     }
@@ -234,61 +248,17 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
     func checkLocationAuthorizationStatus() {
         switch CLLocationManager.authorizationStatus() {
         case .NotDetermined:
-            NSLog("STATUS NOT DETERMINED")
             self.locationManager.requestWhenInUseAuthorization()
             break
         case .Restricted, .Denied:
-            NSLog("STATUS RESTRICTED OR DENIED")
-            let alertController = UIAlertController(
-                title: "Location Access Disabled",
-                message: "Going requires location services to make sure people are actually close enough to each other to meet. Please open this app's settings and enable location services -- it'll be a lot more fun!",
-                preferredStyle: .Alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-                self.hideActivityIndicator()
-                self.isSearching = false
-                self.currentUser[self.parseConstants.KEY_IS_SEARCHING] = false
-                self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
-                })
-            }
-            alertController.addAction(cancelAction)
-
-            let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(url)
-                    self.hideActivityIndicator()
-                    self.isSearching = false
-                    self.currentUser[self.parseConstants.KEY_IS_SEARCHING] = false
-                    self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
-                    })
-                }
-            }
-            alertController.addAction(openAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.showRequestLocationServicesAlert()
             break
         default:
-            NSLog("STATUS SOMETHING ELSE")
-            self.getCurrentLocation()
+            self.locationManager.startUpdatingLocation()
         }
     }
     
-    func getCurrentLocation() {
-        NSLog("STARTING LOCATION UPDATES")
-        self.locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        NSLog("DID UPDATE LOCATIONS")
-        self.currentLocation = self.locationManager.location
-        self.locationManager.stopUpdatingLocation()
-        self.currentUser[parseConstants.KEY_LATITUDE] = self.currentLocation?.coordinate.latitude
-        self.currentUser[parseConstants.KEY_LONGITUDE] = self.currentLocation?.coordinate.longitude
-        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-        }
-    }
-    
-    // MARK: - IBActions
+    // MARK: - Actions
     
     @IBAction func go() {
         if (!self.isSearching) {
@@ -299,7 +269,6 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
             self.currentUser[parseConstants.KEY_IS_SEARCHING] = true
             self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
             })
-            NSLog("GOGOGO")
         }
     }
     

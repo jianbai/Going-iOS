@@ -12,35 +12,27 @@ class FriendsViewController: UITableViewController {
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var meetButton: UIButton!
 
-    let currentUser = PFUser.currentUser()
     let parseConstants: ParseConstants = ParseConstants()
+    
+    var currentUser: PFUser!
     var friendsRelation: PFRelation!
     var friends: [PFUser] = []
     var chatId: String?
     var friend: PFUser?
-    
     var loadingScreen: UIView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
         
-        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
-        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.view.addSubview(loadingScreen)
-        self.styleMeetButton()
-
+        self.currentUser = PFUser.currentUser()
         self.friendsRelation = self.currentUser.relationForKey(parseConstants.KEY_FRIENDS_RELATION)
         
-        self.view.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-        self.loadFriends()
+        self.showLoadingScreen()
+        self.styleMeetButton()
+        self.styleNavigationBar()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -48,26 +40,15 @@ class FriendsViewController: UITableViewController {
         self.loadFriends()
     }
     
-    func styleMeetButton() {
-        self.meetButton.backgroundColor = UIColor.clearColor()
-        self.meetButton.layer.cornerRadius = 5
-        self.meetButton.layer.borderWidth = 1
-        self.meetButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
-        self.meetButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
-    }
-    
-    func loadFriends() {
-        var query = self.friendsRelation.query()
-        query.orderByAscending(self.parseConstants.KEY_FIRST_NAME)
-        query.findObjectsInBackgroundWithBlock { (friends, error) -> Void in
-            self.friends = friends as [PFUser]
-            self.emptyView.hidden = self.friends.count != 0
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showFriendChat") {
+            var friendChatViewController = segue.destinationViewController as FriendChatViewController
             
-            self.tableView.reloadData()
+            friendChatViewController.chatId = self.chatId
+            friendChatViewController.friend = self.friend
             
-            if (self.loadingScreen != nil) {
-                self.loadingScreen.removeFromSuperview()
-            }
+            self.definesPresentationContext = true
+            friendChatViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         }
     }
 
@@ -117,18 +98,49 @@ class FriendsViewController: UITableViewController {
         
         performSegueWithIdentifier("showFriendChat", sender: self)
     }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "showFriendChat") {
-            var friendChatViewController = segue.destinationViewController as FriendChatViewController
+    
+    // MARK: - Helper Functions
+    
+    func showLoadingScreen() {
+        loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
+        loadingScreen.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(loadingScreen)
+    }
+    
+    func styleMeetButton() {
+        self.meetButton.backgroundColor = UIColor.clearColor()
+        self.meetButton.layer.cornerRadius = 5
+        self.meetButton.layer.borderWidth = 1
+        self.meetButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.meetButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+    }
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.96, green: 0.96, blue: 0.94, alpha: 1.0)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    }
+    
+    func loadFriends() {
+        var query = self.friendsRelation.query()
+        query.orderByAscending(self.parseConstants.KEY_FIRST_NAME)
+        query.findObjectsInBackgroundWithBlock { (friends, error) -> Void in
+            self.friends = friends as [PFUser]
+            self.emptyView.hidden = self.friends.count != 0
             
-            friendChatViewController.chatId = self.chatId
-            friendChatViewController.friend = self.friend
+            self.tableView.reloadData()
             
-            self.definesPresentationContext = true
-            friendChatViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+            if (self.loadingScreen != nil) {
+                self.loadingScreen.removeFromSuperview()
+            }
         }
     }
+    
+    // MARK: - Actions
     
     @IBAction func meetThisWeekend() {
         var tabBarController = self.tabBarController!

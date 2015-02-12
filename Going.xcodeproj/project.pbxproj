@@ -498,39 +498,10 @@
 		D25452901A78A4FC00D40D9D /* Going */ = {
 			isa = PBXGroup;
 			children = (
-				D25452931A78A4FC00D40D9D /* AppDelegate.swift */,
-				D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */,
-				D2A24E4B1A7B09C80004326F /* LoginViewController.swift */,
-				D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */,
-				D2F2AAC61A89020600F3F51F /* PrivacyViewController.swift */,
-				D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */,
-				D2BECE7E1A83248D0085900B /* MainTabBarController.swift */,
-				D25452951A78A4FC00D40D9D /* SettingsViewController.swift */,
-				D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */,
-				D2A795C11A87721B00B6C0AE /* MatchMadeViewController.swift */,
-				D2CAC4F81A8490AF00A87966 /* GroupChatViewController.swift */,
-				D2A795BF1A873A4100B6C0AE /* MatchExpiredViewController.swift */,
-				D25D21601A893478007979FA /* ProfilesViewController.swift */,
-				D25452971A78A4FC00D40D9D /* FriendsViewController.swift */,
-				D2F2AAC21A88AE2A00F3F51F /* FriendChatViewController.swift */,
-				D2F2AAC41A88BFFC00F3F51F /* EditFriendViewController.swift */,
-				D2ABEBD81A8343A400221683 /* HelpViewController.swift */,
-				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
-				D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */,
-				D285C2F01A84613700C769AD /* FaqViewController.swift */,
-				D285C2F11A84613700C769AD /* RaqViewController.swift */,
-				D2BECE7A1A83099D0085900B /* BugViewController.swift */,
-				D2BECE7C1A8313560085900B /* ContactViewController.swift */,
-				D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */,
-				D29B763E1A7E0B4500A11BE7 /* FirebaseConstants.swift */,
-				D2E896D21A79EACC00B00376 /* Going-Bridging-Header.h */,
-				D25452991A78A4FD00D40D9D /* Main.storyboard */,
-				D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */,
-				D210AE711A89D54400F54DF7 /* Loading.xib */,
-				D241BF7E1A89B733004246B3 /* Images.xcassets */,
+				D2F683381A8B1D88003188EB /* Models */,
+				D2F683391A8B1DB1003188EB /* Views */,
+				D2F683371A8B1D60003188EB /* Controllers */,
 				D25452911A78A4FC00D40D9D /* Supporting Files */,
-				D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */,
-				D2151E2F1A86DBB5001D0C58 /* Message.swift */,
 			);
 			path = Going;
 			sourceTree = "<group>";
@@ -538,9 +509,61 @@
 		D25452911A78A4FC00D40D9D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */,
+				D29B763E1A7E0B4500A11BE7 /* FirebaseConstants.swift */,
+				D241BF7E1A89B733004246B3 /* Images.xcassets */,
+				D2E896D21A79EACC00B00376 /* Going-Bridging-Header.h */,
 				D241BF801A89B740004246B3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D29A83B21A8C180900BEA3BE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D2A24E4B1A7B09C80004326F /* LoginViewController.swift */,
+				D2E896D91A7A0C7F00B00376 /* LoginPageContentViewController.swift */,
+				D2F2AAC61A89020600F3F51F /* PrivacyViewController.swift */,
+				D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D29A83B31A8C181A00BEA3BE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D25452951A78A4FC00D40D9D /* SettingsViewController.swift */,
+				D2DDD1FA1A81D22900756DCA /* AgePreferencesViewController.swift */,
+				D2DDD1FC1A81F3AB00756DCA /* GenderPreferencesViewController.swift */,
+				D285C2F01A84613700C769AD /* FaqViewController.swift */,
+				D285C2F11A84613700C769AD /* RaqViewController.swift */,
+				D2BECE7A1A83099D0085900B /* BugViewController.swift */,
+				D2BECE7C1A8313560085900B /* ContactViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		D29A83B41A8C182700BEA3BE /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				D25452971A78A4FC00D40D9D /* FriendsViewController.swift */,
+				D2F2AAC21A88AE2A00F3F51F /* FriendChatViewController.swift */,
+				D2F2AAC41A88BFFC00F3F51F /* EditFriendViewController.swift */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		D29A83B51A8C183300BEA3BE /* This Weekend */ = {
+			isa = PBXGroup;
+			children = (
+				D2089FA31A83464C0017E32A /* ThisWeekendViewController.swift */,
+				D2CAC4F81A8490AF00A87966 /* GroupChatViewController.swift */,
+				D2A795C11A87721B00B6C0AE /* MatchMadeViewController.swift */,
+				D2A795BF1A873A4100B6C0AE /* MatchExpiredViewController.swift */,
+				D2ABEBD81A8343A400221683 /* HelpViewController.swift */,
+				D25D21601A893478007979FA /* ProfilesViewController.swift */,
+			);
+			name = "This Weekend";
 			sourceTree = "<group>";
 		};
 		D2E896A81A79E94200B00376 /* Frameworks */ = {
@@ -569,6 +592,39 @@
 				D2E896B71A79E99600B00376 /* ParseFacebookUtils.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2F683371A8B1D60003188EB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D25452931A78A4FC00D40D9D /* AppDelegate.swift */,
+				D2BECE7E1A83248D0085900B /* MainTabBarController.swift */,
+				D29A83B21A8C180900BEA3BE /* Login */,
+				D29A83B31A8C181A00BEA3BE /* Settings */,
+				D29A83B51A8C183300BEA3BE /* This Weekend */,
+				D29A83B41A8C182700BEA3BE /* Friends */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D2F683381A8B1D88003188EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2A24E4D1A7B1A810004326F /* LoginTutorial.swift */,
+				D2151E2D1A86D27C001D0C58 /* ReplaceSegue.swift */,
+				D2151E2F1A86DBB5001D0C58 /* Message.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D2F683391A8B1DB1003188EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D25452991A78A4FD00D40D9D /* Main.storyboard */,
+				D254529E1A78A4FD00D40D9D /* LaunchScreen.xib */,
+				D210AE711A89D54400F54DF7 /* Loading.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -889,7 +945,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -897,8 +953,10 @@
 					"$(PROJECT_DIR)",
 					/Users/scott/Documents/FacebookSDK,
 					/Users/scott/Downloads,
+					"/Users/scott/Downloads/parse-library-1.6.2",
 				);
 				INFOPLIST_FILE = Going/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -922,7 +980,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Scott Wang (5Z5R36F83F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -930,8 +988,10 @@
 					"$(PROJECT_DIR)",
 					/Users/scott/Documents/FacebookSDK,
 					/Users/scott/Downloads,
+					"/Users/scott/Downloads/parse-library-1.6.2",
 				);
 				INFOPLIST_FILE = Going/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

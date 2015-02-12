@@ -13,13 +13,16 @@ class PrivacyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: Selector("back:"))
+        self.navigationItem.rightBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop,
+                            target: self, action: Selector("back:"))
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        UIApplication.sharedApplication()
+            .setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
     
     @IBAction func back(sender: AnyObject) {

@@ -9,6 +9,7 @@
 import UIKit
 
 class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var hometownTextField: UITextField!
@@ -23,7 +24,22 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     var noGender: Bool!
     var noAge: Bool!
     var noHometown: Bool!
-//    var loginViewController: UIViewController!
+    
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.saveProfileActivityIndicator.hidden = true
+        self.styleSaveProfileButton()
+        self.styleNavigationBar()
+        
+        self.birthdayTextField.returnKeyType = UIReturnKeyType.Done
+        self.hometownTextField.returnKeyType = UIReturnKeyType.Done
+        self.genderTextField.returnKeyType = UIReturnKeyType.Done
+        self.birthdayTextField.delegate = self
+        self.hometownTextField.delegate = self
+        self.genderTextField.delegate = self
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,64 +55,25 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.saveProfileActivityIndicator.hidden = true
-        
-        self.birthdayTextField.returnKeyType = UIReturnKeyType.Done
-        self.hometownTextField.returnKeyType = UIReturnKeyType.Done
-        self.genderTextField.returnKeyType = UIReturnKeyType.Done
-        self.birthdayTextField.delegate = self
-        self.hometownTextField.delegate = self
-        self.genderTextField.delegate = self
-
-//        self.loginViewController = self.presentingViewController
-    }
+    // MARK: - TextField Delegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if (textField == birthdayTextField) {
-            let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
-
-            var datePicker: UIDatePicker = UIDatePicker(frame: CGRectMake(0, 0, 0, 0))
-            datePicker.datePickerMode = UIDatePickerMode.Date
-            inputView.addSubview(datePicker)
-            var doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 200, 100, 40))
-            doneButton.setTitle("Done", forState: UIControlState.Normal)
-            doneButton.setTitle("Done", forState: UIControlState.Highlighted)
-            doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
-            inputView.addSubview(doneButton)
-            
-            datePicker.addTarget(self, action: Selector("updateBirthdayTextField:"), forControlEvents: UIControlEvents.ValueChanged)
-            doneButton.addTarget(self, action: Selector("resignDatePicker:"), forControlEvents: UIControlEvents.TouchUpInside)
-            
-            textField.inputView = inputView
+            self.startEditingBirthdayTextField(textField)
         } else if (textField == genderTextField) {
-            let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
-
-            var genderPicker: UIPickerView = UIPickerView(frame: CGRectMake(0, 0, self.view.frame.width, 200))
-            genderPicker.delegate = self
-            genderPicker.dataSource = self
-            inputView.addSubview(genderPicker)
-            
-            var doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 200, 100, 40))
-            doneButton.setTitle("Done", forState: UIControlState.Normal)
-            doneButton.setTitle("Done", forState: UIControlState.Highlighted)
-            doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
-            inputView.addSubview(doneButton)
-            
-            doneButton.addTarget(self, action: Selector("resignGenderPicker:"), forControlEvents: UIControlEvents.TouchUpInside)
-            
-            textField.inputView = inputView
+            self.startEditingGenderTextField(textField)
         }
         
         animateTextField(textField, up: true)
     }
     
+    // MARK: - PickerView Data Source
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
+    
+    // MARK: - PickerView Delegate
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
@@ -108,6 +85,63 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         updateGenderTextField(row)
+    }
+    
+    // MARK: - Helper Functions
+    
+    func styleSaveProfileButton() {
+        self.saveProfileButton.backgroundColor = UIColor.clearColor()
+        self.saveProfileButton.layer.cornerRadius = 5
+        self.saveProfileButton.layer.borderWidth = 1
+        self.saveProfileButton.layer.borderColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0).CGColor
+        self.saveProfileButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+    }
+    
+    func styleNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 18)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+    
+    func startEditingBirthdayTextField(textField: UITextField) {
+        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
+        
+        var datePicker: UIDatePicker = UIDatePicker(frame: CGRectMake(0, 0, 0, 0))
+        datePicker.datePickerMode = UIDatePickerMode.Date
+        inputView.addSubview(datePicker)
+        var doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 200, 100, 40))
+        doneButton.setTitle("Done", forState: UIControlState.Normal)
+        doneButton.setTitle("Done", forState: UIControlState.Highlighted)
+        doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
+        inputView.addSubview(doneButton)
+        
+        datePicker.addTarget(self, action: Selector("updateBirthdayTextField:"), forControlEvents: UIControlEvents.ValueChanged)
+        doneButton.addTarget(self, action: Selector("resignDatePicker:"), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        textField.inputView = inputView
+    }
+    
+    func startEditingGenderTextField(textField: UITextField) {
+        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
+        
+        var genderPicker: UIPickerView = UIPickerView(frame: CGRectMake(0, 0, self.view.frame.width, 200))
+        genderPicker.delegate = self
+        genderPicker.dataSource = self
+        inputView.addSubview(genderPicker)
+        
+        var doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 200, 100, 40))
+        doneButton.setTitle("Done", forState: UIControlState.Normal)
+        doneButton.setTitle("Done", forState: UIControlState.Highlighted)
+        doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
+        inputView.addSubview(doneButton)
+        
+        doneButton.addTarget(self, action: Selector("resignGenderPicker:"), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        textField.inputView = inputView
     }
     
     func updateBirthdayTextField(sender: UIDatePicker) {
@@ -250,6 +284,8 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
         self.presentViewController(saveProfileErrorController, animated: true, completion: nil)
     }
     
+    // MARK: - Actions
+    
     @IBAction func saveProfile() {
         self.showActivityIndicator()
         
@@ -280,4 +316,5 @@ class SetProfileViewController: UIViewController, UITextFieldDelegate, UIPickerV
             self.saveToParse()
         }
     }
+    
 }

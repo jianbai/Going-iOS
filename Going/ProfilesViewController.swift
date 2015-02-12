@@ -18,8 +18,11 @@ class ProfilesViewController: UIViewController {
     @IBOutlet weak var memberInfoLabel2: UILabel!
     
     let parseConstants: ParseConstants = ParseConstants()
+    
     var groupMembers: [PFUser] = []
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -9,7 +9,10 @@
 import UIKit
 
 class HelpViewController: UIViewController {
+    
     @IBOutlet weak var helpView: UIView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
