@@ -264,6 +264,7 @@ class GroupChatViewController: JSQMessagesViewController {
     }
     
     func onMatchExpired() {
+        self.navigationItem.rightBarButtonItem = nil
         self.performSegueWithIdentifier("showMatchExpired", sender: self)
         
         loadingScreen = NSBundle.mainBundle().loadNibNamed("Loading", owner: self, options: nil)[0] as UIView
