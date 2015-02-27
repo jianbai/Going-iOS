@@ -25,7 +25,7 @@ class SettingsViewController: UITableViewController {
     let parseConstants: ParseConstants = ParseConstants()
     let currentUser: PFUser = PFUser.currentUser()
     
-// MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,8 @@ class SettingsViewController: UITableViewController {
         self.setupProfile()
     }
     
-// MARK: - TableView Data Source
+    // MARK: - TableView Data Source
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -120,7 +121,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-// MARK: - Table cell click handlers
+    // MARK: - Table cell click handlers
     
     func styleNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
