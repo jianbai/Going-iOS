@@ -17,9 +17,8 @@ class SettingsViewController: UITableViewController {
         "Age preferences",
         "Gender preferences",
         "FAQ",
-        "RAQ",
-        "I found a bug!",
-        "Dear Going:",
+        "Report a bug",
+        "Get in touch",
         "Log out",
         ""]
     let parseConstants: ParseConstants = ParseConstants()
@@ -61,7 +60,7 @@ class SettingsViewController: UITableViewController {
     // MARK: - TableView Delegate
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (indexPath.row == 0 || indexPath.row == 8) {
+        if (indexPath.row == 0 || indexPath.row == 7) {
             return 0.5
         } else {
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
@@ -100,20 +99,16 @@ class SettingsViewController: UITableViewController {
         case 3:
             self.performSegueWithIdentifier("showFaq", sender: self)
             break
-        // RAQ
-        case 4:
-            self.performSegueWithIdentifier("showRaq", sender: self)
-            break
         // Report a bug
-        case 5:
+        case 4:
             self.performSegueWithIdentifier("showBug", sender: self)
             break
         // Get in touch
-        case 6:
+        case 5:
             self.performSegueWithIdentifier("showContact", sender: self)
             break
         // Logout
-        case 7:
+        case 6:
             self.logOut()
             break
         default:

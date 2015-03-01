@@ -36,6 +36,7 @@ struct ParseConstants {
     let KEY_MATCH_DIALOG_SEEN = "matchDialogSeen"
     let KEY_PICK_FRIENDS_DIALOG_SEEN = "pickFriendsDialogSeen"
     let KEY_GROUP_MEMBERS_RELATION = "groupMembersRelation"
+    let KEY_MATCHED_RELATION = "matchedRelation"
     let KEY_REPORTED = "reported"
     let KEY_INSTALLATION_USER_ID = "userId"
     let KEY_INSTALLATION_USER_NAME = "userName"
@@ -45,5 +46,6 @@ struct ParseConstants {
     let KEY_LONGITUDE = "longitude"
     let KEY_BUG_REPORTS = "bugReports"
     let KEY_CONTACT_US = "contactUs"
+    let KEY_EULA_AGREED = "eulaAgreed"
     
 }

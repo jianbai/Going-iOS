@@ -20,12 +20,15 @@ class ProfilesViewController: UIViewController {
     
     let parseConstants: ParseConstants = ParseConstants()
     
+    var currentUser: PFUser!
     var groupMembers: [PFUser] = []
+    var names: [String] = ["", "", ""]
 
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.currentUser = PFUser.currentUser()
         
         self.styleReportButton()
         
@@ -38,22 +41,11 @@ class ProfilesViewController: UIViewController {
             var memberHometown = member[parseConstants.KEY_HOMETOWN]! as String
             var memberInfoText = memberAge + "  : :  " + memberHometown
             
-            memberNames[i].text = member[parseConstants.KEY_FIRST_NAME] as? String
+            var firstName = member[parseConstants.KEY_FIRST_NAME] as? String
+            memberNames[i].text = firstName
+            names[i] = firstName!
             memberInfo[i].text = memberInfoText
         }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "showReportAbuse") {
-            self.title = "Report Abuse"
-            var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
-            item.title = nil
-            self.definesPresentationContext = true
-            var profilesViewController = segue.destinationViewController as ProfilesViewController
-            profilesViewController.groupMembers = self.groupMembers
-            profilesViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Stop, target: self, action: ("exitReportAbuse:"))
-//        }
     }
     
     // MARK: - Helper functions
@@ -66,19 +58,35 @@ class ProfilesViewController: UIViewController {
         self.reportButton.tintColor = UIColor(red: 0.99, green: 0.66, blue: 0.26, alpha: 1.0)
     }
     
+    func reportGroupMember(i: Int) {
+        self.currentUser.addObject(self.groupMembers[i].objectId, forKey: parseConstants.KEY_REPORTED)
+        self.currentUser.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func showReportAbuse() {
-        self.performSegueWithIdentifier("showReportAbuse", sender: self)
-    }
-    
-    @IBAction func exitReportAbuse(sender: UIBarButtonItem) {
-        self.title = "In this chat"
-        var item = self.tabBarController?.tabBar.items![1] as UITabBarItem
-        item.title = nil
+        let reportController = UIAlertController(title: "Report abuse?", message: "If a user makes you feel at all uncomfortable, please report them. They will be flagged and reviewed.", preferredStyle: .ActionSheet)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        reportController.addAction(cancelButton)
         
-        self.navigationController?.visibleViewController.dismissViewControllerAnimated(true, completion: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: ("showReportAbuse:"))
+        let reportButton1 = UIAlertAction(title: "Report " + names[0], style: .Destructive, handler: { (action) -> Void in
+            self.reportGroupMember(0)
+        })
+        reportController.addAction(reportButton1)
+        
+        let reportButton2 = UIAlertAction(title: "Report " + names[1], style: .Destructive, handler: { (action) -> Void in
+            self.reportGroupMember(1)
+        })
+        reportController.addAction(reportButton2)
+        
+        let reportButton3 = UIAlertAction(title: "Report " + names[2], style: .Destructive, handler: { (action) -> Void in
+            self.reportGroupMember(2)
+        })
+        reportController.addAction(reportButton3)
+        
+        self.presentViewController(reportController, animated: true, completion: nil)
     }
     
 }

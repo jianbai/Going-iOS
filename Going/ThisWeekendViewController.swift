@@ -258,9 +258,7 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // MARK: - Actions
-    
-    @IBAction func go() {
+    func search() {
         if (!self.isSearching) {
             self.showActivityIndicator()
             self.triggerLocationServices()
@@ -269,6 +267,38 @@ class ThisWeekendViewController: UIViewController, CLLocationManagerDelegate {
             self.currentUser[parseConstants.KEY_IS_SEARCHING] = true
             self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
             })
+        }
+    }
+    
+    func showEulaAlert() {
+        let eulaAlert = UIAlertController(title: "Rules", message: "\nPlease review the following terms (EULA) before continuing.\n\n1. Be kind.\n2. Report any users that make you uncomfortable in any way.\n3. Offensive users and inappropriate content will be removed.\n4. If you continue to be reported by other users, you will be suspended.", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        }
+        eulaAlert.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Agree", style: .Default) { (action) in
+            self.currentUser[self.parseConstants.KEY_EULA_AGREED] = true
+            self.currentUser.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            })
+            
+            self.search()
+        }
+        eulaAlert.addAction(OKAction)
+        
+        self.presentViewController(eulaAlert, animated: true) {
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func go() {
+        var eulaAgreed = self.currentUser[parseConstants.KEY_EULA_AGREED] as Bool
+        
+        if (eulaAgreed) {
+            self.search()
+        } else {
+            self.showEulaAlert()
         }
     }
     

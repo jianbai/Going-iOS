@@ -69,7 +69,6 @@
 		D25452981A78A4FC00D40D9D /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452971A78A4FC00D40D9D /* FriendsViewController.swift */; };
 		D25452C51A78DE5400D40D9D /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */; };
 		D25D21611A893478007979FA /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25D21601A893478007979FA /* ProfilesViewController.swift */; };
-		D261227D1A9FFEF600AA26F3 /* ReportAbuseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261227C1A9FFEF600AA26F3 /* ReportAbuseViewController.swift */; };
 		D285C2F21A84613700C769AD /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285C2F01A84613700C769AD /* FaqViewController.swift */; };
 		D285C2F31A84613700C769AD /* RaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285C2F11A84613700C769AD /* RaqViewController.swift */; };
 		D29B76371A7DF7EE00A11BE7 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */; };
@@ -216,7 +215,6 @@
 		D25452A51A78A4FD00D40D9D /* GoingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25452C41A78DE5400D40D9D /* SetProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		D25D21601A893478007979FA /* ProfilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; };
-		D261227C1A9FFEF600AA26F3 /* ReportAbuseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportAbuseViewController.swift; sourceTree = "<group>"; };
 		D285C2F01A84613700C769AD /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
 		D285C2F11A84613700C769AD /* RaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaqViewController.swift; sourceTree = "<group>"; };
 		D29B76361A7DF7EE00A11BE7 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
@@ -564,7 +562,6 @@
 				D2A795BF1A873A4100B6C0AE /* MatchExpiredViewController.swift */,
 				D2ABEBD81A8343A400221683 /* HelpViewController.swift */,
 				D25D21601A893478007979FA /* ProfilesViewController.swift */,
-				D261227C1A9FFEF600AA26F3 /* ReportAbuseViewController.swift */,
 			);
 			name = "This Weekend";
 			sourceTree = "<group>";
@@ -809,7 +806,6 @@
 				D20F23C61A86E76900DA6A5E /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
 				D29B763F1A7E0B4500A11BE7 /* FirebaseConstants.swift in Sources */,
 				D2CAC4F91A8490AF00A87966 /* GroupChatViewController.swift in Sources */,
-				D261227D1A9FFEF600AA26F3 /* ReportAbuseViewController.swift in Sources */,
 				D25452961A78A4FC00D40D9D /* SettingsViewController.swift in Sources */,
 				D2DDD1FB1A81D22900756DCA /* AgePreferencesViewController.swift in Sources */,
 				D2151E301A86DBB5001D0C58 /* Message.swift in Sources */,

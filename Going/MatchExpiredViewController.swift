@@ -16,6 +16,7 @@ class MatchExpiredViewController: UITableViewController {
 
     var currentUser: PFUser!
     var groupMembersRelation: PFRelation!
+    var matchedRelation: PFRelation!
     var friendsRelation: PFRelation!
     var groupMembers: [PFUser] = []
     var isChecked: [Bool] = [true, true, true]
@@ -30,6 +31,7 @@ class MatchExpiredViewController: UITableViewController {
         self.styleAddButton()
         
         self.groupMembersRelation = self.currentUser.relationForKey(self.parseConstants.KEY_GROUP_MEMBERS_RELATION)
+        self.matchedRelation = self.currentUser.relationForKey(self.parseConstants.KEY_MATCHED_RELATION)
         self.friendsRelation = self.currentUser.relationForKey(self.parseConstants.KEY_FRIENDS_RELATION)
     }
     
@@ -102,9 +104,11 @@ class MatchExpiredViewController: UITableViewController {
 
     @IBAction func addFriends() {
         for var i=0; i<3; ++i {
-            self.groupMembersRelation.removeObject(self.groupMembers[i])
+            var friend = self.groupMembers[i]
+            self.groupMembersRelation.removeObject(friend)
+            self.matchedRelation.addObject(friend)
             if self.isChecked[i] {
-                self.friendsRelation.addObject(self.groupMembers[i])
+                self.friendsRelation.addObject(friend)
             }
         }
         

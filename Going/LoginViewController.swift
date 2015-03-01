@@ -311,6 +311,7 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         self.currentUser[parseConstants.KEY_AGE_SETTINGS_20] = false
         self.currentUser[parseConstants.KEY_AGE_SETTINGS_30] = false
         self.currentUser[parseConstants.KEY_AGE_SETTINGS_40] = false
+        self.currentUser[parseConstants.KEY_EULA_AGREED] = false
     }
     
     func calculateAge(birthday : String) -> String {
