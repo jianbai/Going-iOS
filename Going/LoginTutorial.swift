@@ -11,15 +11,17 @@ import Foundation
 struct LoginTutorial {
     
     let textArray = [
-        "Free this weekend?\nMatch up with 3 people around you, chat in the app and make plans to go somewhere cool!",
-        "Matches disappear at the end of every weekend. You can choose to keep matches you liked in your friends list.",
-        "Go again next weekend to meet more people and grow your friends list!"
+        "Free this weekend?",
+        "Match up",
+        "Meet up",
+        "Make friends"
     ]
     
     let imageArray = [
-        "LoginTutorial0",
-        "LoginTutorial1",
-        "LoginTutorial2"
+        "Home",
+        "MatchMade",
+        "GroupChat",
+        "MatchExpired"
     ]
     
     func getText() -> [String] {

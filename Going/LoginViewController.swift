@@ -154,7 +154,7 @@ class LoginViewController: UIViewController, UIPageViewControllerDataSource {
         
         // Change the size of page view controller
         self.pageViewController.view.frame =
-            CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 180);
+            CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 90);
         
         self.addChildViewController(self.pageViewController)
         self.view.addSubview(self.pageViewController.view)

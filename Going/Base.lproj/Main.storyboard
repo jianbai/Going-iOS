@@ -1063,10 +1063,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Nne-T4-HkO">
-                                <rect key="frame" x="289" y="515" width="20" height="20"/>
+                                <rect key="frame" x="289" y="531" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-U7-LAi">
-                                <rect key="frame" x="195" y="501" width="210" height="46"/>
+                                <rect key="frame" x="195" y="517" width="210" height="46"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="24" minY="12" maxX="24" maxY="12"/>
                                 <state key="normal" title="Login with Facebook">
@@ -1078,7 +1078,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUZ-4a-iLU">
-                                <rect key="frame" x="278" y="559" width="44" height="29"/>
+                                <rect key="frame" x="278" y="567" width="44" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Privacy">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1088,28 +1088,14 @@
                                     <action selector="showPrivacy" destination="jWG-h4-7WE" eventType="touchUpInside" id="neb-ci-Xgi"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThisWeekend" translatesAutoresizingMaskIntoConstraints="NO" id="IE3-NU-G8W">
-                                <rect key="frame" x="238" y="41" width="25" height="25"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daj-uK-0q7">
-                                <rect key="frame" x="271" y="32" width="91" height="43"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="IE3-NU-G8W" firstAttribute="centerY" secondItem="daj-uK-0q7" secondAttribute="centerY" id="GDO-xn-VvI"/>
-                            <constraint firstAttribute="centerX" secondItem="IE3-NU-G8W" secondAttribute="centerX" constant="49.5" id="TCn-FM-Lq6"/>
                             <constraint firstItem="Nne-T4-HkO" firstAttribute="centerY" secondItem="Qok-U7-LAi" secondAttribute="centerY" constant="0.5" id="USv-Ll-QT0"/>
-                            <constraint firstItem="daj-uK-0q7" firstAttribute="leading" secondItem="IE3-NU-G8W" secondAttribute="trailing" constant="8" id="UkL-Jk-BUg"/>
-                            <constraint firstItem="61X-0B-Y1A" firstAttribute="top" secondItem="qUZ-4a-iLU" secondAttribute="bottom" constant="12" id="beA-9w-NwG"/>
-                            <constraint firstItem="daj-uK-0q7" firstAttribute="top" secondItem="cbi-en-2lG" secondAttribute="bottom" constant="12" id="c2e-dh-5DZ"/>
+                            <constraint firstItem="61X-0B-Y1A" firstAttribute="top" secondItem="qUZ-4a-iLU" secondAttribute="bottom" constant="4" id="beA-9w-NwG"/>
                             <constraint firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" constant="-0.5" id="iRS-rs-hye"/>
                             <constraint firstItem="qUZ-4a-iLU" firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" id="lc0-Xm-Vi9"/>
-                            <constraint firstItem="qUZ-4a-iLU" firstAttribute="top" secondItem="Qok-U7-LAi" secondAttribute="bottom" constant="12" id="o7h-g7-8Ca"/>
-                            <constraint firstAttribute="centerX" secondItem="daj-uK-0q7" secondAttribute="centerX" constant="-16.5" id="yfc-qB-Wrr"/>
+                            <constraint firstItem="qUZ-4a-iLU" firstAttribute="top" secondItem="Qok-U7-LAi" secondAttribute="bottom" constant="4" id="o7h-g7-8Ca"/>
                             <constraint firstItem="Nne-T4-HkO" firstAttribute="centerX" secondItem="Qok-U7-LAi" secondAttribute="centerX" constant="-1" id="zKS-bH-uEK"/>
                         </constraints>
                     </view>
@@ -1138,11 +1124,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginTutorial0" translatesAutoresizingMaskIntoConstraints="NO" id="hgY-dw-D0H">
-                                <rect key="frame" x="240" y="312" width="120" height="120"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupChat" translatesAutoresizingMaskIntoConstraints="NO" id="hgY-dw-D0H">
+                                <rect key="frame" x="231" y="310" width="139" height="290"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free this weekend?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gF-ne-PI2">
-                                <rect key="frame" x="28" y="266" width="544" height="22"/>
+                                <rect key="frame" x="28" y="280" width="544" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1150,14 +1136,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="9gF-ne-PI2" firstAttribute="centerX" secondItem="hgY-dw-D0H" secondAttribute="centerX" id="2Cn-cu-0Bi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9gF-ne-PI2" secondAttribute="trailing" constant="12" id="6yA-Dr-B3v"/>
-                            <constraint firstItem="hgY-dw-D0H" firstAttribute="top" secondItem="9gF-ne-PI2" secondAttribute="bottom" constant="24" id="H77-f2-Jzc"/>
-                            <constraint firstAttribute="centerY" secondItem="hgY-dw-D0H" secondAttribute="centerY" constant="-72" id="KFm-Wz-ATM"/>
+                            <constraint firstItem="hgY-dw-D0H" firstAttribute="top" secondItem="9gF-ne-PI2" secondAttribute="bottom" constant="8" id="Ka0-L3-qwR"/>
                             <constraint firstItem="9gF-ne-PI2" firstAttribute="leading" secondItem="jf2-o7-0BR" secondAttribute="leadingMargin" constant="12" id="LH9-hZ-ea9"/>
                             <constraint firstAttribute="centerX" secondItem="9gF-ne-PI2" secondAttribute="centerX" id="NAj-NA-Thb"/>
                             <constraint firstAttribute="centerX" secondItem="hgY-dw-D0H" secondAttribute="centerX" id="NO9-ky-ZVK"/>
                             <constraint firstAttribute="centerY" secondItem="9gF-ne-PI2" secondAttribute="centerY" constant="72" id="NgG-1e-1aH"/>
+                            <constraint firstItem="OQK-Fo-9b0" firstAttribute="top" secondItem="hgY-dw-D0H" secondAttribute="bottom" id="Wvu-r8-idh"/>
                             <constraint firstItem="OQK-Fo-9b0" firstAttribute="top" secondItem="hgY-dw-D0H" secondAttribute="bottom" id="XLn-6o-aKr"/>
                         </constraints>
                         <variation key="default">
@@ -1489,7 +1474,7 @@
                                 <rect key="frame" x="16" y="20" width="568" height="580"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoc-gN-iNc">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="279"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="296"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free this weekend?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="he8-xE-vcB">
                                                 <rect key="frame" x="0.0" y="16" width="568" height="22"/>
@@ -1503,9 +1488,8 @@
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-Iy-4Mh">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the big “Go” button and Going will match you with 3 people around you based on your age and gender preferences." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-Iy-4Mh">
                                                 <rect key="frame" x="0.0" y="79" width="568" height="34"/>
-                                                <string key="text">Press the big “Go” button and Going will match you with 3 other people around you. Chat with each other in the app and make plans to go somewhere cool!</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1516,8 +1500,8 @@
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go again next weekend to make new matches, meet more people and grow your friends list!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-W5-INv">
-                                                <rect key="frame" x="0.0" y="213" width="568" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose who you want to keep in touch with by adding them to your friends list. Go again next weekend to meet more people!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inr-W5-INv">
+                                                <rect key="frame" x="0.0" y="213" width="568" height="34"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1529,14 +1513,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More questions? Check out the FAQ in the Settings tab." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYm-dJ-9NC">
-                                                <rect key="frame" x="0.0" y="246" width="568" height="17"/>
+                                                <rect key="frame" x="0.0" y="263" width="568" height="17"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eer-dJ-ROj">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat with your matches and make plans to go somewhere cool! Matches disappear when the weekend ends." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eer-dJ-ROj">
                                                 <rect key="frame" x="0.0" y="146" width="568" height="34"/>
-                                                <string key="text">Matches only last for one weekend, so make sure to meet up! Your matches will disappear at the end of the weekend, and you'll be able to choose who you want to add to your friends list.</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1710,7 +1693,7 @@
         <image name="Empty" width="120" height="120"/>
         <image name="Friends" width="25" height="25"/>
         <image name="GoButton" width="100" height="100"/>
-        <image name="LoginTutorial0" width="120" height="120"/>
+        <image name="GroupChat" width="139" height="290"/>
         <image name="Settings" width="25" height="25"/>
         <image name="ThisWeekend" width="25" height="25"/>
     </resources>
